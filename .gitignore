@@ -1,0 +1,17 @@
+# Fișiere sistem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fișiere temporare
+*.tmp
+*.log
+*~
+
+# Node modules (dacă le vei folosi în viitor)
+node_modules/
+
+# Fișiere IDE
+.vscode/
+.idea/
+*.sublime-*
