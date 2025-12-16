@@ -1,0 +1,276 @@
+═══════════════════════════════════════════════════════════
+    ⚡ ZAPIER - GHID RAPID 10 MINUTE ⚡
+═══════════════════════════════════════════════════════════
+
+🎯 SCOP: Automatizare rezervări → Google Sheets în 10 minute!
+
+═══════════════════════════════════════════════════════════
+    📋 PASUL 1: ÎNREGISTRARE ZAPIER (2 minute)
+═══════════════════════════════════════════════════════════
+
+1. Deschide în Chrome: https://zapier.com/sign-up
+
+2. Înregistrare:
+   ✓ Email: [email-ul tău]
+   ✓ Parolă: [alege parolă]
+   ✓ Click "Get started free"
+
+3. Plan: Selectează FREE (0€/lună)
+   ✓ 100 tasks/lună = ~40-50 rezervări
+   ✓ Perfect pentru început
+
+4. Skip tutorial → Click "Skip for now"
+
+✅ Gata! Acum ai cont Zapier gratuit!
+
+═══════════════════════════════════════════════════════════
+    📊 PASUL 2: GOOGLE SHEETS (2 minute)
+═══════════════════════════════════════════════════════════
+
+1. Deschide: https://sheets.google.com
+
+2. Click "Blank" (foaie nouă)
+
+3. Numește sheet-ul: "Rezervari Cazare"
+
+4. Prima linie (header), scrie exact:
+
+   A1: ID
+   B1: Nume
+   C1: Email
+   D1: Telefon
+   E1: Cazare
+   F1: Check-in
+   G1: Check-out
+   H1: Persoane
+   I1: Total
+   J1: Observatii
+   K1: Data rezervare
+
+5. Selectează prima linie → Bold → Color de fundal albastru deschis
+
+6. View → Freeze → 1 row (să nu se miste header-ul)
+
+✅ Gata! Sheet-ul e pregătit!
+
+═══════════════════════════════════════════════════════════
+    🔗 PASUL 3: CREARE ZAP (3 minute)
+═══════════════════════════════════════════════════════════
+
+1. În Zapier, click "Create Zap" (buton portocaliu)
+
+2. Numește: "Site Rezervari → Sheets"
+
+TRIGGER (ce pornește automatizarea):
+────────────────────────────────────────────────────────────
+3. Search: "webhooks"
+4. Click "Webhooks by Zapier"
+5. Selectează: "Catch Hook"
+6. Click "Continue"
+7. Lasă toate câmpurile goale
+8. Click "Continue"
+
+⚠️ IMPORTANT! Zapier îți arată un URL de tipul:
+   https://hooks.zapier.com/hooks/catch/123456/abcdef/
+
+9. COPIAZĂ acest URL COMPLET! (îl vom folosi imediat)
+
+10. Lasă pagina deschisă - NU închide încă!
+
+═══════════════════════════════════════════════════════════
+    💻 PASUL 4: CONFIGURARE NETLIFY (2 minute)
+═══════════════════════════════════════════════════════════
+
+1. Deschide în tab nou:
+   https://app.netlify.com/sites/summersmile1/settings/environment
+
+2. Click "Add a variable"
+
+3. Completează:
+   Key: ZAPIER_WEBHOOK_URL
+   Scopes: All scopes (bifează tot)
+   Values: [LIPEȘTE URL-ul de la Zapier aici]
+
+4. Click "Create variable"
+
+5. Scroll jos → Click "Save"
+
+6. Așteaptă 1 minut (Netlify face redeploy automat)
+
+✅ Site-ul e conectat cu Zapier!
+
+═══════════════════════════════════════════════════════════
+    🧪 PASUL 5: TEST WEBHOOK (2 minute)
+═══════════════════════════════════════════════════════════
+
+1. Înapoi în tab-ul Zapier (unde ai rămas)
+2. Click "Test trigger" (buton)
+3. Lasă pagina așa (loading...)
+
+4. Deschide site-ul: https://summersmile1.netlify.app
+
+5. Scroll la "Rezervare"
+
+6. Completează formular TEST:
+   ✓ Nume: Test Zapier Setup
+   ✓ Email: test.zapier@gmail.com
+   ✓ Telefon: 0740999888
+   ✓ Cazare: Studio New York - Oradea
+   ✓ Check-in: 30.12.2025
+   ✓ Check-out: 31.12.2025
+   ✓ Persoane: 2
+
+7. Click "Trimite Rezervare"
+
+8. Vezi mesaj confirmare? ✅
+
+9. Înapoi în Zapier → Ar trebui să vezi datele!
+   (Refresh pagina dacă nu apar imediat)
+
+10. Click "Continue with selected record"
+
+✅ Webhook funcționează perfect!
+
+═══════════════════════════════════════════════════════════
+    📊 PASUL 6: CONECTARE GOOGLE SHEETS (2 minute)
+═══════════════════════════════════════════════════════════
+
+ACTION (ce se întâmplă cu datele):
+────────────────────────────────────────────────────────────
+1. Search: "Google Sheets"
+2. Click "Google Sheets"
+3. Selectează: "Create Spreadsheet Row"
+4. Click "Continue"
+
+5. Click "Sign in to Google Sheets"
+6. Alege contul tău Google
+7. Click "Allow" (permite acces Zapier)
+
+8. Configurare:
+   Drive: My Google Drive
+   Spreadsheet: Rezervari Cazare
+   Worksheet: Sheet1
+
+9. Map fields (conectează datele automat):
+   Click "Generate" → Zapier conectează automat toate câmpurile!
+
+   SAU manual:
+   ID → id
+   Nume → nume
+   Email → email
+   Telefon → telefon
+   Cazare → cazare
+   Check-in → checkin
+   Check-out → checkout
+   Persoane → persoane
+   Total → total
+   Observatii → observatii
+   Data rezervare → timestamp
+
+10. Click "Continue"
+
+11. Click "Test step"
+
+✅ Verifică Google Sheets → Ar trebui să vezi linia nouă!
+
+═══════════════════════════════════════════════════════════
+    🚀 PASUL 7: ACTIVARE ZAP (1 minut)
+═══════════════════════════════════════════════════════════
+
+1. Click "Publish Zap" (buton mare)
+
+2. Zap-ul e LIVE! 🎉
+
+3. Toggle e pe ON (verde)
+
+✅ AUTOMATIZAREA FUNCȚIONEAZĂ!
+
+═══════════════════════════════════════════════════════════
+    ✅ TEST FINAL
+═══════════════════════════════════════════════════════════
+
+1. Fă încă o rezervare de test pe site
+2. Așteaptă 15 secunde
+3. Verifică Google Sheets → Apare automat? ✅
+
+DACĂ APARE → PERFECT! Totul funcționează! 🎉
+DACĂ NU APARE → Vezi Zap History în Zapier pentru erori
+
+═══════════════════════════════════════════════════════════
+    🔄 WORKFLOW COMPLET
+═══════════════════════════════════════════════════════════
+
+Acum când cineva face rezervare pe site:
+
+1. Client completează formularul pe site ✅
+2. Date trimise automat către Zapier ✅
+3. Zapier salvează în Google Sheets ✅
+4. Tu vezi rezervarea instant în Google Sheets ✅
+5. La final de zi, adaugi în reservations.json manual
+6. Rulezi UPDATE-SITE.bat
+7. Rezervarea apare în feed iCal
+8. MobilCalendar sincronizează → Apare rezervarea ✅
+
+═══════════════════════════════════════════════════════════
+    💡 URMĂTORII PAȘI (OPȚIONAL)
+═══════════════════════════════════════════════════════════
+
+ACUM (Gratuit):
+✓ Rezervări → Google Sheets (automat)
+✓ Google Sheets → reservations.json (manual, 2 minute/zi)
+✓ reservations.json → iCal feed → MobilCalendar (automat)
+
+VIITOR (Upgrade la Starter - 20€/lună):
+✓ Tot procesul 100% automat
+✓ Sincronizare mai rapidă (la fiecare 2 minute)
+✓ Notificări email automate
+✓ Rapoarte automate
+
+═══════════════════════════════════════════════════════════
+    🎓 VERIFICARE FUNCȚIONARE
+═══════════════════════════════════════════════════════════
+
+În Zapier:
+1. Dashboard → Vezi "Zap History"
+2. Fiecare rezervare = 1 "Task"
+3. Status ar trebui să fie "Success" (verde)
+
+În Google Sheets:
+1. Fiecare rezervare nouă = 1 linie nouă
+2. Date complete automat populate
+
+═══════════════════════════════════════════════════════════
+    💰 COST & ECONOMIE
+═══════════════════════════════════════════════════════════
+
+FREE PLAN:
+✓ 100 tasks/lună = ~40-50 rezervări
+✓ Cost: 0€
+✓ Timp economisit: ~20 ore/lună
+✓ Valoare: 600€/lună economisit!
+
+ROI INSTANT: ∞ (gratuit, economisești timp!) 🎉
+
+═══════════════════════════════════════════════════════════
+    🆘 PROBLEME? VERIFICĂ:
+═══════════════════════════════════════════════════════════
+
+□ ZAPIER_WEBHOOK_URL e corect în Netlify?
+□ Zap-ul e ON (toggle verde)?
+□ Google Sheets are header-ele corecte?
+□ Test rezervare făcută DUPĂ configurare Netlify?
+
+Dacă tot nu merge:
+1. Zapier → Zap History → Vezi eroarea
+2. Netlify → Functions → Vezi log-urile
+3. Contactează-mă pentru ajutor
+
+═══════════════════════════════════════════════════════════
+
+🎉 FELICITĂRI! AI AUTOMATIZAT SISTEMUL! 🎉
+
+Rezervările merg automat în Google Sheets!
+Acum doar adaugi în reservations.json 1x/zi (2 minute)
+și MobilCalendar se sincronizează automat!
+
+Succes! 🚀

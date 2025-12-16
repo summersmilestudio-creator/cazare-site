@@ -43,6 +43,22 @@ exports.handler = async (event, context) => {
       }
     }
 
+    // Trimite către Zapier Webhook (dacă e configurat)
+    const zapierWebhookURL = process.env.ZAPIER_WEBHOOK_URL;
+    if (zapierWebhookURL) {
+      try {
+        const zapierResponse = await fetch(zapierWebhookURL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(booking)
+        });
+        console.log('Rezervare trimisă către Zapier:', zapierResponse.status);
+      } catch (zapierError) {
+        console.error('Eroare Zapier:', zapierError);
+        // Continuăm chiar dacă Zapier fail
+      }
+    }
+
     // Trimite notificare (opțional - dacă e configurat email)
     const notificationEmail = process.env.NOTIFICATION_EMAIL;
     if (notificationEmail) {
@@ -59,7 +75,10 @@ exports.handler = async (event, context) => {
         success: true,
         message: 'Rezervare înregistrată cu succes',
         booking: booking,
-        info: githubToken ? 'Salvat în sistem' : 'Notificare trimisă (configurează GITHUB_TOKEN pentru salvare automată)'
+        integrations: {
+          github: githubToken ? 'Salvat' : 'Nu e configurat',
+          zapier: zapierWebhookURL ? 'Trimis' : 'Nu e configurat'
+        }
       })
     };
   } catch (error) {
