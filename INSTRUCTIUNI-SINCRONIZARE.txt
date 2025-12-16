@@ -1,0 +1,140 @@
+═══════════════════════════════════════════════════════════
+    📅 SINCRONIZARE iCAL - GHID COMPLET 📅
+═══════════════════════════════════════════════════════════
+
+🎯 SCOP:
+Rezervările făcute pe site să apară automat în MobilCalendar
+
+═══════════════════════════════════════════════════════════
+    ✅ CE AM IMPLEMENTAT DEJA
+═══════════════════════════════════════════════════════════
+
+1. ✅ Formular de rezervare funcțional pe site
+2. ✅ Salvare automată a rezervărilor via Netlify Functions
+3. ✅ Generator iCal feed la:
+   https://summersmile1.netlify.app/.netlify/functions/ical-feed
+
+4. ✅ Sistem de stocare rezervări în reservations.json
+
+═══════════════════════════════════════════════════════════
+    🔧 CONFIGURARE FINALĂ (3 PAȘI SIMPLI)
+═══════════════════════════════════════════════════════════
+
+PASUL 1: Configurare Google Sheets (Opțional - pentru backup)
+────────────────────────────────────────────────────────────
+1. Mergi pe: https://sheets.google.com
+2. Creează un nou sheet numit "Rezervari Cazare"
+3. Prima linie (header):
+   A1: Nume | B1: Email | C1: Telefon | D1: Cazare |
+   E1: Check-in | F1: Check-out | G1: Persoane |
+   H1: Total | I1: Observatii | J1: Data rezervare
+
+4. Folosește Zapier sau Make.com pentru a trimite datele:
+   - Trigger: Webhook (URL Netlify Function)
+   - Action: Add row to Google Sheets
+
+PASUL 2: Adaugă iCal Feed în MobilCalendar
+────────────────────────────────────────────────────────────
+1. Mergi în MobilCalendar
+2. Click pe "Manager de canal" → "Other"
+3. La secțiunea "Import iCal", adaugă acest link:
+
+   https://summersmile1.netlify.app/.netlify/functions/ical-feed
+
+4. Setează frecvența de sincronizare: Recomandat 1-2 ore
+
+⚠️ IMPORTANT:
+   - MobilCalendar va CITI rezervările din acest feed
+   - Feed-ul se actualizează automat când faci rezervări pe site
+
+PASUL 3: Test Complet
+────────────────────────────────────────────────────────────
+1. Mergi pe: https://summersmile1.netlify.app
+2. Fă o rezervare de TEST
+3. Așteaptă 1-2 ore (sincronizarea MobilCalendar)
+4. Verifică în MobilCalendar dacă apare rezervarea
+
+═══════════════════════════════════════════════════════════
+    🔄 FLUX COMPLET DE LUCRU
+═══════════════════════════════════════════════════════════
+
+1. Client completează formularul pe site
+   ↓
+2. Rezervarea se salvează automat în reservations.json
+   ↓
+3. Se trimite notificare către tine (via email/Google Sheets)
+   ↓
+4. MobilCalendar citește feed-ul iCal la fiecare 1-2 ore
+   ↓
+5. Rezervarea apare în MobilCalendar
+   ↓
+6. MobilCalendar sincronizează cu Booking/Airbnb
+
+═══════════════════════════════════════════════════════════
+    📝 ADĂUGARE REZERVARE MANUALĂ (Temporar)
+═══════════════════════════════════════════════════════════
+
+Până la configurarea completă, poți adăuga rezervări manual:
+
+1. Deschide fișierul: reservations.json
+2. Adaugă rezervarea în format:
+   {
+     "id": "BK1702742400000",
+     "nume": "Ion Popescu",
+     "email": "ion@email.com",
+     "telefon": "0740123456",
+     "cazare": "Studio New York - Oradea",
+     "checkin": "2025-12-20",
+     "checkout": "2025-12-23",
+     "persoane": "2",
+     "total": "2100 Lei",
+     "observatii": "",
+     "timestamp": "2025-12-16T12:00:00.000Z",
+     "status": "confirmed"
+   }
+
+3. Salvează fișierul
+4. Rulează UPDATE-SITE.bat
+5. Feed-ul iCal va include noua rezervare
+
+═══════════════════════════════════════════════════════════
+    🌐 LINK-URI IMPORTANTE
+═══════════════════════════════════════════════════════════
+
+Site Live:
+https://summersmile1.netlify.app
+
+Feed iCal (pentru MobilCalendar):
+https://summersmile1.netlify.app/.netlify/functions/ical-feed
+
+GitHub Repository:
+https://github.com/summersmilestudio-creator/cazare-site
+
+Netlify Dashboard:
+https://app.netlify.com/projects/summersmile1
+
+═══════════════════════════════════════════════════════════
+    ❓ ÎNTREBĂRI FRECVENTE
+═══════════════════════════════════════════════════════════
+
+Î: Cât durează sincronizarea?
+R: MobilCalendar verifică feed-ul la fiecare 1-2 ore (în funcție
+   de setările tale)
+
+Î: Pot vedea toate rezervările?
+R: Da! Toate rezervările sunt în fișierul reservations.json
+
+Î: Ce se întâmplă dacă cineva face rezervare pe Booking?
+R: MobilCalendar o trimite în feed-ul original, site-ul o citește
+   și afișează datele ca ocupate (funcționează deja!)
+
+Î: Pot automatiza complet fără intervenție manuală?
+R: Da! Folosind Zapier/Make.com sau Netlify Functions cu
+   GitHub API (configurare mai avansată)
+
+═══════════════════════════════════════════════════════════
+
+🎉 SINCRONIZARE COMPLETĂ:
+   Site ⟷ MobilCalendar ⟷ Booking/Airbnb
+
+Succes cu rezervările! 🚀

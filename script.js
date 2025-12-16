@@ -362,6 +362,25 @@ document.getElementById('checkin').addEventListener('change', function() {
     document.getElementById('checkout').setAttribute('min', checkinData);
 });
 
+// Funcție pentru salvarea rezervării pe server
+async function saveBookingToServer(bookingData) {
+    try {
+        const response = await fetch('/.netlify/functions/save-booking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(bookingData)
+        });
+
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Eroare la salvarea rezervării:', error);
+        return { success: false, error: error.message };
+    }
+}
+
 // Gestionare trimitere formular
 document.getElementById('formRezervare').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -393,23 +412,26 @@ document.getElementById('formRezervare').addEventListener('submit', function(e) 
         return;
     }
 
-    // Aici poți adăuga cod pentru trimiterea datelor către un server
-    // De exemplu: fetch('/api/rezervare', { method: 'POST', body: JSON.stringify(formData) })
+    // Trimite rezervarea către Netlify Function pentru salvare
+    saveBookingToServer(formData).then(response => {
+        if (response.success) {
+            console.log('Rezervare salvată cu succes:', formData);
 
-    // Simulare trimitere rezervare
-    console.log('Rezervare trimisă:', formData);
+            // Afișează mesajul de confirmare
+            document.getElementById('formRezervare').style.display = 'none';
+            document.getElementById('mesajConfirmare').style.display = 'block';
 
-    // Afișează mesajul de confirmare
-    document.getElementById('formRezervare').style.display = 'none';
-    document.getElementById('mesajConfirmare').style.display = 'block';
-
-    // Opțional: trimite email sau salvează în baza de date
-    // Pentru moment, doar afișăm datele în consolă
-
-    // Scroll la mesajul de confirmare
-    document.getElementById('mesajConfirmare').scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
+            // Scroll la mesajul de confirmare
+            document.getElementById('mesajConfirmare').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        } else {
+            alert('Eroare la salvarea rezervării. Vă rugăm să încercați din nou.');
+        }
+    }).catch(error => {
+        console.error('Eroare:', error);
+        alert('Eroare la trimiterea rezervării. Vă rugăm să ne contactați telefonic.');
     });
 });
 
