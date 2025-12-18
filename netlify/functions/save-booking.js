@@ -47,16 +47,14 @@ exports.handler = async (event, context) => {
     const zapierWebhookURL = process.env.ZAPIER_WEBHOOK_URL;
     if (zapierWebhookURL) {
       try {
-        const zapierResponse = await fetch(zapierWebhookURL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(booking)
-        });
-        console.log('Rezervare trimisă către Zapier:', zapierResponse.status);
+        await sendToZapier(zapierWebhookURL, booking);
+        console.log('Rezervare trimisă către Zapier cu succes');
       } catch (zapierError) {
         console.error('Eroare Zapier:', zapierError);
         // Continuăm chiar dacă Zapier fail
       }
+    } else {
+      console.log('ZAPIER_WEBHOOK_URL nu este configurat');
     }
 
     // Trimite notificare (opțional - dacă e configurat email)
@@ -112,4 +110,49 @@ async function sendNotification(booking, email) {
   console.log(`Notificare pentru ${email}:`, booking);
   // TODO: Implementare trimitere email
   return true;
+}
+
+// Funcție pentru trimitere către Zapier folosind https module
+function sendToZapier(webhookURL, data) {
+  return new Promise((resolve, reject) => {
+    const url = new URL(webhookURL);
+    const postData = JSON.stringify(data);
+
+    const options = {
+      hostname: url.hostname,
+      port: url.port || 443,
+      path: url.pathname + url.search,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(postData)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let responseBody = '';
+
+      res.on('data', (chunk) => {
+        responseBody += chunk;
+      });
+
+      res.on('end', () => {
+        if (res.statusCode >= 200 && res.statusCode < 300) {
+          console.log('Zapier response status:', res.statusCode);
+          console.log('Zapier response:', responseBody);
+          resolve({ statusCode: res.statusCode, body: responseBody });
+        } else {
+          reject(new Error(`Zapier returned status ${res.statusCode}: ${responseBody}`));
+        }
+      });
+    });
+
+    req.on('error', (error) => {
+      console.error('Eroare la trimiterea către Zapier:', error);
+      reject(error);
+    });
+
+    req.write(postData);
+    req.end();
+  });
 }
