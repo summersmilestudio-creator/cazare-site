@@ -27,7 +27,7 @@
             if (!isClickInsideNav && !isClickOnHamburger && navLinks.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
-            });
+            }
         });
     }
 })();
