@@ -736,13 +736,41 @@ footer p {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-links {
+    nav {
+        padding: 0 15px;
+        flex-wrap: wrap;
         gap: 1rem;
-        font-size: 0.9rem;
+    }
+
+    .logo {
+        flex: 1 1 100%;
+        text-align: center;
     }
 
     .logo h1 {
         font-size: 1.2rem;
+    }
+
+    .logo img {
+        height: 60px !important;
+        width: 120px !important;
+    }
+
+    .nav-links {
+        flex: 1 1 100%;
+        justify-content: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+    }
+
+    .nav-links li {
+        flex: 0 0 auto;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.5rem;
     }
 
     .hero-content h2 {
@@ -776,8 +804,32 @@ footer p {
 }
 
 @media (max-width: 480px) {
+    header {
+        padding: 0.8rem 0;
+    }
+
+    nav {
+        padding: 0 10px;
+    }
+
+    .logo h1 {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .logo img {
+        height: 50px !important;
+        width: 100px !important;
+    }
+
     .nav-links {
-        display: none;
+        gap: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .nav-links a {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.4rem;
     }
 
     .hero {
