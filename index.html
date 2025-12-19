@@ -905,7 +905,30 @@
         });
     </script>
 
-    <script src="hamburger-menu.js"></script>
+    <!-- Hamburger Menu Script - INLINE VERSION -->
+    <script>
+        // Simple hamburger menu toggle
+        window.addEventListener('load', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger && navLinks) {
+                hamburger.onclick = function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                };
+
+                // Close menu when clicking a link
+                const links = navLinks.querySelectorAll('a');
+                links.forEach(function(link) {
+                    link.onclick = function() {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    };
+                });
+            }
+        });
+    </script>
 </body>
 </html>
 <!-- Trigger deploy -->
