@@ -281,6 +281,163 @@
             font-size: 0.9rem;
             margin-top: 1rem;
         }
+
+        /* RESPONSIVE - MOBILE ADJUSTMENTS */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+
+            .wizard-container {
+                border-radius: 12px;
+            }
+
+            .wizard-header {
+                padding: 1.5rem 1rem;
+            }
+
+            .wizard-header h1 {
+                font-size: 1.4rem;
+            }
+
+            .wizard-header p {
+                font-size: 0.85rem;
+            }
+
+            .progress-steps {
+                font-size: 0.75rem;
+            }
+
+            .wizard-body {
+                padding: 1.5rem 1rem;
+            }
+
+            .step-title {
+                font-size: 1.2rem;
+            }
+
+            .step-description {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .booking-card {
+                padding: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .booking-card h3 {
+                font-size: 1rem;
+            }
+
+            .booking-info {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .info-label {
+                font-size: 0.8rem;
+            }
+
+            .info-value {
+                font-size: 0.95rem;
+            }
+
+            .price-display {
+                padding: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .price-display .label {
+                font-size: 0.85rem;
+            }
+
+            .price-display .amount {
+                font-size: 2rem;
+            }
+
+            .payment-icons {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .payment-icon {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+                flex: 1 1 auto;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 0.75rem;
+                font-size: 0.95rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .card-input-group {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .wizard-actions {
+                flex-direction: column-reverse;
+                gap: 0.8rem;
+                margin-top: 1.5rem;
+                padding-top: 1.5rem;
+            }
+
+            .btn {
+                width: 100%;
+                padding: 0.85rem 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .security-notice {
+                font-size: 0.85rem;
+                padding: 0.8rem;
+            }
+        }
+
+        /* RESPONSIVE - VERY SMALL SCREENS */
+        @media screen and (max-width: 400px) {
+            .wizard-header h1 {
+                font-size: 1.2rem;
+            }
+
+            .wizard-header p {
+                font-size: 0.8rem;
+            }
+
+            .progress-steps {
+                font-size: 0.7rem;
+            }
+
+            .wizard-body {
+                padding: 1rem 0.8rem;
+            }
+
+            .step-title {
+                font-size: 1.1rem;
+            }
+
+            .price-display .amount {
+                font-size: 1.8rem;
+            }
+
+            .payment-icon {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>
