@@ -1,0 +1,161 @@
+================================================================================
+                    GHID: CUM SĂ REPARI SITE-UL PE NETLIFY
+================================================================================
+
+PROBLEMA: Site-ul https://summersmile1.netlify.app returnează eroare 503
+SOLUȚIE: Urmează pașii de mai jos în browser
+
+
+================================================================================
+PASUL 1: DESCHIDE NETLIFY DASHBOARD
+================================================================================
+
+1. Deschide browser-ul (Chrome, Edge, etc.)
+2. Accesează acest link:
+   https://app.netlify.com/projects/summersmile1
+
+3. Dacă nu ești logat, loghează-te cu:
+   Email: summer.smile.studio@gmail.com
+   Parolă: (parola ta de Netlify)
+
+
+================================================================================
+PASUL 2: VEZI DE CE A EȘUAT DEPLOY-UL
+================================================================================
+
+1. În dashboard-ul Netlify, vei vedea în stânga meniul:
+   - Site overview
+   - Deploys  ← CLICK AICI
+   - Site settings
+   - etc.
+
+2. Click pe "Deploys"
+
+3. Vei vedea o listă cu deploy-uri, ceva de genul:
+
+   🔴 Production: main@4ab48f6  Failed     2 minutes ago
+   ✅ Production: main@56e25ed  Published  1 hour ago
+   ✅ Production: main@abc1234  Published  2 hours ago
+
+4. Click pe deploy-ul marcat cu 🔴 ROȘU (primul din listă)
+
+5. Scroll jos și citește ce eroare apare în "Deploy log"
+   - Dacă e ceva complicat, copiază textul și spune-mi
+
+
+================================================================================
+PASUL 3: REPARĂ SITE-UL (SOLUȚIE RAPIDĂ)
+================================================================================
+
+Acesta e cel mai IMPORTANT pas - va rezolva problema imediat!
+
+1. Rămâi în tab-ul "Deploys" (din Pasul 2)
+
+2. În dreapta sus, vei vedea un buton verde:
+   [ Trigger deploy ▼ ]
+
+3. Click pe "Trigger deploy"
+
+4. Din meniul dropdown, selectează:
+   "Clear cache and deploy site"
+
+5. Vei vedea un loading spinner și un nou deploy care începe:
+   🟡 Production: main@2d779e0  Building...
+
+6. AȘTEAPTĂ 1-2 MINUTE!
+   - Nu închide pagina
+   - Nu reîmprospătezi pagina
+   - Lasă-l să termine
+
+7. Când se face VERDE ✅:
+   ✅ Production: main@2d779e0  Published
+
+8. GATA! Site-ul e live!
+
+
+================================================================================
+PASUL 4: VERIFICĂ SITE-UL
+================================================================================
+
+1. Deschide un tab nou în browser
+
+2. Accesează:
+   https://summersmile1.netlify.app
+
+3. Dacă site-ul încă nu funcționează:
+   - Apasă CTRL + SHIFT + R (șterge cache-ul browser-ului)
+   - Sau încearcă în modul incognito
+
+4. Dacă FUNCȚIONEAZĂ - FELICITĂRI! 🎉
+
+
+================================================================================
+PASUL 5: ACTIVEAZĂ AUTO-DEPLOY (OPȚIONAL, DAR RECOMANDAT)
+================================================================================
+
+Acest pas asigură că în viitor, când faci push pe GitHub,
+site-ul se actualizează automat, fără să mai faci manual.
+
+1. În Netlify dashboard, click pe "Site settings" (jos în meniu stânga)
+
+2. Din meniul lateral stâng, click pe:
+   "Build & deploy"
+
+3. Scroll jos la secțiunea "Continuous Deployment"
+
+4. Vezi dacă scrie:
+   "Repository: github.com/summersmilestudio-creator/cazare-site"
+   "Branch: main"
+
+5. Dacă NU apare GitHub conectat:
+   a) Click pe "Link site to Git"
+   b) Selectează "GitHub"
+   c) Autorizează Netlify (dacă cere)
+   d) Selectează repository: "cazare-site"
+   e) Branch: "main"
+   f) Build command: (lasă gol)
+   g) Publish directory: "." (sau lasă gol)
+   h) Click "Save"
+
+6. GATA! Acum la fiecare git push, site-ul se va actualiza automat!
+
+
+================================================================================
+CE SĂ-MI SPUI DUPĂ CE TERMINI
+================================================================================
+
+După ce urmezi pașii, spune-mi:
+
+1. ✅ Site-ul funcționează! (și dă-mi un screenshot dacă vrei)
+2. ❌ Am primit eroare la pasul X: [spune-mi ce eroare]
+3. ❓ Nu înțeleg pasul Y: [spune-mi ce nu e clar]
+
+
+================================================================================
+COMENZI RAPIDE (dacă vrei să deschizi automat)
+================================================================================
+
+Rulează în terminal (CMD):
+
+# Deschide Netlify Admin
+cd D:\sitecazare
+netlify open:admin
+
+# Deschide site-ul
+netlify open:site
+
+
+================================================================================
+NOTĂ IMPORTANTĂ
+================================================================================
+
+Site-ul TAU funcționează perfect LOCAL (toate fișierele sunt corecte).
+Problema e doar pe Netlify - un deployment eșuat.
+Pasul 3 (Trigger deploy) ar trebui să rezolve totul în 2 minute!
+
+
+================================================================================
+SUCCES! 🚀
+================================================================================
+
+Dacă ai probleme, trimite-mi screenshot cu ce vezi și te ajut imediat!
