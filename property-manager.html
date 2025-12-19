@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Manager - Cazare Premium</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigare -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🏠 Cazare Premium</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="index.html#oradea">Oradea</a></li>
+                <li><a href="index.html#mamaia">Mamaia Nord</a></li>
+                <li><a href="curateanie.html">Curățenie</a></li>
+                <li><a href="property-manager.html">Property Manager</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section Property Manager -->
+    <section class="services-hero pm-hero">
+        <div class="hero-content">
+            <h1>Servicii Property Management</h1>
+            <p>Gestionăm proprietatea ta cu profesionalism și dedicare</p>
+        </div>
+    </section>
+
+    <!-- Servicii Property Manager -->
+    <section class="services-content">
+        <div class="container">
+            <h2>Servicii Complete de Property Management</h2>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>🏘️ Gestionare Completă</h3>
+                    <p>Ne ocupăm de toate aspectele proprietății tale, de la A la Z.</p>
+                    <ul>
+                        <li>Gestionare rezervări și calendar</li>
+                        <li>Check-in / Check-out oaspeți</li>
+                        <li>Comunicare cu oaspeții</li>
+                        <li>Optimizare prețuri și ocupare</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>🔧 Mentenanță și Reparații</h3>
+                    <p>Menținem proprietatea în stare impecabilă.</p>
+                    <ul>
+                        <li>Inspecții regulate</li>
+                        <li>Coordonare reparații</li>
+                        <li>Mentenanță preventivă</li>
+                        <li>Intervenții urgente 24/7</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>📊 Rapoarte și Financiar</h3>
+                    <p>Transparență totală asupra performanței proprietății.</p>
+                    <ul>
+                        <li>Rapoarte lunare detaliate</li>
+                        <li>Urmărire venituri/cheltuieli</li>
+                        <li>Optimizare fiscală</li>
+                        <li>Dashboard online 24/7</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>📸 Marketing și Promovare</h3>
+                    <p>Maximizăm vizibilitatea și rezervările proprietății tale.</p>
+                    <ul>
+                        <li>Fotografii profesionale</li>
+                        <li>Listare pe platforme majore</li>
+                        <li>Optimizare SEO și descrieri</li>
+                        <li>Gestionare recenzii</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>🛡️ Asigurări și Securitate</h3>
+                    <p>Protejăm investiția ta împotriva riscurilor.</p>
+                    <ul>
+                        <li>Verificare oaspeți</li>
+                        <li>Asigurare pentru daune</li>
+                        <li>Contract și termeni legali</li>
+                        <li>Securitate și alarme</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>💼 Servicii VIP</h3>
+                    <p>Servicii premium pentru proprietari exigenți.</p>
+                    <ul>
+                        <li>Concierge pentru oaspeți</li>
+                        <li>Amenajare și design interior</li>
+                        <li>Servicii suplimentare (transfer, etc)</li>
+                        <li>Manager dedicat</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>Lasă-ne pe Noi Grija Proprietății Tale</h3>
+                <p>Contactează-ne pentru o consultație gratuită</p>
+                <a href="index.html#contact" class="btn-primary">Solicită Consultație</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .pm-hero {
+            background: linear-gradient(135deg, rgba(26, 35, 52, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('images/hotel_exterior.jpg');
+        }
+
+        .services-hero {
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .services-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .services-content {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+
+        .services-content h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: #DAA520;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .service-card ul li:before {
+            content: "✓ ";
+            color: #DAA520;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+        }
+    </style>
+</body>
+</html>

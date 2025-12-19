@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicii de Curățenie - Cazare Premium</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigare -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🏠 Cazare Premium</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Acasă</a></li>
+                <li><a href="index.html#oradea">Oradea</a></li>
+                <li><a href="index.html#mamaia">Mamaia Nord</a></li>
+                <li><a href="curateanie.html">Curățenie</a></li>
+                <li><a href="property-manager.html">Property Manager</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section Curateanie -->
+    <section class="services-hero">
+        <div class="hero-content">
+            <h1>Servicii Profesionale de Curățenie</h1>
+            <p>Menținem spațiile tale impecabile pentru oaspeți mulțumiți</p>
+        </div>
+    </section>
+
+    <!-- Servicii Curateanie -->
+    <section class="services-content">
+        <div class="container">
+            <h2>Servicii de Curățenie pentru Cazare</h2>
+
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>🧹 Curățenie După Check-Out</h3>
+                    <p>Curățenie completă și profesională după plecarea oaspeților, pregătim spațiul pentru următorii vizitatori.</p>
+                    <ul>
+                        <li>Aspirare și spălare pardoseli</li>
+                        <li>Curățenie baie complet</li>
+                        <li>Schimbare lenjerie de pat</li>
+                        <li>Dezinfectare suprafețe</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>✨ Curățenie Profundă</h3>
+                    <p>Servicii complete de curățenie profundă pentru menținerea standardelor înalte.</p>
+                    <ul>
+                        <li>Curățare ferestre</li>
+                        <li>Curățenie mobilier</li>
+                        <li>Dezinfectare bucătărie</li>
+                        <li>Curățare covoare și textile</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <h3>🏨 Mentenanță Zilnică</h3>
+                    <p>Servicii regulate de menținere a curățeniei pentru sejururi lungi.</p>
+                    <ul>
+                        <li>Curățenie zilnică camera</li>
+                        <li>Reumplere produse igienă</li>
+                        <li>Înlocuire prosoape</li>
+                        <li>Verificare stare generală</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>Solicită Servicii de Curățenie</h3>
+                <p>Contactează-ne pentru o ofertă personalizată</p>
+                <a href="index.html#contact" class="btn-primary">Contactează-ne</a>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .services-hero {
+            background: linear-gradient(135deg, rgba(26, 35, 52, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('IMAGINI/curateanie/curateanie-1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .services-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+        }
+
+        .services-content {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+
+        .services-content h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: #DAA520;
+            margin-bottom: 1rem;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .service-card ul li:before {
+            content: "✓ ";
+            color: #DAA520;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+        }
+    </style>
+</body>
+</html>

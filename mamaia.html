@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cazare în Mamaia Nord - Cazare Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Banner specific pentru Mamaia */
+        .mamaia-banner {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(26, 35, 52, 0.7), rgba(44, 62, 80, 0.6)),
+                        url('images/1.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .banner-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .banner-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .banner-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #DAA520, #FFD700, #DAA520);
+            color: white;
+            padding: 1.2rem 3rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(218, 165, 32, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(218, 165, 32, 0.6);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CTA pentru locația alternativă */
+        .alternate-location-cta {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(255, 215, 0, 0.1));
+            border-radius: 20px;
+            border: 2px solid rgba(218, 165, 32, 0.2);
+        }
+
+        .alternate-location-cta h3 {
+            font-size: 2rem;
+            color: #1a2334;
+            margin-bottom: 1rem;
+        }
+
+        .alternate-location-cta p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header / Navigare -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index_varianta5_asymmetric.html" style="display: flex; align-items: center; overflow: hidden; border-radius: 10px;">
+                    <img src="IMAGINI/3.jpeg" alt="Cazare Premium - Summer Smile" style="height: 90px; width: 180px; object-fit: cover; object-position: center; box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4); transition: transform 0.3s ease; margin-right: 20px; border: none; display: block; transform: scale(1.15);">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index_varianta5_asymmetric.html">Acasă</a></li>
+                <li><a href="oradea.html">Oradea</a></li>
+                <li><a href="mamaia.html" class="active">Mamaia Nord</a></li>
+                <li><a href="curateanie.html">Curățenie</a></li>
+                <li><a href="property-manager.html">Property Manager</a></li>
+                <li><a href="index_varianta5_asymmetric.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Mamaia -->
+    <section class="mamaia-banner">
+        <div class="banner-content">
+            <h1>🏖️ Mamaia Nord</h1>
+            <p>Relaxare la malul mării - Lux & Relaxare</p>
+            <a href="#cazare-mamaia" class="btn-primary">Vezi Cazările</a>
+        </div>
+    </section>
+
+    <!-- SECȚIUNEA MAMAIA NORD -->
+    <section id="cazare-mamaia" class="cazare location-mamaia">
+        <div class="container">
+            <div class="location-header">
+                <h2>🏖️ Cazare în Mamaia Nord</h2>
+                <p class="location-subtitle">Relaxare la malul mării</p>
+            </div>
+
+            <div class="cazare-grid">
+                <!-- Apartament 2 camere - La Mare -->
+                <div class="cazare-card">
+                    <div class="cazare-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span class="img-placeholder">🏖️ Prima Linie La Mare</span>
+                    </div>
+                    <div class="cazare-info">
+                        <h3>Apartament 2 Camere - La Mare</h3>
+                        <p class="locatie">📍 Mamaia Nord - Prima Linie la Mare</p>
+                        <div class="availability-badge">
+                            <span class="status-dot available"></span>
+                            <span>Verifică disponibilitatea</span>
+                        </div>
+                        <p class="descriere">Apartament modern cu 2 camere, vedere spectaculoasă la mare, în prima linie. Perfect pentru familii sau grupuri mici.</p>
+                        <ul class="facilitati-cazare">
+                            <li>✓ 2 camere spațioase</li>
+                            <li>✓ Vedere panoramică la mare</li>
+                            <li>✓ Bucătărie completă</li>
+                            <li>✓ Aer condiționat</li>
+                            <li>✓ WiFi gratuit</li>
+                            <li>✓ Balcon mare</li>
+                            <li>✓ Acces direct la plajă</li>
+                        </ul>
+                        <p class="pret">700 Lei / noapte</p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - La Mare', 700)">Rezervă Acum</button>
+                    </div>
+                </div>
+
+                <!-- Studio - Lângă Lidl -->
+                <div class="cazare-card">
+                    <div class="cazare-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <span class="img-placeholder">🏠 Studio Modern</span>
+                    </div>
+                    <div class="cazare-info">
+                        <h3>Studio - Lângă Lidl</h3>
+                        <p class="locatie">📍 Mamaia Nord - Lângă Lidl</p>
+                        <div class="availability-badge">
+                            <span class="status-dot available"></span>
+                            <span>Verifică disponibilitatea</span>
+                        </div>
+                        <p class="descriere">Studio modern și compact, ideal pentru cupluri. Locație excelentă lângă Lidl, cu acces facil la toate facilitățile.</p>
+                        <ul class="facilitati-cazare">
+                            <li>✓ Studio complet echipat</li>
+                            <li>✓ Kitchenette funcțională</li>
+                            <li>✓ Baie modernă</li>
+                            <li>✓ Aer condiționat</li>
+                            <li>✓ WiFi gratuit</li>
+                            <li>✓ Parcare gratuită</li>
+                            <li>✓ Aproape de magazine</li>
+                        </ul>
+                        <p class="pret">700 Lei / noapte</p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio - Lângă Lidl', 700)">Rezervă Acum</button>
+                    </div>
+                </div>
+
+                <!-- Apartament 2 Camere - Lângă Lidl -->
+                <div class="cazare-card">
+                    <div class="cazare-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <span class="img-placeholder">🏡 Apartament Spațios</span>
+                    </div>
+                    <div class="cazare-info">
+                        <h3>Apartament 2 Camere - Lângă Lidl</h3>
+                        <p class="locatie">📍 Mamaia Nord - Lângă Lidl</p>
+                        <div class="availability-badge">
+                            <span class="status-dot available"></span>
+                            <span>Verifică disponibilitatea</span>
+                        </div>
+                        <p class="descriere">Apartament spațios cu 2 camere, în apropierea Lidl. Excelent pentru familii, cu toate facilitățile necesare.</p>
+                        <ul class="facilitati-cazare">
+                            <li>✓ 2 camere mari</li>
+                            <li>✓ Bucătărie complet echipată</li>
+                            <li>✓ Baie modernă</li>
+                            <li>✓ Living spațios</li>
+                            <li>✓ Aer condiționat</li>
+                            <li>✓ WiFi gratuit</li>
+                            <li>✓ Parcare disponibilă</li>
+                            <li>✓ Aproape de plajă și magazine</li>
+                        </ul>
+                        <p class="pret">700 Lei / noapte</p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - Lângă Lidl', 700)">Rezervă Acum</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA pentru a vedea și Oradea -->
+            <div class="alternate-location-cta">
+                <h3>Explorezi și orașul?</h3>
+                <p>Descoperă studio-ul nostru premium în Oradea - confort urban în inima Transilvaniei</p>
+                <a href="oradea.html" class="btn-primary">Vezi Cazări în Oradea</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formular Rezervare -->
+    <section id="rezervare" class="rezervare">
+        <div class="container">
+            <h2>Rezervă Cazarea Ta</h2>
+            <form id="formRezervare" class="form-rezervare">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nume">Nume Complet *</label>
+                        <input type="text" id="nume" name="nume" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telefon">Telefon *</label>
+                        <input type="tel" id="telefon" name="telefon" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cazare">Alege Cazarea *</label>
+                        <select id="cazare" name="cazare" required>
+                            <option value="">Selectează cazarea</option>
+                            <option value="Apartament 2 Camere - La Mare" data-pret="700">Apartament 2 Camere - La Mare - 700 Lei/noapte</option>
+                            <option value="Studio - Lângă Lidl" data-pret="700">Studio - Lângă Lidl - 700 Lei/noapte</option>
+                            <option value="Apartament 2 Camere - Lângă Lidl" data-pret="700">Apartament 2 Camere - Lângă Lidl - 700 Lei/noapte</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkin">Check-in *</label>
+                        <input type="date" id="checkin" name="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout">Check-out *</label>
+                        <input type="date" id="checkout" name="checkout" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="persoane">Număr Persoane *</label>
+                        <input type="number" id="persoane" name="persoane" min="1" max="8" value="2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="total">Total Estimat</label>
+                        <input type="text" id="total" name="total" readonly value="0 Lei">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="observatii">Observații / Cerințe Speciale</label>
+                    <textarea id="observatii" name="observatii" rows="4" placeholder="Menționați orice cerințe speciale..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Trimite Rezervarea</button>
+            </form>
+
+            <div id="mesajConfirmare" class="mesaj-confirmare" style="display: none;">
+                <h3>✓ Rezervare Trimisă cu Succes!</h3>
+                <p>Vă mulțumim pentru rezervare. Veți fi contactat în curând pentru confirmare.</p>
+                <button onclick="inchideMesaj()" class="btn-inchide">Închide</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-grid">
+                <div class="contact-location">
+                    <h3>📍 Oradea</h3>
+                    <p><strong>Studio New York</strong></p>
+                    <p>Oradea, România</p>
+                    <p>📞 +40 123 456 789</p>
+                </div>
+                <div class="contact-location">
+                    <h3>🏖️ Mamaia Nord</h3>
+                    <p><strong>Apartamente & Studio</strong></p>
+                    <p>Mamaia Nord, Constanța</p>
+                    <p>📞 +40 123 456 789</p>
+                </div>
+                <div class="contact-location">
+                    <h3>📧 Email General</h3>
+                    <p>contact@cazarepremium.ro</p>
+                    <p>&nbsp;</p>
+                    <p>Răspundem în 24h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

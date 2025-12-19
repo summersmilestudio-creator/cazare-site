@@ -5,31 +5,435 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cazare Oradea & Mamaia Nord - Rezervă Acum</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* VARIANTA 5 - ASYMMETRIC LAYOUT 60/40 */
+        .asymmetric-banner {
+            position: relative;
+            height: 650px;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .asymmetric-side {
+            position: relative;
+            height: 100%;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .side-large {
+            width: 62%;
+            background: linear-gradient(135deg, rgba(26, 35, 52, 0.7), rgba(44, 62, 80, 0.6)),
+                        url('images/2.1.jpg') center/cover;
+            overflow: visible;
+        }
+
+        .side-small {
+            width: 46%;
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.6), rgba(26, 35, 52, 0.7)),
+                        url('images/1.jpg') center/cover;
+            margin-left: -8%;
+            overflow: visible;
+        }
+
+        /* Hover effect - expand on hover */
+        .asymmetric-side:hover {
+            width: 65%;
+        }
+
+        .asymmetric-side:hover + .asymmetric-side {
+            width: 43%;
+            margin-left: -8%;
+        }
+
+        /* Zig-zag divider - hidden, effect created by clip-path */
+        .asymmetric-divider {
+            display: none;
+        }
+
+        /* Content overlay for each side */
+        .side-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            width: 80%;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .asymmetric-side:hover .side-content {
+            opacity: 1;
+        }
+
+        .side-content h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .side-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .side-content .btn-side {
+            display: inline-block;
+            background: linear-gradient(135deg, #DAA520, #FFD700, #DAA520);
+            background-size: 200% 100%;
+            color: white;
+            padding: 1.3rem 4rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.5s ease;
+            box-shadow: 0 15px 40px rgba(218, 165, 32, 0.4);
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .side-content .btn-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .side-content .btn-side:hover::before {
+            left: 100%;
+        }
+
+        .side-content .btn-side:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(218, 165, 32, 0.6);
+            background-position: 100% 0;
+        }
+
+        /* Central content - always visible */
+        .central-content {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            width: 90%;
+            max-width: 700px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .central-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 20px rgba(255, 215, 0, 0.3);
+            letter-spacing: 3px;
+        }
+
+        .central-content .subtitle {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+
+        .central-content .tagline {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            font-style: italic;
+        }
+
+        /* Location cards from Varianta 4 - Parallax */
+        .parallax-locations {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 0;
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .parallax-locations > * {
+            pointer-events: auto;
+        }
+
+        .location-card-parallax {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 2rem 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(218, 165, 32, 0.4);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            min-width: 250px;
+            margin: 40px;
+            animation: floatIn 1.5s ease 0.6s backwards;
+        }
+
+        .location-card-parallax:first-child {
+            margin-left: 8%;
+        }
+
+        .location-card-parallax:last-child {
+            margin-right: 5%;
+        }
+
+        .location-card-parallax:hover {
+            background: rgba(218, 165, 32, 0.25);
+            border-color: #FFD700;
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(218, 165, 32, 0.4);
+        }
+
+        /* Hover effect classes for images */
+        .side-large.enlarge::before {
+            transform: scale(1.15) !important;
+        }
+
+        .side-small.enlarge::before {
+            transform: scale(1.15) !important;
+        }
+
+        .location-card-parallax h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #FFD700;
+        }
+
+        .location-card-parallax p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            color: white;
+        }
+
+        /* Hover instruction */
+        .hover-instruction {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            z-index: 15;
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.9;
+            }
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Image zoom on hover */
+        .asymmetric-side::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.7s ease;
+            z-index: 0;
+        }
+
+        .side-large::before {
+            background-image: url('images/2.1.jpg');
+            /* Margine dreapta zigzag - iesire */
+            clip-path: polygon(
+                0 0,
+                95% 0,
+                98% 5%,
+                95% 10%,
+                98% 15%,
+                95% 20%,
+                98% 25%,
+                95% 30%,
+                98% 35%,
+                95% 40%,
+                98% 45%,
+                95% 50%,
+                98% 55%,
+                95% 60%,
+                98% 65%,
+                95% 70%,
+                98% 75%,
+                95% 80%,
+                98% 85%,
+                95% 90%,
+                98% 95%,
+                95% 100%,
+                0 100%
+            );
+        }
+
+        .side-small::before {
+            background-image: url('images/1.jpg');
+            /* Margine stanga zigzag - intrare */
+            clip-path: polygon(
+                5% 0,
+                100% 0,
+                100% 100%,
+                5% 100%,
+                2% 95%,
+                5% 90%,
+                2% 85%,
+                5% 80%,
+                2% 75%,
+                5% 70%,
+                2% 65%,
+                5% 60%,
+                2% 55%,
+                5% 50%,
+                2% 45%,
+                5% 40%,
+                2% 35%,
+                5% 30%,
+                2% 25%,
+                5% 20%,
+                2% 15%,
+                5% 10%,
+                2% 5%
+            );
+        }
+
+        .asymmetric-side:hover::before {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .asymmetric-banner {
+                flex-direction: column;
+                height: 800px;
+            }
+            .asymmetric-side {
+                width: 100% !important;
+                height: 50%;
+            }
+            .asymmetric-side:hover {
+                height: 60%;
+            }
+            .asymmetric-side:hover + .asymmetric-side {
+                height: 40%;
+            }
+            .asymmetric-divider {
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: 4px;
+                transform: skewY(-2deg);
+            }
+            .central-content h1 {
+                font-size: 2.5rem;
+            }
+            .parallax-locations {
+                flex-direction: column;
+                gap: 1.5rem;
+                bottom: 30px;
+            }
+            .location-card-parallax {
+                min-width: 180px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header / Navigare -->
     <header>
         <nav>
             <div class="logo">
-                <h1>🏠 Cazare Premium</h1>
+                <a href="#acasa" style="display: flex; align-items: center; overflow: hidden; border-radius: 10px;">
+                    <img src="IMAGINI/3.jpeg" alt="Cazare Premium - Summer Smile" style="height: 90px; width: 180px; object-fit: cover; object-position: center; box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4); transition: transform 0.3s ease; margin-right: 20px; border: none; display: block; transform: scale(1.15);">
+                </a>
             </div>
             <ul class="nav-links">
-                <li><a href="#acasa">Acasă</a></li>
-                <li><a href="#oradea">Oradea</a></li>
-                <li><a href="#mamaia">Mamaia Nord</a></li>
-                <li><a href="#servicii">Servicii de Curățenie & Property Manager</a></li>
-                <li><a href="#rezervare">Rezervare</a></li>
+                <li><a href="index_varianta5_asymmetric.html">Acasă</a></li>
+                <li><a href="oradea.html">Oradea</a></li>
+                <li><a href="mamaia.html">Mamaia Nord</a></li>
+                <li><a href="curateanie.html">Curățenie</a></li>
+                <li><a href="property-manager.html">Property Manager</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Secțiune Hero / Principală -->
-    <section id="acasa" class="hero">
-        <div class="hero-content">
-            <h2>Cazare de Calitate în Oradea & Mamaia Nord</h2>
-            <p>Apartamente moderne și confortabile pentru vacanța ta perfectă!</p>
-            <a href="#rezervare" class="btn-primary">Rezervă Acum</a>
+    <!-- VARIANTA 5 - ASYMMETRIC BANNER -->
+    <section id="acasa" class="asymmetric-banner">
+        <!-- Left Side - Imagine Mamaia (60%) -->
+        <div class="asymmetric-side side-large"></div>
+
+        <!-- Right Side - Imagine Oradea (40%) -->
+        <div class="asymmetric-side side-small"></div>
+
+        <!-- Diagonal divider -->
+        <div class="asymmetric-divider"></div>
+
+        <!-- Location cards from Varianta 4 -->
+        <div class="parallax-locations">
+            <div class="location-card-parallax" onclick="window.location.href='oradea.html'">
+                <h3>🏛️ Oradea</h3>
+                <p>Arhitectură & Cultură</p>
+            </div>
+            <div class="location-card-parallax" onclick="window.location.href='mamaia.html'">
+                <h3>🏖️ Mamaia Nord</h3>
+                <p>Lux & Relaxare</p>
+            </div>
+        </div>
+
+        <!-- Hover instruction -->
+        <div class="hover-instruction">
+            ← Explorează fiecare destinație pentru detalii exclusive →
         </div>
     </section>
 
@@ -364,5 +768,34 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Hover effect pentru butoane care maresc imaginile
+        document.addEventListener('DOMContentLoaded', function() {
+            const oradeaCard = document.querySelector('.location-card-parallax:first-child');
+            const mamaiaCard = document.querySelector('.location-card-parallax:last-child');
+            const oradeaImage = document.querySelector('.side-large');
+            const mamaiaImage = document.querySelector('.side-small');
+
+            // Hover pe butonul Oradea -> mareste imaginea Oradea (stanga)
+            if (oradeaCard && oradeaImage) {
+                oradeaCard.addEventListener('mouseenter', function() {
+                    oradeaImage.classList.add('enlarge');
+                });
+                oradeaCard.addEventListener('mouseleave', function() {
+                    oradeaImage.classList.remove('enlarge');
+                });
+            }
+
+            // Hover pe butonul Mamaia -> mareste imaginea Mamaia (dreapta)
+            if (mamaiaCard && mamaiaImage) {
+                mamaiaCard.addEventListener('mouseenter', function() {
+                    mamaiaImage.classList.add('enlarge');
+                });
+                mamaiaCard.addEventListener('mouseleave', function() {
+                    mamaiaImage.classList.remove('enlarge');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

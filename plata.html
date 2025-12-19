@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizare Rezervare - Varianta 3 Wizard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* VARIANTA 3 - MULTI-STEP WIZARD WITH PROGRESS BAR (inspired by Expedia) */
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+        }
+
+        .wizard-container {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .wizard-header {
+            background: linear-gradient(135deg, #1a2334 0%, #2c3e50 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .wizard-header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+        }
+
+        .wizard-header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .progress-bar-container {
+            background: rgba(255,255,255,0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #DAA520, #FFD700);
+            width: 75%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+
+        .progress-step {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        .progress-step.active {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        .wizard-body {
+            padding: 2.5rem;
+        }
+
+        .step-content {
+            display: none;
+        }
+
+        .step-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            color: #1a2334;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step-description {
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .booking-card {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffe0b2 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 2px solid #DAA520;
+        }
+
+        .booking-card h3 {
+            color: #1a2334;
+            margin: 0 0 1rem 0;
+            font-size: 1.2rem;
+        }
+
+        .booking-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: #1a2334;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #DAA520;
+            box-shadow: 0 0 0 4px rgba(218, 165, 32, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .card-input-group {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .payment-icons {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-icon {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            background: white;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .payment-icon.active {
+            border-color: #DAA520;
+            background: #fff8e1;
+            color: #1a2334;
+        }
+
+        .wizard-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-back {
+            background: #f5f5f5;
+            color: #666;
+        }
+
+        .btn-back:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            color: white;
+            box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+        }
+
+        .btn-next:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(218, 165, 32, 0.4);
+        }
+
+        .price-display {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, #1a2334 0%, #2c3e50 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .price-display .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-display .amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .security-notice {
+            text-align: center;
+            padding: 1rem;
+            background: #f0f8ff;
+            border-radius: 8px;
+            color: #0066cc;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="wizard-container">
+        <!-- Header -->
+        <div class="wizard-header">
+            <h1>🎯 Finalizare Rezervare</h1>
+            <p>Procesul de rezervare simplificat în 4 pași</p>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+            </div>
+
+            <div class="progress-steps">
+                <span class="progress-step active">Detalii</span>
+                <span class="progress-step active">Contact</span>
+                <span class="progress-step active">Plată</span>
+                <span class="progress-step">Confirmare</span>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="wizard-body">
+            <!-- Step 3: Payment -->
+            <div class="step-content active">
+                <h2 class="step-title">
+                    💳 Detalii Plată
+                </h2>
+                <p class="step-description">Introdu datele cardului pentru finalizarea rezervării</p>
+
+                <!-- Booking Summary Card -->
+                <div class="booking-card">
+                    <h3>📋 Rezumat Comandă</h3>
+                    <div class="booking-info">
+                        <div class="info-item">
+                            <span class="info-label">Cazare</span>
+                            <span class="info-value">Studio New York</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Locație</span>
+                            <span class="info-value">Oradea</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Check-in</span>
+                            <span class="info-value">12 Dec 2025</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Check-out</span>
+                            <span class="info-value">15 Dec 2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Price Display -->
+                <div class="price-display">
+                    <div class="label">Total de Plată</div>
+                    <div class="amount">2,100 Lei</div>
+                    <div class="label">pentru 3 nopți</div>
+                </div>
+
+                <!-- Payment Method Selection -->
+                <div class="form-group">
+                    <label>Metodă de Plată</label>
+                    <div class="payment-icons">
+                        <div class="payment-icon active">💳 Card</div>
+                        <div class="payment-icon">🏦 Transfer</div>
+                        <div class="payment-icon">📱 PayPal</div>
+                    </div>
+                </div>
+
+                <!-- Card Details -->
+                <div class="form-group">
+                    <label>Număr Card</label>
+                    <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                </div>
+
+                <div class="form-group">
+                    <label>Nume pe Card</label>
+                    <input type="text" placeholder="ION POPESCU">
+                </div>
+
+                <div class="card-input-group">
+                    <div class="form-group">
+                        <label>Email Confirmare</label>
+                        <input type="email" placeholder="exemplu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Expirare</label>
+                        <input type="text" placeholder="MM/YY" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label>CVV</label>
+                        <input type="text" placeholder="123" maxlength="3">
+                    </div>
+                </div>
+
+                <div class="security-notice">
+                    🔒 Toate tranzacțiile sunt criptate și securizate prin SSL 256-bit
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="wizard-actions">
+                    <button class="btn btn-back">← Înapoi</button>
+                    <button class="btn btn-next">Finalizează Plata →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
