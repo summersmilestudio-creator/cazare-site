@@ -317,19 +317,19 @@
                     <div class="booking-info">
                         <div class="info-item">
                             <span class="info-label">Cazare</span>
-                            <span class="info-value">Studio New York</span>
+                            <span class="info-value" id="booking-property">Studio New York</span>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">Locație</span>
-                            <span class="info-value">Oradea</span>
+                            <span class="info-label">Persoane</span>
+                            <span class="info-value" id="booking-guests">2</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Check-in</span>
-                            <span class="info-value">12 Dec 2025</span>
+                            <span class="info-value" id="booking-checkin">12 Dec 2025</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Check-out</span>
-                            <span class="info-value">15 Dec 2025</span>
+                            <span class="info-value" id="booking-checkout">15 Dec 2025</span>
                         </div>
                     </div>
                 </div>
@@ -337,8 +337,8 @@
                 <!-- Price Display -->
                 <div class="price-display">
                     <div class="label">Total de Plată</div>
-                    <div class="amount">2,100 Lei</div>
-                    <div class="label">pentru 3 nopți</div>
+                    <div class="amount" id="booking-total">2,100 Lei</div>
+                    <div class="label" id="booking-nights">pentru 3 nopți</div>
                 </div>
 
                 <!-- Payment Method Selection -->
@@ -365,7 +365,7 @@
                 <div class="card-input-group">
                     <div class="form-group">
                         <label>Email Confirmare</label>
-                        <input type="email" placeholder="exemplu@email.com">
+                        <input type="email" id="email-confirm" placeholder="exemplu@email.com">
                     </div>
                     <div class="form-group">
                         <label>Expirare</label>
@@ -383,11 +383,87 @@
 
                 <!-- Navigation Buttons -->
                 <div class="wizard-actions">
-                    <button class="btn btn-back">← Înapoi</button>
-                    <button class="btn btn-next">Finalizează Plata →</button>
+                    <button class="btn btn-back" onclick="goBack()">← Înapoi</button>
+                    <button class="btn btn-next" onclick="processPayment()">Finalizează Plata →</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Încarcă datele rezervării din sessionStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const bookingDataStr = sessionStorage.getItem('bookingData');
+
+            if (!bookingDataStr) {
+                // Dacă nu există date de rezervare, redirectează înapoi la pagina principală
+                alert('Nu există date de rezervare. Vei fi redirecționat către pagina principală.');
+                window.location.href = 'index.html';
+                return;
+            }
+
+            const bookingData = JSON.parse(bookingDataStr);
+
+            // Afișează datele în cardul de rezumat
+            document.getElementById('booking-property').textContent = bookingData.cazare || 'N/A';
+            document.getElementById('booking-guests').textContent = bookingData.persoane || '1';
+
+            // Formatează și afișează datele
+            if (bookingData.checkin) {
+                const checkinDate = new Date(bookingData.checkin);
+                document.getElementById('booking-checkin').textContent = formatDate(checkinDate);
+            }
+
+            if (bookingData.checkout) {
+                const checkoutDate = new Date(bookingData.checkout);
+                document.getElementById('booking-checkout').textContent = formatDate(checkoutDate);
+            }
+
+            // Afișează totalul
+            if (bookingData.total) {
+                // Extrage doar numărul și numărul de nopți din string-ul total
+                const totalMatch = bookingData.total.match(/(\d+)\s*Lei\s*\((\d+)\s*nopți?\)/);
+                if (totalMatch) {
+                    const amount = totalMatch[1];
+                    const nights = totalMatch[2];
+                    document.getElementById('booking-total').textContent = `${amount} Lei`;
+                    document.getElementById('booking-nights').textContent = `pentru ${nights} ${nights === '1' ? 'noapte' : 'nopți'}`;
+                }
+            }
+
+            // Pre-populează emailul
+            if (bookingData.email) {
+                document.getElementById('email-confirm').value = bookingData.email;
+            }
+        });
+
+        // Funcție pentru formatarea datei
+        function formatDate(date) {
+            const day = date.getDate().toString().padStart(2, '0');
+            const months = ['Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun', 'Iul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+            return `${day} ${month} ${year}`;
+        }
+
+        // Funcție pentru butonul Înapoi
+        function goBack() {
+            // Redirecționează înapoi la pagina principală cu secțiunea de rezervare
+            window.location.href = 'index.html#rezervare';
+        }
+
+        // Funcție pentru procesarea plății
+        function processPayment() {
+            // Aici ar fi logica de procesare a plății
+            // Pentru moment, vom afișa un mesaj de confirmare
+            alert('Plata a fost procesată cu succes! Veți primi un email de confirmare în curând.');
+
+            // Șterge datele de rezervare din sessionStorage
+            sessionStorage.removeItem('bookingData');
+
+            // Redirecționează către pagina principală
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>

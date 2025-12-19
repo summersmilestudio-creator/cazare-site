@@ -412,27 +412,11 @@ document.getElementById('formRezervare').addEventListener('submit', function(e) 
         return;
     }
 
-    // Trimite rezervarea către Netlify Function pentru salvare
-    saveBookingToServer(formData).then(response => {
-        if (response.success) {
-            console.log('Rezervare salvată cu succes:', formData);
+    // Salvează datele rezervării în sessionStorage pentru pagina de plată
+    sessionStorage.setItem('bookingData', JSON.stringify(formData));
 
-            // Afișează mesajul de confirmare
-            document.getElementById('formRezervare').style.display = 'none';
-            document.getElementById('mesajConfirmare').style.display = 'block';
-
-            // Scroll la mesajul de confirmare
-            document.getElementById('mesajConfirmare').scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
-            });
-        } else {
-            alert('Eroare la salvarea rezervării. Vă rugăm să încercați din nou.');
-        }
-    }).catch(error => {
-        console.error('Eroare:', error);
-        alert('Eroare la trimiterea rezervării. Vă rugăm să ne contactați telefonic.');
-    });
+    // Redirecționează către pagina de plată
+    window.location.href = 'plata_varianta3_wizard.html';
 });
 
 // Funcție pentru închiderea mesajului de confirmare și resetarea formularului
