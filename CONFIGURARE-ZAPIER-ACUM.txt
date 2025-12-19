@@ -1,0 +1,194 @@
+═══════════════════════════════════════════════════════════
+    ⚡ CONFIGURARE ZAPIER - PAȘI SIMPLI ⚡
+═══════════════════════════════════════════════════════════
+
+✅ Webhook URL: https://hooks.zapier.com/hooks/catch/25724875/ua2gofu/
+✅ Plan: Starter (19.99€/lună)
+✅ Sincronizare: La fiecare 15 minute
+
+═══════════════════════════════════════════════════════════
+    PASUL 1: CONFIGURARE NETLIFY (2 minute)
+═══════════════════════════════════════════════════════════
+
+1. Deschide în Chrome:
+   https://app.netlify.com/sites/summersmile1/settings/environment
+
+2. Click "Add a variable" (sau "Edit variables" dacă există deja)
+
+3. Completează EXACT:
+
+   Key: ZAPIER_WEBHOOK_URL
+
+   Value: https://hooks.zapier.com/hooks/catch/25724875/ua2gofu/
+
+   Scopes: Bifează "All scopes" (toate)
+
+4. Click "Create variable" sau "Save"
+
+5. Așteaptă 1-2 minute (Netlify face redeploy automat)
+
+✅ GATA! Webhook-ul e configurat!
+
+═══════════════════════════════════════════════════════════
+    PASUL 2: PREGĂTIRE GOOGLE SHEETS (2 minute)
+═══════════════════════════════════════════════════════════
+
+1. Deschide: https://sheets.google.com
+
+2. Click "Blank" (foaie nouă)
+
+3. Numește sheet-ul: "Rezervari Cazare"
+
+4. Prima linie (header) - scrie EXACT:
+
+   A1: ID
+   B1: Nume
+   C1: Email
+   D1: Telefon
+   E1: Cazare
+   F1: Check-in
+   G1: Check-out
+   H1: Persoane
+   I1: Total
+   J1: Observatii
+   K1: Data rezervare
+
+5. Selectează prima linie → Toolbar:
+   - Click "B" (Bold)
+   - Click "Fill color" → Alege albastru deschis
+
+6. Click "View" → "Freeze" → "1 row"
+
+✅ GATA! Sheet-ul e pregătit!
+
+═══════════════════════════════════════════════════════════
+    PASUL 3: FINALIZARE ZAP ÎN ZAPIER
+═══════════════════════════════════════════════════════════
+
+Ai rămas în Zapier la "Test" - continuă de acolo:
+
+1. La ACTION (pasul 2):
+   - Click pe zona "Action" (dotted box)
+   - Search: "Google Sheets"
+   - Selectează: "Google Sheets"
+   - Event: "Create Spreadsheet Row"
+   - Click "Continue"
+
+2. Connect Google Account:
+   - Click "Sign in to Google Sheets"
+   - Alege contul tău Google
+   - Click "Allow" (permite acces)
+
+3. Configurare Action:
+   - Drive: "My Google Drive"
+   - Spreadsheet: "Rezervari Cazare"
+   - Worksheet: "Sheet1"
+
+4. Map Fields - Click pe fiecare câmp și selectează:
+
+   ID → Selectează "id" din listă
+   Nume → Selectează "nume"
+   Email → Selectează "email"
+   Telefon → Selectează "telefon"
+   Cazare → Selectează "cazare"
+   Check-in → Selectează "checkin"
+   Check-out → Selectează "checkout"
+   Persoane → Selectează "persoane"
+   Total → Selectează "total"
+   Observatii → Selectează "observatii"
+   Data rezervare → Selectează "timestamp"
+
+5. Click "Continue"
+
+✅ Aproape gata!
+
+═══════════════════════════════════════════════════════════
+    PASUL 4: TEST ZAPIER (3 minute)
+═══════════════════════════════════════════════════════════
+
+ÎNAINTE DE TEST - Verifică:
+□ ZAPIER_WEBHOOK_URL e salvat în Netlify? (Pasul 1)
+□ Au trecut 2 minute de când ai salvat în Netlify?
+□ Google Sheets e pregătit? (Pasul 2)
+
+ACUM TESTEAZĂ:
+
+1. În Zapier, click "Test step" (la Google Sheets action)
+
+2. NU va funcționa încă - e normal!
+   Mesaj: "No data found" sau similar
+
+3. Click "Skip test" (pentru moment)
+
+4. Click "Publish Zap" (buton mare sus dreapta)
+
+5. Toggle-ul devine VERDE (ON) ✅
+
+6. ACUM hai să testăm cu o rezervare reală!
+
+═══════════════════════════════════════════════════════════
+    PASUL 5: TEST REZERVARE REALĂ (2 minute)
+═══════════════════════════════════════════════════════════
+
+1. Deschide site-ul: https://summersmile1.netlify.app
+
+2. Scroll la secțiunea "Rezervare"
+
+3. Completează formular:
+
+   Nume: Test Starter Plan
+   Email: starter.plan@test.com
+   Telefon: 0740111222
+   Cazare: Studio New York - Oradea
+   Check-in: 05.01.2026
+   Check-out: 07.01.2026
+   Persoane: 2
+   Observații: Test automatizare completă
+
+4. Click "Trimite Rezervare"
+
+5. Vezi mesaj de confirmare? ✅
+
+6. AȘTEAPTĂ 30 secunde
+
+7. Mergi în Google Sheets → Refresh pagina
+
+8. VEZI REZERVAREA? 🎉🎉🎉
+
+   Dacă DA → SUCCES TOTAL! Totul funcționează!
+   Dacă NU → Verifică Zap History în Zapier
+
+═══════════════════════════════════════════════════════════
+    VERIFICARE ZAP HISTORY
+═══════════════════════════════════════════════════════════
+
+Dacă rezervarea nu apare în Sheets:
+
+1. În Zapier → Click "Zap History" (în meniu stânga)
+
+2. Vezi rezervarea ta?
+   - Status "Success" (verde) → Totul OK!
+   - Status "Error" (roșu) → Click pe ea să vezi eroarea
+
+3. Erori comune:
+   - "No trigger data" → Webhook-ul nu e în Netlify
+   - "Permission denied" → Re-conectează Google Sheets
+   - "Field not found" → Verifică mapping-ul câmpurilor
+
+═══════════════════════════════════════════════════════════
+    ✅ CHECKLIST FINAL
+═══════════════════════════════════════════════════════════
+
+□ ZAPIER_WEBHOOK_URL în Netlify
+□ Google Sheets creat cu header-e
+□ Zap configurat (Webhook → Google Sheets)
+□ Zap publicat (toggle ON)
+□ Test rezervare făcută
+□ Rezervarea apare în Google Sheets
+
+CÂND TOATE SUNT ✅ → AUTOMATIZAREA FUNCȚIONEAZĂ 100%!
+
+═══════════════════════════════════════════════════════════
+
+Urmează pașii și spune-mi la ce pas ești!
+Dacă întâmpini probleme, trimite screenshot! 📸

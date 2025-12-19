@@ -15,3 +15,7 @@ node_modules/
 .vscode/
 .idea/
 *.sublime-*
+
+# Local Netlify folder
+.netlify
+.env

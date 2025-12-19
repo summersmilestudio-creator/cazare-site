@@ -1,0 +1,47 @@
+UPLOAD SITE PE NET - INSTRUCTIUNI
+==================================
+
+Am creat paginile:
+✓ curateanie.html - Pagina servicii curatenie
+✓ property-manager.html - Pagina property manager
+✓ Actualizat navigarea in index.html
+
+
+CEA MAI SIMPLA METODA - NETLIFY DROP (GRATIS):
+==============================================
+
+PASI:
+1. Deschide browser Chrome
+2. Mergi pe: https://app.netlify.com/drop
+
+3. TRAGE FOLDERUL D:\sitecazare IN BROWSER
+   (sau click "Browse to folder")
+
+4. Asteapta upload (10-20 secunde)
+
+5. GATA! Vei primi URL de genul:
+   https://random-name-123.netlify.app
+
+6. COPIAZA URL-ul si il poti folosi!
+
+
+SAU - DACA VREI NUME CUSTOM:
+=============================
+1. Pe Netlify, dupa upload, click "Site settings"
+2. "Change site name"
+3. Alege nume: cazare-premium
+4. URL devine: https://cazare-premium.netlify.app
+
+
+SITE-UL ESTE COMPLET GATA:
+===========================
+- Index cu banner elegant (1.jpg + 2.1.jpg zigzag)
+- Header elegant auriu
+- Pagina Curatenie separata
+- Pagina Property Manager separata
+- Navigare functionala intre pagini
+
+
+DESCHID NETLIFY DROP PENTRU TINE?
+==================================
+Scrie DA si deschid Chrome cu Netlify Drop!

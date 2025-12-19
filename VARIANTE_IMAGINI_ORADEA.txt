@@ -1,0 +1,42 @@
+VARIANTE PENTRU IMAGINI ORADEA
+================================
+
+PROBLEMA:
+---------
+Nu pot descarca AUTOMAT imagini REALE din Oradea.
+Wikimedia Commons blocheaza download-urile automate (403 Forbidden).
+
+
+VARIANTA 1 - IMAGINI REALE DIN ORADEA (Manual)
+-----------------------------------------------
+✓ IMAGINI AUTENTICE din Oradea, Romania
+✓ Fotografii reale: Prefectura, Piata Unirii, Cetatea, etc.
+
+PASI:
+1. EU deschid link-ul Wikimedia Commons in browser
+2. TU descarci manual 10-15 poze REALE din Oradea
+3. TU le salvezi in folderul: D:\sitecazare\IMAGINI\
+
+SURSE:
+- Wikimedia Commons: commons.wikimedia.org/wiki/Oradea
+- Unsplash: unsplash.com/s/photos/oradea
+- Pexels: pexels.com/search/oradea
+
+
+VARIANTA 2 - IMAGINI GENERICE DE CALITATE (Automat)
+----------------------------------------------------
+✓ EU descarc AUTOMAT 10 imagini profesionale
+✓ Full HD (1920x1080) - perfecte pentru bannere
+✓ Calitate foarte inalta
+
+DEZAVANTAJ:
+✗ NU sunt fotografii specifice din Oradea
+✗ Sunt imagini generice (orase, cladiri, peisaje urbane)
+
+
+CARE VARIANTA ALEGI?
+=====================
+
+Scrie in terminal:
+- "1" pentru IMAGINI REALE (manual)
+- "2" pentru IMAGINI GENERICE (automat)

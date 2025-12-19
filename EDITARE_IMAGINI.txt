@@ -1,0 +1,62 @@
+EDITARE IMAGINI - Stergere Cabluri
+===================================
+
+PROBLEMA:
+---------
+Vrei sa modific poza 2.jpg si sa scot cablurile din ea.
+
+
+CE NU POT FACE:
+---------------
+✗ NU pot edita imagini pentru a sterge obiecte
+✗ NU pot face editare foto vizuala (ca Photoshop)
+✗ NU am tool-uri de inpainting/object removal
+
+
+CE POT FACE - SOLUTII:
+----------------------
+
+SOLUTIA 1 - TOOL GRATUIT GIMP (ca Photoshop):
+----------------------------------------------
+- Descarc si instalez GIMP (editare foto profesionala)
+- Software GRATUIT, similar cu Photoshop
+- Link: gimp.org
+
+PASI:
+1. EU instalez GIMP pe PC-ul tau
+2. EU deschid poza 2.jpg in GIMP
+3. TU folosesti "Clone Tool" sau "Healing Tool" pentru a sterge cabluri
+
+
+SOLUTIA 2 - AI ONLINE (cel mai simplu):
+----------------------------------------
+- Cleanup.pictures - AI care sterge obiecte automat
+- Gratuit, fara instalare
+- Link: cleanup.pictures
+
+PASI:
+1. EU deschid site-ul in browser
+2. TU incarci poza 2.jpg
+3. TU marchezi cablurile
+4. AI-ul sterge automat cablurile
+
+
+SOLUTIA 3 - PAINT.NET (Windows, simplu):
+-----------------------------------------
+- Paint.NET - editor foto pentru Windows
+- Mai simplu decat GIMP
+- Gratuit
+
+PASI:
+1. EU instalez Paint.NET
+2. EU deschid poza in Paint.NET
+3. TU folosesti "Clone Stamp" pentru a sterge cabluri
+
+
+CARE SOLUTIE ALEGI?
+===================
+
+Scrie in terminal:
+- "1" pentru GIMP (profesional)
+- "2" pentru AI ONLINE (cel mai rapid)
+- "3" pentru Paint.NET (simplu)
