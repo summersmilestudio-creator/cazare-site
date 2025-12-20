@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cazare în Mamaia Nord - Cazare Premium</title>
+    <title data-translate-title="page_mamaia_title">Cazare în Mamaia Nord - Cazare Premium</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Banner specific pentru Mamaia */
@@ -112,22 +112,35 @@
             </div>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="oradea.html">Oradea</a></li>
-                <li><a href="mamaia.html" class="active">Mamaia Nord</a></li>
-                <li><a href="curateanie.html">Curățenie</a></li>
-                <li><a href="property-manager.html">Property Manager</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" data-translate="nav_home">Acasă</a></li>
+                <li><a href="oradea.html" data-translate="nav_oradea">Oradea</a></li>
+                <li><a href="mamaia.html" class="active" data-translate="nav_mamaia">Mamaia Nord</a></li>
+                <li><a href="curateanie.html" data-translate="nav_cleaning">Curățenie</a></li>
+                <li><a href="property-manager.html" data-translate="nav_property">Property Manager</a></li>
+                <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
             </ul>
+
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="ro" title="Română">
+                    <div class="flag-ro"></div>
+                </button>
+                <button class="lang-btn" data-lang="en" title="English">
+                    <div class="flag-en"></div>
+                </button>
+                <button class="lang-btn" data-lang="hu" title="Magyar">
+                    <div class="flag-hu"></div>
+                </button>
+            </div>
         </nav>
     </header>
 
     <!-- Banner Mamaia -->
     <section class="mamaia-banner">
         <div class="banner-content">
-            <h1>🏖️ Mamaia Nord</h1>
-            <p>Relaxare la malul mării - Lux & Relaxare</p>
-            <a href="#cazare-mamaia" class="btn-primary">Vezi Cazările</a>
+            <h1>🏖️ <span data-translate="banner_mamaia">Mamaia Nord</span></h1>
+            <p data-translate="mamaia_banner_desc">Relaxare la malul mării - Lux & Relaxare</p>
+            <a href="#cazare-mamaia" class="btn-primary" data-translate="mamaia_view_btn">Vezi Cazările</a>
         </div>
     </section>
 
@@ -135,99 +148,99 @@
     <section id="cazare-mamaia" class="cazare location-mamaia">
         <div class="container">
             <div class="location-header">
-                <h2>🏖️ Cazare în Mamaia Nord</h2>
-                <p class="location-subtitle">Relaxare la malul mării</p>
+                <h2>🏖️ <span data-translate="mamaia_title">Cazare în Mamaia Nord</span></h2>
+                <p class="location-subtitle" data-translate="mamaia_subtitle">Relaxare la malul mării</p>
             </div>
 
             <div class="cazare-grid">
                 <!-- Apartament 2 camere - La Mare -->
                 <div class="cazare-card">
                     <div class="cazare-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <span class="img-placeholder">🏖️ Prima Linie La Mare</span>
+                        <span class="img-placeholder">🏖️ <span data-translate="apt_sea_placeholder">Prima Linie La Mare</span></span>
                     </div>
                     <div class="cazare-info">
-                        <h3>Apartament 2 Camere - La Mare</h3>
-                        <p class="locatie">📍 Mamaia Nord - Prima Linie la Mare</p>
+                        <h3 data-translate="apt_sea_name">Apartament 2 Camere - La Mare</h3>
+                        <p class="locatie">📍 <span data-translate="apt_sea_location">Mamaia Nord - Prima Linie la Mare</span></p>
                         <div class="availability-badge">
                             <span class="status-dot available"></span>
-                            <span>Verifică disponibilitatea</span>
+                            <span data-translate="check_availability">Verifică disponibilitatea</span>
                         </div>
-                        <p class="descriere">Apartament modern cu 2 camere, vedere spectaculoasă la mare, în prima linie. Perfect pentru familii sau grupuri mici.</p>
+                        <p class="descriere" data-translate="apt_sea_desc">Apartament modern cu 2 camere, vedere spectaculoasă la mare, în prima linie. Perfect pentru familii sau grupuri mici.</p>
                         <ul class="facilitati-cazare">
-                            <li>✓ 2 camere spațioase</li>
-                            <li>✓ Vedere panoramică la mare</li>
-                            <li>✓ Bucătărie completă</li>
-                            <li>✓ Aer condiționat</li>
-                            <li>✓ WiFi gratuit</li>
-                            <li>✓ Balcon mare</li>
-                            <li>✓ Acces direct la plajă</li>
+                            <li>✓ <span data-translate="facility_2rooms">2 camere spațioase</span></li>
+                            <li>✓ <span data-translate="facility_sea_view">Vedere panoramică la mare</span></li>
+                            <li>✓ <span data-translate="facility_full_kitchen">Bucătărie completă</span></li>
+                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
+                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
+                            <li>✓ <span data-translate="facility_balcony">Balcon mare</span></li>
+                            <li>✓ <span data-translate="facility_beach_access">Acces direct la plajă</span></li>
                         </ul>
-                        <p class="pret">700 Lei / noapte</p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - La Mare', 700)">Rezervă Acum</button>
+                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - La Mare', 700)" data-translate="book_now">Rezervă Acum</button>
                     </div>
                 </div>
 
                 <!-- Studio - Lângă Lidl -->
                 <div class="cazare-card">
                     <div class="cazare-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <span class="img-placeholder">🏠 Studio Modern</span>
+                        <span class="img-placeholder">🏠 <span data-translate="apt_lidl_studio_placeholder">Studio Modern</span></span>
                     </div>
                     <div class="cazare-info">
-                        <h3>Studio - Lângă Lidl</h3>
-                        <p class="locatie">📍 Mamaia Nord - Lângă Lidl</p>
+                        <h3 data-translate="apt_lidl_studio_name">Studio - Lângă Lidl</h3>
+                        <p class="locatie">📍 <span data-translate="apt_lidl_studio_location">Mamaia Nord - Lângă Lidl</span></p>
                         <div class="availability-badge">
                             <span class="status-dot available"></span>
-                            <span>Verifică disponibilitatea</span>
+                            <span data-translate="check_availability">Verifică disponibilitatea</span>
                         </div>
-                        <p class="descriere">Studio modern și compact, ideal pentru cupluri. Locație excelentă lângă Lidl, cu acces facil la toate facilitățile.</p>
+                        <p class="descriere" data-translate="apt_lidl_studio_desc">Studio modern și compact, ideal pentru cupluri. Locație excelentă lângă Lidl, cu acces facil la toate facilitățile.</p>
                         <ul class="facilitati-cazare">
-                            <li>✓ Studio complet echipat</li>
-                            <li>✓ Kitchenette funcțională</li>
-                            <li>✓ Baie modernă</li>
-                            <li>✓ Aer condiționat</li>
-                            <li>✓ WiFi gratuit</li>
-                            <li>✓ Parcare gratuită</li>
-                            <li>✓ Aproape de magazine</li>
+                            <li>✓ <span data-translate="facility_studio">Studio complet echipat</span></li>
+                            <li>✓ <span data-translate="facility_kitchenette">Kitchenette funcțională</span></li>
+                            <li>✓ <span data-translate="facility_modern_bath">Baie modernă</span></li>
+                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
+                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
+                            <li>✓ <span data-translate="facility_free_parking">Parcare gratuită</span></li>
+                            <li>✓ <span data-translate="facility_near_shops">Aproape de magazine</span></li>
                         </ul>
-                        <p class="pret">700 Lei / noapte</p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio - Lângă Lidl', 700)">Rezervă Acum</button>
+                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio - Lângă Lidl', 700)" data-translate="book_now">Rezervă Acum</button>
                     </div>
                 </div>
 
                 <!-- Apartament 2 Camere - Lângă Lidl -->
                 <div class="cazare-card">
                     <div class="cazare-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <span class="img-placeholder">🏡 Apartament Spațios</span>
+                        <span class="img-placeholder">🏡 <span data-translate="apt_lidl_2room_placeholder">Apartament Spațios</span></span>
                     </div>
                     <div class="cazare-info">
-                        <h3>Apartament 2 Camere - Lângă Lidl</h3>
-                        <p class="locatie">📍 Mamaia Nord - Lângă Lidl</p>
+                        <h3 data-translate="apt_lidl_2room_name">Apartament 2 Camere - Lângă Lidl</h3>
+                        <p class="locatie">📍 <span data-translate="apt_lidl_2room_location">Mamaia Nord - Lângă Lidl</span></p>
                         <div class="availability-badge">
                             <span class="status-dot available"></span>
-                            <span>Verifică disponibilitatea</span>
+                            <span data-translate="check_availability">Verifică disponibilitatea</span>
                         </div>
-                        <p class="descriere">Apartament spațios cu 2 camere, în apropierea Lidl. Excelent pentru familii, cu toate facilitățile necesare.</p>
+                        <p class="descriere" data-translate="apt_lidl_2room_desc">Apartament spațios cu 2 camere, în apropierea Lidl. Excelent pentru familii, cu toate facilitățile necesare.</p>
                         <ul class="facilitati-cazare">
-                            <li>✓ 2 camere mari</li>
-                            <li>✓ Bucătărie complet echipată</li>
-                            <li>✓ Baie modernă</li>
-                            <li>✓ Living spațios</li>
-                            <li>✓ Aer condiționat</li>
-                            <li>✓ WiFi gratuit</li>
-                            <li>✓ Parcare disponibilă</li>
-                            <li>✓ Aproape de plajă și magazine</li>
+                            <li>✓ <span data-translate="facility_2big_rooms">2 camere mari</span></li>
+                            <li>✓ <span data-translate="facility_equipped_kitchen">Bucătărie complet echipată</span></li>
+                            <li>✓ <span data-translate="facility_modern_bath">Baie modernă</span></li>
+                            <li>✓ <span data-translate="facility_spacious_living">Living spațios</span></li>
+                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
+                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
+                            <li>✓ <span data-translate="facility_parking_available">Parcare disponibilă</span></li>
+                            <li>✓ <span data-translate="facility_near_beach_shops">Aproape de plajă și magazine</span></li>
                         </ul>
-                        <p class="pret">700 Lei / noapte</p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - Lângă Lidl', 700)">Rezervă Acum</button>
+                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - Lângă Lidl', 700)" data-translate="book_now">Rezervă Acum</button>
                     </div>
                 </div>
             </div>
 
             <!-- CTA pentru a vedea și Oradea -->
             <div class="alternate-location-cta">
-                <h3>Explorezi și orașul?</h3>
-                <p>Descoperă studio-ul nostru premium în Oradea - confort urban în inima Transilvaniei</p>
-                <a href="oradea.html" class="btn-primary">Vezi Cazări în Oradea</a>
+                <h3 data-translate="cta_city_title">Explorezi și orașul?</h3>
+                <p data-translate="cta_city_text">Descoperă studio-ul nostru premium în Oradea - confort urban în inima Transilvaniei</p>
+                <a href="oradea.html" class="btn-primary" data-translate="cta_city_btn">Vezi Cazări în Oradea</a>
             </div>
         </div>
     </section>
@@ -235,28 +248,28 @@
     <!-- Formular Rezervare -->
     <section id="rezervare" class="rezervare">
         <div class="container">
-            <h2>Rezervă Cazarea Ta</h2>
+            <h2 data-translate="form_title">Rezervă Cazarea Ta</h2>
             <form id="formRezervare" class="form-rezervare">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="nume">Nume Complet *</label>
+                        <label for="nume" data-translate="form_name">Nume Complet *</label>
                         <input type="text" id="nume" name="nume" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email *</label>
+                        <label for="email" data-translate="form_email">Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="telefon">Telefon *</label>
+                        <label for="telefon" data-translate="form_phone">Telefon *</label>
                         <input type="tel" id="telefon" name="telefon" required>
                     </div>
                     <div class="form-group">
-                        <label for="cazare">Alege Cazarea *</label>
+                        <label for="cazare" data-translate="form_accommodation">Alege Cazarea *</label>
                         <select id="cazare" name="cazare" required>
-                            <option value="">Selectează cazarea</option>
+                            <option value="" data-translate="form_select">Selectează cazarea</option>
                             <option value="Apartament 2 Camere - La Mare" data-pret="700">Apartament 2 Camere - La Mare - 700 Lei/noapte</option>
                             <option value="Studio - Lângă Lidl" data-pret="700">Studio - Lângă Lidl - 700 Lei/noapte</option>
                             <option value="Apartament 2 Camere - Lângă Lidl" data-pret="700">Apartament 2 Camere - Lângă Lidl - 700 Lei/noapte</option>
@@ -266,38 +279,38 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="checkin">Check-in *</label>
+                        <label for="checkin" data-translate="form_checkin">Check-in *</label>
                         <input type="date" id="checkin" name="checkin" required>
                     </div>
                     <div class="form-group">
-                        <label for="checkout">Check-out *</label>
+                        <label for="checkout" data-translate="form_checkout">Check-out *</label>
                         <input type="date" id="checkout" name="checkout" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="persoane">Număr Persoane *</label>
+                        <label for="persoane" data-translate="form_guests">Număr Persoane *</label>
                         <input type="number" id="persoane" name="persoane" min="1" max="8" value="2" required>
                     </div>
                     <div class="form-group">
-                        <label for="total">Total Estimat</label>
+                        <label for="total" data-translate="form_total">Total Estimat</label>
                         <input type="text" id="total" name="total" readonly value="0 Lei">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="observatii">Observații / Cerințe Speciale</label>
-                    <textarea id="observatii" name="observatii" rows="4" placeholder="Menționați orice cerințe speciale..."></textarea>
+                    <label for="observatii" data-translate="form_notes">Observații / Cerințe Speciale</label>
+                    <textarea id="observatii" name="observatii" rows="4" placeholder="Menționați orice cerințe speciale..." data-translate-placeholder="form_notes_placeholder"></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">Trimite Rezervarea</button>
+                <button type="submit" class="btn-submit" data-translate="form_submit">Trimite Rezervarea</button>
             </form>
 
             <div id="mesajConfirmare" class="mesaj-confirmare" style="display: none;">
-                <h3>✓ Rezervare Trimisă cu Succes!</h3>
-                <p>Vă mulțumim pentru rezervare. Veți fi contactat în curând pentru confirmare.</p>
-                <button onclick="inchideMesaj()" class="btn-inchide">Închide</button>
+                <h3 data-translate="form_success_title">✓ Rezervare Trimisă cu Succes!</h3>
+                <p data-translate="form_success_text">Vă mulțumim pentru rezervare. Veți fi contactat în curând pentru confirmare.</p>
+                <button onclick="inchideMesaj()" class="btn-inchide" data-translate="form_close">Închide</button>
             </div>
         </div>
     </section>
@@ -305,10 +318,10 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact</h2>
+            <h2 data-translate="contact_title">Contact</h2>
             <div class="contact-grid">
                 <div class="contact-location">
-                    <h3>📍 Oradea</h3>
+                    <h3>📍 <span data-translate="banner_oradea">Oradea</span></h3>
                     <p><strong>Studio New York</strong></p>
                     <p>Oradea, România</p>
                     <p>📞 +40 123 456 789</p>
@@ -320,10 +333,10 @@
                     <p>📞 +40 123 456 789</p>
                 </div>
                 <div class="contact-location">
-                    <h3>📧 Email General</h3>
+                    <h3>📧 <span data-translate="contact_email_title">Email General</span></h3>
                     <p>contact@cazarepremium.ro</p>
                     <p>&nbsp;</p>
-                    <p>Răspundem în 24h</p>
+                    <p data-translate="contact_response">Răspundem în 24h</p>
                 </div>
             </div>
         </div>
@@ -332,10 +345,11 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</p>
+            <p>&copy; 2025 <span data-translate="footer_text">Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</span></p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
     <!-- Hamburger Menu Script -->
     <script>

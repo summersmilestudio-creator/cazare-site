@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cazare în Oradea - Cazare Premium</title>
+    <title data-translate-title="page_oradea_title">Cazare în Oradea - Cazare Premium</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Banner specific pentru Oradea */
@@ -112,22 +112,35 @@
             </div>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="oradea.html" class="active">Oradea</a></li>
-                <li><a href="mamaia.html">Mamaia Nord</a></li>
-                <li><a href="curateanie.html">Curățenie</a></li>
-                <li><a href="property-manager.html">Property Manager</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" data-translate="nav_home">Acasă</a></li>
+                <li><a href="oradea.html" class="active" data-translate="nav_oradea">Oradea</a></li>
+                <li><a href="mamaia.html" data-translate="nav_mamaia">Mamaia Nord</a></li>
+                <li><a href="curateanie.html" data-translate="nav_cleaning">Curățenie</a></li>
+                <li><a href="property-manager.html" data-translate="nav_property">Property Manager</a></li>
+                <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
             </ul>
+
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="ro" title="Română">
+                    <div class="flag-ro"></div>
+                </button>
+                <button class="lang-btn" data-lang="en" title="English">
+                    <div class="flag-en"></div>
+                </button>
+                <button class="lang-btn" data-lang="hu" title="Magyar">
+                    <div class="flag-hu"></div>
+                </button>
+            </div>
         </nav>
     </header>
 
     <!-- Banner Oradea -->
     <section class="oradea-banner">
         <div class="banner-content">
-            <h1>🏛️ Oradea</h1>
-            <p>Confort urban în inima Oradei - Arhitectură & Cultură</p>
-            <a href="#cazare-oradea" class="btn-primary">Vezi Cazările</a>
+            <h1>🏛️ <span data-translate="banner_oradea">Oradea</span></h1>
+            <p data-translate="oradea_banner_desc">Confort urban în inima Oradei - Arhitectură & Cultură</p>
+            <a href="#cazare-oradea" class="btn-primary" data-translate="oradea_view_btn">Vezi Cazările</a>
         </div>
     </section>
 
@@ -135,8 +148,8 @@
     <section id="cazare-oradea" class="cazare location-oradea">
         <div class="container">
             <div class="location-header">
-                <h2>🏛️ Cazare în Oradea</h2>
-                <p class="location-subtitle">Confort urban în inima Oradei</p>
+                <h2>🏛️ <span data-translate="oradea_title">Cazare în Oradea</span></h2>
+                <p class="location-subtitle" data-translate="oradea_subtitle">Confort urban în inima Oradei</p>
             </div>
 
             <div class="cazare-grid">
@@ -156,34 +169,34 @@
                         </div>
                     </div>
                     <div class="cazare-info">
-                        <h3>Studio New York</h3>
-                        <p class="locatie">📍 Oradea, România</p>
+                        <h3 data-translate="studio_ny_name">Studio New York</h3>
+                        <p class="locatie">📍 <span data-translate="studio_ny_location">Oradea, România</span></p>
                         <div class="availability-badge">
                             <span class="status-dot available"></span>
-                            <span>Verifică disponibilitatea</span>
+                            <span data-translate="check_availability">Verifică disponibilitatea</span>
                         </div>
-                        <p class="descriere">Studio modern și elegant în Oradea, perfect pentru sejururi de afaceri sau turistice. Complet echipat cu toate facilitățile necesare pentru un sejur confortabil.</p>
+                        <p class="descriere" data-translate="studio_ny_desc">Studio modern și elegant în Oradea, perfect pentru sejururi de afaceri sau turistice. Complet echipat cu toate facilitățile necesare pentru un sejur confortabil.</p>
                         <ul class="facilitati-cazare">
-                            <li>✓ Studio complet echipat</li>
-                            <li>✓ Bucătărie modernă</li>
-                            <li>✓ Baie privată</li>
-                            <li>✓ Aer condiționat</li>
-                            <li>✓ WiFi ultra-rapid</li>
-                            <li>✓ 🅿️ Parcare GRATUITĂ</li>
-                            <li>✓ Smart TV</li>
-                            <li>✓ Lenjerie premium</li>
+                            <li>✓ <span data-translate="facility_studio">Studio complet echipat</span></li>
+                            <li>✓ <span data-translate="facility_kitchen">Bucătărie modernă</span></li>
+                            <li>✓ <span data-translate="facility_bathroom">Baie privată</span></li>
+                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
+                            <li>✓ <span data-translate="facility_wifi">WiFi ultra-rapid</span></li>
+                            <li>✓ 🅿️ <span data-translate="facility_parking">Parcare GRATUITĂ</span></li>
+                            <li>✓ <span data-translate="facility_tv">Smart TV</span></li>
+                            <li>✓ <span data-translate="facility_linen">Lenjerie premium</span></li>
                         </ul>
-                        <p class="pret">700 Lei / noapte</p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio New York - Oradea', 700)">Rezervă Acum</button>
+                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio New York - Oradea', 700)" data-translate="book_now">Rezervă Acum</button>
                     </div>
                 </div>
             </div>
 
             <!-- CTA pentru a vedea și Mamaia -->
             <div class="alternate-location-cta">
-                <h3>Cauți cazare la mare?</h3>
-                <p>Descoperă apartamentele noastre premium în Mamaia Nord - direct la malul mării</p>
-                <a href="mamaia.html" class="btn-primary">Vezi Cazări în Mamaia Nord</a>
+                <h3 data-translate="cta_sea_title">Cauți cazare la mare?</h3>
+                <p data-translate="cta_sea_text">Descoperă apartamentele noastre premium în Mamaia Nord - direct la malul mării</p>
+                <a href="mamaia.html" class="btn-primary" data-translate="cta_sea_btn">Vezi Cazări în Mamaia Nord</a>
             </div>
         </div>
     </section>
@@ -191,28 +204,28 @@
     <!-- Formular Rezervare -->
     <section id="rezervare" class="rezervare">
         <div class="container">
-            <h2>Rezervă Cazarea Ta</h2>
+            <h2 data-translate="form_title">Rezervă Cazarea Ta</h2>
             <form id="formRezervare" class="form-rezervare">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="nume">Nume Complet *</label>
+                        <label for="nume" data-translate="form_name">Nume Complet *</label>
                         <input type="text" id="nume" name="nume" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email *</label>
+                        <label for="email" data-translate="form_email">Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="telefon">Telefon *</label>
+                        <label for="telefon" data-translate="form_phone">Telefon *</label>
                         <input type="tel" id="telefon" name="telefon" required>
                     </div>
                     <div class="form-group">
-                        <label for="cazare">Alege Cazarea *</label>
+                        <label for="cazare" data-translate="form_accommodation">Alege Cazarea *</label>
                         <select id="cazare" name="cazare" required>
-                            <option value="">Selectează cazarea</option>
+                            <option value="" data-translate="form_select">Selectează cazarea</option>
                             <option value="Studio New York - Oradea" data-pret="700">Studio New York - 700 Lei/noapte</option>
                         </select>
                     </div>
@@ -220,38 +233,38 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="checkin">Check-in *</label>
+                        <label for="checkin" data-translate="form_checkin">Check-in *</label>
                         <input type="date" id="checkin" name="checkin" required>
                     </div>
                     <div class="form-group">
-                        <label for="checkout">Check-out *</label>
+                        <label for="checkout" data-translate="form_checkout">Check-out *</label>
                         <input type="date" id="checkout" name="checkout" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="persoane">Număr Persoane *</label>
+                        <label for="persoane" data-translate="form_guests">Număr Persoane *</label>
                         <input type="number" id="persoane" name="persoane" min="1" max="8" value="2" required>
                     </div>
                     <div class="form-group">
-                        <label for="total">Total Estimat</label>
+                        <label for="total" data-translate="form_total">Total Estimat</label>
                         <input type="text" id="total" name="total" readonly value="0 Lei">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="observatii">Observații / Cerințe Speciale</label>
-                    <textarea id="observatii" name="observatii" rows="4" placeholder="Menționați orice cerințe speciale..."></textarea>
+                    <label for="observatii" data-translate="form_notes">Observații / Cerințe Speciale</label>
+                    <textarea id="observatii" name="observatii" rows="4" placeholder="Menționați orice cerințe speciale..." data-translate-placeholder="form_notes_placeholder"></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">Trimite Rezervarea</button>
+                <button type="submit" class="btn-submit" data-translate="form_submit">Trimite Rezervarea</button>
             </form>
 
             <div id="mesajConfirmare" class="mesaj-confirmare" style="display: none;">
-                <h3>✓ Rezervare Trimisă cu Succes!</h3>
-                <p>Vă mulțumim pentru rezervare. Veți fi contactat în curând pentru confirmare.</p>
-                <button onclick="inchideMesaj()" class="btn-inchide">Închide</button>
+                <h3 data-translate="form_success_title">✓ Rezervare Trimisă cu Succes!</h3>
+                <p data-translate="form_success_text">Vă mulțumim pentru rezervare. Veți fi contactat în curând pentru confirmare.</p>
+                <button onclick="inchideMesaj()" class="btn-inchide" data-translate="form_close">Închide</button>
             </div>
         </div>
     </section>
@@ -259,10 +272,10 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact</h2>
+            <h2 data-translate="contact_title">Contact</h2>
             <div class="contact-grid">
                 <div class="contact-location">
-                    <h3>📍 Oradea</h3>
+                    <h3>📍 <span data-translate="banner_oradea">Oradea</span></h3>
                     <p><strong>Studio New York</strong></p>
                     <p>Oradea, România</p>
                     <p>📞 +40 123 456 789</p>
@@ -274,10 +287,10 @@
                     <p>📞 +40 123 456 789</p>
                 </div>
                 <div class="contact-location">
-                    <h3>📧 Email General</h3>
+                    <h3>📧 <span data-translate="contact_email_title">Email General</span></h3>
                     <p>contact@cazarepremium.ro</p>
                     <p>&nbsp;</p>
-                    <p>Răspundem în 24h</p>
+                    <p data-translate="contact_response">Răspundem în 24h</p>
                 </div>
             </div>
         </div>
@@ -286,10 +299,11 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</p>
+            <p>&copy; 2025 <span data-translate="footer_text">Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</span></p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 
     <!-- Hamburger Menu Script -->

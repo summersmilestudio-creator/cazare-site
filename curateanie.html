@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicii de Curățenie - Cazare Premium</title>
+    <title data-translate-title="page_cleaning_title">Servicii de Curățenie - Cazare Premium</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,7 +11,9 @@
     <header>
         <nav>
             <div class="logo">
-                <h1>🏠 Cazare Premium</h1>
+                <a href="index.html" style="display: flex; align-items: center; overflow: hidden; border-radius: 10px;">
+                    <img src="IMAGINI/3.jpeg" alt="Cazare Premium - Summer Smile" style="height: 90px; width: 180px; object-fit: cover; object-position: center; box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4); transition: transform 0.3s ease; margin-right: 20px; border: none; display: block; transform: scale(1.15);">
+                </a>
             </div>
 
             <!-- Hamburger Menu (Mobile Only) -->
@@ -22,71 +24,91 @@
             </div>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="oradea.html">Oradea</a></li>
-                <li><a href="mamaia.html">Mamaia Nord</a></li>
-                <li><a href="curateanie.html">Curățenie</a></li>
-                <li><a href="property-manager.html">Property Manager</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" data-translate="nav_home">Acasă</a></li>
+                <li><a href="oradea.html" data-translate="nav_oradea">Oradea</a></li>
+                <li><a href="mamaia.html" data-translate="nav_mamaia">Mamaia Nord</a></li>
+                <li><a href="curateanie.html" class="active" data-translate="nav_cleaning">Curățenie</a></li>
+                <li><a href="property-manager.html" data-translate="nav_property">Property Manager</a></li>
+                <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
             </ul>
+
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="ro" title="Română">
+                    <div class="flag-ro"></div>
+                </button>
+                <button class="lang-btn" data-lang="en" title="English">
+                    <div class="flag-en"></div>
+                </button>
+                <button class="lang-btn" data-lang="hu" title="Magyar">
+                    <div class="flag-hu"></div>
+                </button>
+            </div>
         </nav>
     </header>
 
     <!-- Hero Section Curateanie -->
     <section class="services-hero">
         <div class="hero-content">
-            <h1>Servicii Profesionale de Curățenie</h1>
-            <p>Menținem spațiile tale impecabile pentru oaspeți mulțumiți</p>
+            <h1 data-translate="cleaning_hero_title">Servicii Profesionale de Curățenie</h1>
+            <p data-translate="cleaning_hero_subtitle">Menținem spațiile tale impecabile pentru oaspeți mulțumiți</p>
         </div>
     </section>
 
     <!-- Servicii Curateanie -->
     <section class="services-content">
         <div class="container">
-            <h2>Servicii de Curățenie pentru Cazare</h2>
+            <h2 data-translate="cleaning_page_title">Servicii de Curățenie pentru Cazare</h2>
 
             <div class="service-grid">
                 <div class="service-card">
-                    <h3>🧹 Curățenie După Check-Out</h3>
-                    <p>Curățenie completă și profesională după plecarea oaspeților, pregătim spațiul pentru următorii vizitatori.</p>
+                    <h3>🧹 <span data-translate="cleaning_checkout_title">Curățenie După Check-Out</span></h3>
+                    <p data-translate="cleaning_checkout_desc">Curățenie completă și profesională după plecarea oaspeților, pregătim spațiul pentru următorii vizitatori.</p>
                     <ul>
-                        <li>Aspirare și spălare pardoseli</li>
-                        <li>Curățenie baie complet</li>
-                        <li>Schimbare lenjerie de pat</li>
-                        <li>Dezinfectare suprafețe</li>
+                        <li data-translate="cleaning_vacuum">Aspirare și spălare pardoseli</li>
+                        <li data-translate="cleaning_bathroom">Curățenie baie complet</li>
+                        <li data-translate="cleaning_bedding">Schimbare lenjerie de pat</li>
+                        <li data-translate="cleaning_disinfect">Dezinfectare suprafețe</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <h3>✨ Curățenie Profundă</h3>
-                    <p>Servicii complete de curățenie profundă pentru menținerea standardelor înalte.</p>
+                    <h3>✨ <span data-translate="cleaning_deep_title">Curățenie Profundă</span></h3>
+                    <p data-translate="cleaning_deep_desc">Servicii complete de curățenie profundă pentru menținerea standardelor înalte.</p>
                     <ul>
-                        <li>Curățare ferestre</li>
-                        <li>Curățenie mobilier</li>
-                        <li>Dezinfectare bucătărie</li>
-                        <li>Curățare covoare și textile</li>
+                        <li data-translate="cleaning_windows_deep">Curățare ferestre</li>
+                        <li data-translate="cleaning_furniture">Curățenie mobilier</li>
+                        <li data-translate="cleaning_kitchen_deep">Dezinfectare bucătărie</li>
+                        <li data-translate="cleaning_carpets">Curățare covoare și textile</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <h3>🏨 Mentenanță Zilnică</h3>
-                    <p>Servicii regulate de menținere a curățeniei pentru sejururi lungi.</p>
+                    <h3>🏨 <span data-translate="cleaning_daily_title">Mentenanță Zilnică</span></h3>
+                    <p data-translate="cleaning_daily_desc">Servicii regulate de menținere a curățeniei pentru sejururi lungi.</p>
                     <ul>
-                        <li>Curățenie zilnică camera</li>
-                        <li>Reumplere produse igienă</li>
-                        <li>Înlocuire prosoape</li>
-                        <li>Verificare stare generală</li>
+                        <li data-translate="cleaning_daily_room">Curățenie zilnică camera</li>
+                        <li data-translate="cleaning_refill">Reumplere produse igienă</li>
+                        <li data-translate="cleaning_towels">Înlocuire prosoape</li>
+                        <li data-translate="cleaning_check">Verificare stare generală</li>
                     </ul>
                 </div>
             </div>
 
             <div class="cta-section">
-                <h3>Solicită Servicii de Curățenie</h3>
-                <p>Contactează-ne pentru o ofertă personalizată</p>
-                <a href="index.html#contact" class="btn-primary">Contactează-ne</a>
+                <h3 data-translate="cleaning_cta_title">Solicită Servicii de Curățenie</h3>
+                <p data-translate="cleaning_cta_text">Contactează-ne pentru o ofertă personalizată</p>
+                <a href="index.html#contact" class="btn-primary" data-translate="cleaning_cta_btn">Contactează-ne</a>
             </div>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 <span data-translate="footer_text">Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</span></p>
+        </div>
+    </footer>
 
     <style>
         .services-hero {
@@ -182,6 +204,8 @@
             box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
         }
     </style>
+
+    <script src="translations.js"></script>
     <!-- Hamburger Menu Script -->
     <script>
         window.addEventListener('load', function() {

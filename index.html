@@ -505,13 +505,26 @@
             </div>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Acasă</a></li>
-                <li><a href="oradea.html">Oradea</a></li>
-                <li><a href="mamaia.html">Mamaia Nord</a></li>
-                <li><a href="curateanie.html">Curățenie</a></li>
-                <li><a href="property-manager.html">Property Manager</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html" data-translate="nav_home">Acasă</a></li>
+                <li><a href="oradea.html" data-translate="nav_oradea">Oradea</a></li>
+                <li><a href="mamaia.html" data-translate="nav_mamaia">Mamaia Nord</a></li>
+                <li><a href="curateanie.html" data-translate="nav_cleaning">Curățenie</a></li>
+                <li><a href="property-manager.html" data-translate="nav_property">Property Manager</a></li>
+                <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
             </ul>
+
+            <!-- Language Selector -->
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="ro" title="Română">
+                    <div class="flag-ro"></div>
+                </button>
+                <button class="lang-btn" data-lang="en" title="English">
+                    <div class="flag-en"></div>
+                </button>
+                <button class="lang-btn" data-lang="hu" title="Magyar">
+                    <div class="flag-hu"></div>
+                </button>
+            </div>
         </nav>
     </header>
 
@@ -529,17 +542,17 @@
         <!-- Location cards from Varianta 4 -->
         <div class="parallax-locations">
             <div class="location-card-parallax" onclick="window.location.href='oradea.html'">
-                <h3>🏛️ Oradea</h3>
-                <p>Arhitectură & Cultură</p>
+                <h3>🏛️ <span data-translate="banner_oradea">Oradea</span></h3>
+                <p data-translate="banner_oradea_desc">Arhitectură & Cultură</p>
             </div>
             <div class="location-card-parallax" onclick="window.location.href='mamaia.html'">
-                <h3>🏖️ Mamaia Nord</h3>
-                <p>Lux & Relaxare</p>
+                <h3>🏖️ <span data-translate="banner_mamaia">Mamaia Nord</span></h3>
+                <p data-translate="banner_mamaia_desc">Lux & Relaxare</p>
             </div>
         </div>
 
         <!-- Hover instruction -->
-        <div class="hover-instruction">
+        <div class="hover-instruction" data-translate="banner_explore">
             ← Explorează fiecare destinație pentru detalii exclusive →
         </div>
     </section>
@@ -547,8 +560,8 @@
     <!-- Despre -->
     <section id="despre" class="despre">
         <div class="container">
-            <h2>Despre Noi</h2>
-            <p>Vă oferim cazare de cea mai înaltă calitate atât în Oradea cât și în Mamaia Nord.
+            <h2 data-translate="about_title">Despre Noi</h2>
+            <p data-translate="about_text">Vă oferim cazare de cea mai înaltă calitate atât în Oradea cât și în Mamaia Nord.
             Cu apartamente moderne, dotări complete și locații excelente, vă garantăm o experiență de neuitat.</p>
         </div>
     </section>
@@ -557,8 +570,8 @@
     <section id="oradea" class="cazare location-oradea">
         <div class="container">
             <div class="location-header">
-                <h2>🏛️ Cazare în Oradea</h2>
-                <p class="location-subtitle">Confort urban în inima Oradei</p>
+                <h2>🏛️ <span data-translate="oradea_title">Cazare în Oradea</span></h2>
+                <p class="location-subtitle" data-translate="oradea_subtitle">Confort urban în inima Oradei</p>
             </div>
 
             <div class="cazare-grid">
@@ -578,25 +591,25 @@
                         </div>
                     </div>
                     <div class="cazare-info">
-                        <h3>Studio New York</h3>
-                        <p class="locatie">📍 Oradea, România</p>
+                        <h3 data-translate="studio_ny_name">Studio New York</h3>
+                        <p class="locatie">📍 <span data-translate="studio_ny_location">Oradea, România</span></p>
                         <div class="availability-badge">
                             <span class="status-dot available"></span>
-                            <span>Verifică disponibilitatea</span>
+                            <span data-translate="check_availability">Verifică disponibilitatea</span>
                         </div>
-                        <p class="descriere">Studio modern și elegant în Oradea, perfect pentru sejururi de afaceri sau turistice. Complet echipat cu toate facilitățile necesare pentru un sejur confortabil.</p>
+                        <p class="descriere" data-translate="studio_ny_desc">Studio modern și elegant în Oradea, perfect pentru sejururi de afaceri sau turistice. Complet echipat cu toate facilitățile necesare pentru un sejur confortabil.</p>
                         <ul class="facilitati-cazare">
-                            <li>✓ Studio complet echipat</li>
-                            <li>✓ Bucătărie modernă</li>
-                            <li>✓ Baie privată</li>
-                            <li>✓ Aer condiționat</li>
-                            <li>✓ WiFi ultra-rapid</li>
-                            <li>✓ 🅿️ Parcare GRATUITĂ</li>
-                            <li>✓ Smart TV</li>
-                            <li>✓ Lenjerie premium</li>
+                            <li>✓ <span data-translate="facility_studio">Studio complet echipat</span></li>
+                            <li>✓ <span data-translate="facility_kitchen">Bucătărie modernă</span></li>
+                            <li>✓ <span data-translate="facility_bathroom">Baie privată</span></li>
+                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
+                            <li>✓ <span data-translate="facility_wifi">WiFi ultra-rapid</span></li>
+                            <li>✓ 🅿️ <span data-translate="facility_parking">Parcare GRATUITĂ</span></li>
+                            <li>✓ <span data-translate="facility_tv">Smart TV</span></li>
+                            <li>✓ <span data-translate="facility_linen">Lenjerie premium</span></li>
                         </ul>
-                        <p class="pret">700 Lei / noapte</p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio New York - Oradea', 700)">Rezervă Acum</button>
+                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio New York - Oradea', 700)" data-translate="book_now">Rezervă Acum</button>
                     </div>
                 </div>
             </div>
@@ -607,89 +620,89 @@
     <section id="mamaia" class="cazare location-mamaia">
         <div class="container">
             <div class="location-header">
-                <h2>🏖️ Cazare în Mamaia Nord</h2>
-                <p class="location-subtitle">Relaxare la malul mării</p>
+                <h2>🏖️ <span data-translate="mamaia_title">Cazare în Mamaia Nord</span></h2>
+                <p class="location-subtitle" data-translate="mamaia_subtitle">Relaxare la malul mării</p>
             </div>
 
             <div class="cazare-grid">
                 <!-- Apartament 2 camere - La Mare -->
                 <div class="cazare-card">
                     <div class="cazare-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <span class="img-placeholder">🏖️ Prima Linie La Mare</span>
+                        <span class="img-placeholder">🏖️ <span data-translate="apt_sea_placeholder">Prima Linie La Mare</span></span>
                     </div>
                     <div class="cazare-info">
-                        <h3>Apartament 2 Camere - La Mare</h3>
-                        <p class="locatie">📍 Mamaia Nord - Prima Linie la Mare</p>
+                        <h3 data-translate="apt_sea_name">Apartament 2 Camere - La Mare</h3>
+                        <p class="locatie">📍 <span data-translate="apt_sea_location">Mamaia Nord - Prima Linie la Mare</span></p>
                         <div class="availability-badge">
                             <span class="status-dot available"></span>
-                            <span>Verifică disponibilitatea</span>
+                            <span data-translate="check_availability">Verifică disponibilitatea</span>
                         </div>
-                        <p class="descriere">Apartament modern cu 2 camere, vedere spectaculoasă la mare, în prima linie. Perfect pentru familii sau grupuri mici.</p>
+                        <p class="descriere" data-translate="apt_sea_desc">Apartament modern cu 2 camere, vedere spectaculoasă la mare, în prima linie. Perfect pentru familii sau grupuri mici.</p>
                         <ul class="facilitati-cazare">
-                            <li>✓ 2 camere spațioase</li>
-                            <li>✓ Vedere panoramică la mare</li>
-                            <li>✓ Bucătărie completă</li>
-                            <li>✓ Aer condiționat</li>
-                            <li>✓ WiFi gratuit</li>
-                            <li>✓ Balcon mare</li>
-                            <li>✓ Acces direct la plajă</li>
+                            <li>✓ <span data-translate="facility_2rooms">2 camere spațioase</span></li>
+                            <li>✓ <span data-translate="facility_sea_view">Vedere panoramică la mare</span></li>
+                            <li>✓ <span data-translate="facility_full_kitchen">Bucătărie completă</span></li>
+                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
+                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
+                            <li>✓ <span data-translate="facility_balcony">Balcon mare</span></li>
+                            <li>✓ <span data-translate="facility_beach_access">Acces direct la plajă</span></li>
                         </ul>
-                        <p class="pret">700 Lei / noapte</p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - La Mare', 700)">Rezervă Acum</button>
+                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - La Mare', 700)" data-translate="book_now">Rezervă Acum</button>
                     </div>
                 </div>
 
                 <!-- Studio - Lângă Lidl -->
                 <div class="cazare-card">
                     <div class="cazare-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <span class="img-placeholder">🏠 Studio Modern</span>
+                        <span class="img-placeholder">🏠 <span data-translate="apt_lidl_studio_placeholder">Studio Modern</span></span>
                     </div>
                     <div class="cazare-info">
-                        <h3>Studio - Lângă Lidl</h3>
-                        <p class="locatie">📍 Mamaia Nord - Lângă Lidl</p>
+                        <h3 data-translate="apt_lidl_studio_name">Studio - Lângă Lidl</h3>
+                        <p class="locatie">📍 <span data-translate="apt_lidl_studio_location">Mamaia Nord - Lângă Lidl</span></p>
                         <div class="availability-badge">
                             <span class="status-dot available"></span>
-                            <span>Verifică disponibilitatea</span>
+                            <span data-translate="check_availability">Verifică disponibilitatea</span>
                         </div>
-                        <p class="descriere">Studio modern și compact, ideal pentru cupluri. Locație excelentă lângă Lidl, cu acces facil la toate facilitățile.</p>
+                        <p class="descriere" data-translate="apt_lidl_studio_desc">Studio modern și compact, ideal pentru cupluri. Locație excelentă lângă Lidl, cu acces facil la toate facilitățile.</p>
                         <ul class="facilitati-cazare">
-                            <li>✓ Studio complet echipat</li>
-                            <li>✓ Kitchenette funcțională</li>
-                            <li>✓ Baie modernă</li>
-                            <li>✓ Aer condiționat</li>
-                            <li>✓ WiFi gratuit</li>
-                            <li>✓ Parcare gratuită</li>
-                            <li>✓ Aproape de magazine</li>
+                            <li>✓ <span data-translate="facility_studio">Studio complet echipat</span></li>
+                            <li>✓ <span data-translate="facility_kitchenette">Kitchenette funcțională</span></li>
+                            <li>✓ <span data-translate="facility_modern_bath">Baie modernă</span></li>
+                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
+                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
+                            <li>✓ <span data-translate="facility_free_parking">Parcare gratuită</span></li>
+                            <li>✓ <span data-translate="facility_near_shops">Aproape de magazine</span></li>
                         </ul>
-                        <p class="pret">700 Lei / noapte</p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio - Lângă Lidl', 700)">Rezervă Acum</button>
+                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio - Lângă Lidl', 700)" data-translate="book_now">Rezervă Acum</button>
                     </div>
                 </div>
 
                 <!-- Apartament 2 Camere - Lângă Lidl -->
                 <div class="cazare-card">
                     <div class="cazare-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <span class="img-placeholder">🏡 Apartament Spațios</span>
+                        <span class="img-placeholder">🏡 <span data-translate="apt_lidl_2room_placeholder">Apartament Spațios</span></span>
                     </div>
                     <div class="cazare-info">
-                        <h3>Apartament 2 Camere - Lângă Lidl</h3>
-                        <p class="locatie">📍 Mamaia Nord - Lângă Lidl</p>
+                        <h3 data-translate="apt_lidl_2room_name">Apartament 2 Camere - Lângă Lidl</h3>
+                        <p class="locatie">📍 <span data-translate="apt_lidl_2room_location">Mamaia Nord - Lângă Lidl</span></p>
                         <div class="availability-badge">
                             <span class="status-dot available"></span>
-                            <span>Verifică disponibilitatea</span>
+                            <span data-translate="check_availability">Verifică disponibilitatea</span>
                         </div>
-                        <p class="descriere">Apartament spațios cu 2 camere, în apropierea Lidl. Excelent pentru familii, cu toate facilitățile necesare.</p>
+                        <p class="descriere" data-translate="apt_lidl_2room_desc">Apartament spațios cu 2 camere, în apropierea Lidl. Excelent pentru familii, cu toate facilitățile necesare.</p>
                         <ul class="facilitati-cazare">
-                            <li>✓ 2 camere mari</li>
-                            <li>✓ Bucătărie completă</li>
-                            <li>✓ Living generos</li>
-                            <li>✓ Aer condiționat</li>
-                            <li>✓ WiFi gratuit</li>
-                            <li>✓ Parcare gratuită</li>
-                            <li>✓ Zonă liniștită</li>
+                            <li>✓ <span data-translate="facility_2big_rooms">2 camere mari</span></li>
+                            <li>✓ <span data-translate="facility_full_kitchen">Bucătărie completă</span></li>
+                            <li>✓ <span data-translate="facility_large_living">Living generos</span></li>
+                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
+                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
+                            <li>✓ <span data-translate="facility_free_parking">Parcare gratuită</span></li>
+                            <li>✓ <span data-translate="facility_quiet_area">Zonă liniștită</span></li>
                         </ul>
-                        <p class="pret">700 Lei / noapte</p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - Lângă Lidl', 700)">Rezervă Acum</button>
+                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
+                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - Lângă Lidl', 700)" data-translate="book_now">Rezervă Acum</button>
                     </div>
                 </div>
             </div>
@@ -700,67 +713,67 @@
     <section id="servicii" class="servicii">
         <div class="container">
             <div class="section-header">
-                <h2>🧹 Servicii de Curățenie & Property Manager</h2>
-                <p class="section-subtitle">Gestionăm proprietatea ta cu profesionalism</p>
+                <h2>🧹 <span data-translate="services_title">Servicii de Curățenie & Property Manager</span></h2>
+                <p class="section-subtitle" data-translate="services_subtitle">Gestionăm proprietatea ta cu profesionalism</p>
             </div>
 
             <div class="servicii-grid">
                 <!-- Servicii de Curățenie -->
                 <div class="serviciu-card">
                     <div class="serviciu-icon">🧼</div>
-                    <h3>Servicii de Curățenie Profesionale</h3>
-                    <p class="serviciu-descriere">Oferim servicii complete de curățenie pentru proprietățile tale, asigurând standarde înalte de igienă și confort pentru oaspeți.</p>
+                    <h3 data-translate="cleaning_title">Servicii de Curățenie Profesionale</h3>
+                    <p class="serviciu-descriere" data-translate="cleaning_desc">Oferim servicii complete de curățenie pentru proprietățile tale, asigurând standarde înalte de igienă și confort pentru oaspeți.</p>
                     <ul class="serviciu-lista">
-                        <li>✓ Curățenie după fiecare check-out</li>
-                        <li>✓ Curățenie deep cleaning periodic</li>
-                        <li>✓ Schimbare lenjerie și prosoape</li>
-                        <li>✓ Verificare și completare consumabile</li>
-                        <li>✓ Igienizare și dezinfectare</li>
-                        <li>✓ Curățare ferestre și terase</li>
+                        <li>✓ <span data-translate="cleaning_checkout">Curățenie după fiecare check-out</span></li>
+                        <li>✓ <span data-translate="cleaning_deep">Curățenie deep cleaning periodic</span></li>
+                        <li>✓ <span data-translate="cleaning_linen">Schimbare lenjerie și prosoape</span></li>
+                        <li>✓ <span data-translate="cleaning_supplies">Verificare și completare consumabile</span></li>
+                        <li>✓ <span data-translate="cleaning_sanitize">Igienizare și dezinfectare</span></li>
+                        <li>✓ <span data-translate="cleaning_windows">Curățare ferestre și terase</span></li>
                     </ul>
-                    <p class="serviciu-pret">De la 150 Lei / curățenie</p>
+                    <p class="serviciu-pret" data-translate="cleaning_price">De la 150 Lei / curățenie</p>
                 </div>
 
                 <!-- Property Manager -->
                 <div class="serviciu-card featured-service">
                     <div class="serviciu-icon">🏢</div>
-                    <h3>Property Management Complet</h3>
-                    <p class="serviciu-descriere">Gestionăm proprietatea ta de la A la Z, astfel încât tu să te bucuri doar de venituri fără griji.</p>
+                    <h3 data-translate="pm_title">Property Management Complet</h3>
+                    <p class="serviciu-descriere" data-translate="pm_desc">Gestionăm proprietatea ta de la A la Z, astfel încât tu să te bucuri doar de venituri fără griji.</p>
                     <ul class="serviciu-lista">
-                        <li>✓ Gestionare rezervări pe multiple platforme</li>
-                        <li>✓ Check-in / Check-out oaspeți</li>
-                        <li>✓ Comunicare cu oaspeții 24/7</li>
-                        <li>✓ Curățenie și mentenanță regulată</li>
-                        <li>✓ Gestionare financiară și raportare</li>
-                        <li>✓ Optimizare prețuri și ocupare</li>
-                        <li>✓ Marketing și promovare proprietate</li>
-                        <li>✓ Întreținere și reparații minore</li>
+                        <li>✓ <span data-translate="pm_reservations">Gestionare rezervări pe multiple platforme</span></li>
+                        <li>✓ <span data-translate="pm_checkin">Check-in / Check-out oaspeți</span></li>
+                        <li>✓ <span data-translate="pm_communication">Comunicare cu oaspeții 24/7</span></li>
+                        <li>✓ <span data-translate="pm_cleaning">Curățenie și mentenanță regulată</span></li>
+                        <li>✓ <span data-translate="pm_financial">Gestionare financiară și raportare</span></li>
+                        <li>✓ <span data-translate="pm_pricing">Optimizare prețuri și ocupare</span></li>
+                        <li>✓ <span data-translate="pm_marketing">Marketing și promovare proprietate</span></li>
+                        <li>✓ <span data-translate="pm_maintenance">Întreținere și reparații minore</span></li>
                     </ul>
-                    <p class="serviciu-pret">15-20% din încasări / lună</p>
-                    <button class="btn-serviciu" onclick="window.location.href='#contact'">Solicită Ofertă</button>
+                    <p class="serviciu-pret" data-translate="pm_price">15-20% din încasări / lună</p>
+                    <button class="btn-serviciu" onclick="window.location.href='#contact'" data-translate="pm_request">Solicită Ofertă</button>
                 </div>
 
                 <!-- Pachet Extra -->
                 <div class="serviciu-card">
                     <div class="serviciu-icon">⭐</div>
-                    <h3>Servicii Suplimentare</h3>
-                    <p class="serviciu-descriere">Servicii opționale pentru a îmbunătăți experiența oaspeților și a maximiza veniturile tale.</p>
+                    <h3 data-translate="extra_title">Servicii Suplimentare</h3>
+                    <p class="serviciu-descriere" data-translate="extra_desc">Servicii opționale pentru a îmbunătăți experiența oaspeților și a maximiza veniturile tale.</p>
                     <ul class="serviciu-lista">
-                        <li>✓ Transfer aeroport / gară</li>
-                        <li>✓ Aprovizionare frigider la cerere</li>
-                        <li>✓ Concierge services</li>
-                        <li>✓ Rezervări restaurante / activități</li>
-                        <li>✓ Fotografie profesională proprietate</li>
-                        <li>✓ Asistență tehnică și IT</li>
+                        <li>✓ <span data-translate="extra_transfer">Transfer aeroport / gară</span></li>
+                        <li>✓ <span data-translate="extra_fridge">Aprovizionare frigider la cerere</span></li>
+                        <li>✓ <span data-translate="extra_concierge">Concierge services</span></li>
+                        <li>✓ <span data-translate="extra_reservations">Rezervări restaurante / activități</span></li>
+                        <li>✓ <span data-translate="extra_photo">Fotografie profesională proprietate</span></li>
+                        <li>✓ <span data-translate="extra_tech">Asistență tehnică și IT</span></li>
                     </ul>
-                    <p class="serviciu-pret">Prețuri variabile</p>
+                    <p class="serviciu-pret" data-translate="extra_price">Prețuri variabile</p>
                 </div>
             </div>
 
             <div class="servicii-cta">
-                <h3>Interested în serviciile noastre?</h3>
-                <p>Contactează-ne pentru o ofertă personalizată și să discutăm despre nevoile tale specifice.</p>
-                <a href="#contact" class="btn-primary">Contactează-ne Acum</a>
+                <h3 data-translate="services_cta_title">Interested în serviciile noastre?</h3>
+                <p data-translate="services_cta_text">Contactează-ne pentru o ofertă personalizată și să discutăm despre nevoile tale specifice.</p>
+                <a href="#contact" class="btn-primary" data-translate="services_cta_btn">Contactează-ne Acum</a>
             </div>
         </div>
     </section>
@@ -768,28 +781,28 @@
     <!-- Formular Rezervare -->
     <section id="rezervare" class="rezervare">
         <div class="container">
-            <h2>Rezervă Cazarea Ta</h2>
+            <h2 data-translate="form_title">Rezervă Cazarea Ta</h2>
             <form id="formRezervare" class="form-rezervare">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="nume">Nume Complet *</label>
+                        <label for="nume" data-translate="form_name">Nume Complet *</label>
                         <input type="text" id="nume" name="nume" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email *</label>
+                        <label for="email" data-translate="form_email">Email *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="telefon">Telefon *</label>
+                        <label for="telefon" data-translate="form_phone">Telefon *</label>
                         <input type="tel" id="telefon" name="telefon" required>
                     </div>
                     <div class="form-group">
-                        <label for="cazare">Alege Cazarea *</label>
+                        <label for="cazare" data-translate="form_accommodation">Alege Cazarea *</label>
                         <select id="cazare" name="cazare" required>
-                            <option value="">Selectează cazarea</option>
+                            <option value="" data-translate="form_select">Selectează cazarea</option>
                             <optgroup label="🏛️ Oradea">
                                 <option value="Studio New York - Oradea" data-pret="700">Studio New York - 700 Lei/noapte</option>
                             </optgroup>
@@ -804,38 +817,38 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="checkin">Check-in *</label>
+                        <label for="checkin" data-translate="form_checkin">Check-in *</label>
                         <input type="date" id="checkin" name="checkin" required>
                     </div>
                     <div class="form-group">
-                        <label for="checkout">Check-out *</label>
+                        <label for="checkout" data-translate="form_checkout">Check-out *</label>
                         <input type="date" id="checkout" name="checkout" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="persoane">Număr Persoane *</label>
+                        <label for="persoane" data-translate="form_guests">Număr Persoane *</label>
                         <input type="number" id="persoane" name="persoane" min="1" max="8" value="2" required>
                     </div>
                     <div class="form-group">
-                        <label for="total">Total Estimat</label>
+                        <label for="total" data-translate="form_total">Total Estimat</label>
                         <input type="text" id="total" name="total" readonly value="0 Lei">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="observatii">Observații / Cerințe Speciale</label>
-                    <textarea id="observatii" name="observatii" rows="4" placeholder="Menționați orice cerințe speciale..."></textarea>
+                    <label for="observatii" data-translate="form_notes">Observații / Cerințe Speciale</label>
+                    <textarea id="observatii" name="observatii" rows="4" placeholder="Menționați orice cerințe speciale..." data-translate-placeholder="form_notes_placeholder"></textarea>
                 </div>
 
-                <button type="submit" class="btn-submit">Trimite Rezervarea</button>
+                <button type="submit" class="btn-submit" data-translate="form_submit">Trimite Rezervarea</button>
             </form>
 
             <div id="mesajConfirmare" class="mesaj-confirmare" style="display: none;">
-                <h3>✓ Rezervare Trimisă cu Succes!</h3>
-                <p>Vă mulțumim pentru rezervare. Veți fi contactat în curând pentru confirmare.</p>
-                <button onclick="inchideMesaj()" class="btn-inchide">Închide</button>
+                <h3 data-translate="form_success_title">✓ Rezervare Trimisă cu Succes!</h3>
+                <p data-translate="form_success_text">Vă mulțumim pentru rezervare. Veți fi contactat în curând pentru confirmare.</p>
+                <button onclick="inchideMesaj()" class="btn-inchide" data-translate="form_close">Închide</button>
             </div>
         </div>
     </section>
@@ -843,10 +856,10 @@
     <!-- Contact -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact</h2>
+            <h2 data-translate="contact_title">Contact</h2>
             <div class="contact-grid">
                 <div class="contact-location">
-                    <h3>📍 Oradea</h3>
+                    <h3>📍 <span data-translate="banner_oradea">Oradea</span></h3>
                     <p><strong>Studio New York</strong></p>
                     <p>Oradea, România</p>
                     <p>📞 +40 123 456 789</p>
@@ -858,10 +871,10 @@
                     <p>📞 +40 123 456 789</p>
                 </div>
                 <div class="contact-location">
-                    <h3>📧 Email General</h3>
+                    <h3>📧 <span data-translate="contact_email_title">Email General</span></h3>
                     <p>contact@cazarepremium.ro</p>
                     <p>&nbsp;</p>
-                    <p>Răspundem în 24h</p>
+                    <p data-translate="contact_response">Răspundem în 24h</p>
                 </div>
             </div>
         </div>
@@ -870,10 +883,11 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</p>
+            <p>&copy; 2025 <span data-translate="footer_text">Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</span></p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
     <script>
         // Hover effect pentru butoane care maresc imaginile
