@@ -1,0 +1,182 @@
+================================================================================
+                    PREZENTARE: n8n si MCP pentru Site-ul Tau
+================================================================================
+
+Ce sunt aceste instrumente si cum te pot ajuta in gestionarea site-ului de
+cazare si a rezervarilor.
+
+================================================================================
+                                    n8n
+                        (Platforma de Automatizare)
+================================================================================
+
+CE ESTE n8n?
+------------
+n8n este o platforma de automatizare vizuala (similar cu Zapier, dar GRATIS si
+open-source). Iti permite sa creezi "workflow-uri" - lanturi de actiuni automate
+care se declanseaza la anumite evenimente.
+
+CUM TE POATE AJUTA n8n PENTRU SITE-UL DE CAZARE:
+------------------------------------------------
+
+1. AUTOMATIZARE REZERVARI
+   - Cand cineva trimite formularul de rezervare -> primesti automat:
+     * Email cu toate detaliile
+     * Notificare WhatsApp/Telegram
+     * Intrare automata in Google Calendar
+     * Intrare in Google Sheets pentru evidenta
+
+2. SINCRONIZARE CU PLATFORME DE BOOKING
+   - Conectare cu Booking.com, Airbnb, etc.
+   - Cand vine o rezervare pe Airbnb -> se blocheaza automat datele si pe site
+   - Eviti suprapunerea rezervarilor (double booking)
+
+3. COMUNICARE AUTOMATA CU OASPETII
+   - Email automat de confirmare dupa rezervare
+   - Reminder cu 2 zile inainte de check-in
+   - Email de multumire dupa check-out
+   - Cerere automata de review
+
+4. GESTIONARE CURATENIE
+   - La fiecare check-out -> notificare automata echipei de curatenie
+   - Lista de verificare trimisa pe WhatsApp
+   - Confirmare cand curatenia e gata
+
+5. RAPOARTE AUTOMATE
+   - Raport saptamanal/lunar cu rezervari si venituri
+   - Trimis automat pe email in format PDF/Excel
+
+EXEMPLE CONCRETE DE WORKFLOW-URI:
+---------------------------------
+
+Workflow 1: "Rezervare Noua"
+   Formular completat -> Email la tine -> WhatsApp -> Google Calendar -> Sheets
+
+Workflow 2: "Reminder Check-in"
+   Cu 2 zile inainte -> Email catre oaspete cu instructiuni acces
+
+Workflow 3: "Check-out & Curatenie"
+   La data check-out -> Notificare echipa curatenie -> Confirmare curatenie gata
+
+
+================================================================================
+                                    MCP
+                      (Model Context Protocol)
+================================================================================
+
+CE ESTE MCP?
+------------
+MCP (Model Context Protocol) este un protocol care permite lui Claude (eu) sa
+ma conectez la surse externe de date si instrumente. Practic, imi extinde
+capacitatile dincolo de ce pot face normal.
+
+CUM TE POATE AJUTA MCP:
+-----------------------
+
+1. ACCES LA BAZE DE DATE
+   - Pot citi/scrie direct in baza ta de date cu rezervari
+   - Pot verifica disponibilitatea in timp real
+   - Pot genera rapoarte din date reale
+
+2. INTEGRARE CU SERVICII EXTERNE
+   - Conectare la Google Calendar pentru a vedea/adauga rezervari
+   - Acces la email pentru a raspunde automat
+   - Integrare cu sisteme de plata
+
+3. AUTOMATIZARI MAI COMPLEXE
+   - Pot executa actiuni in numele tau
+   - Pot monitoriza si raspunde la evenimente
+   - Pot gestiona fisiere si documente
+
+4. PENTRU SITE-UL TAU SPECIFIC:
+   - Pot actualiza preturile in functie de sezon
+   - Pot genera continut tradus automat
+   - Pot verifica si actualiza disponibilitatea
+
+
+================================================================================
+                        COMBINATIA n8n + MCP + Claude
+================================================================================
+
+Cand le combini, obtii un sistem puternic:
+
+EXEMPLU PRACTIC:
+----------------
+
+1. Oaspete completeaza formularul pe site
+   |
+2. n8n preia datele si le trimite la Claude (prin MCP)
+   |
+3. Claude (eu) verific disponibilitatea, calculez pretul total
+   |
+4. n8n trimite email de confirmare personalizat
+   |
+5. Se adauga automat in calendar si spreadsheet
+   |
+6. Cu 2 zile inainte, n8n trimite reminder
+   |
+7. La check-out, n8n notifica echipa de curatenie
+
+
+================================================================================
+                            CUM SA INCEPI
+================================================================================
+
+PASUL 1: Instaleaza n8n
+-----------------------
+Varianta 1: n8n Cloud (platit, dar simplu)
+   -> https://n8n.io/cloud
+
+Varianta 2: Self-hosted (gratis, dar tehnic)
+   -> npm install n8n -g
+   -> n8n start
+
+PASUL 2: Creeaza primul workflow
+--------------------------------
+1. Trigger: Webhook (primeste date de la formular)
+2. Actiune 1: Send Email
+3. Actiune 2: Google Sheets - Add Row
+4. Actiune 3: Google Calendar - Create Event
+
+PASUL 3: Conecteaza formularul
+------------------------------
+Modifica script.js sa trimita datele la webhook-ul n8n in loc de/in plus
+fata de Zapier.
+
+
+================================================================================
+                              RESURSE UTILE
+================================================================================
+
+n8n:
+- Documentatie: https://docs.n8n.io/
+- Tutoriale: https://n8n.io/workflows
+- Comunitate: https://community.n8n.io/
+
+MCP:
+- Documentatie Claude: https://docs.anthropic.com/
+- MCP Servers: https://github.com/anthropics/mcp-servers
+
+Integrari specifice pentru cazare:
+- n8n + Airbnb
+- n8n + Booking.com (prin API)
+- n8n + Google Calendar
+- n8n + WhatsApp Business
+
+
+================================================================================
+                              CONCLUZIE
+================================================================================
+
+n8n = Automatizeaza procesele repetitive (rezervari, emailuri, notificari)
+MCP = Permite lui Claude sa acceseze date externe si sa execute actiuni
+
+Impreuna, pot transforma site-ul tau intr-un sistem complet automatizat de
+gestionare a rezervarilor, fara sa fie nevoie sa faci manual fiecare pas.
+
+Daca vrei sa implementam vreunul din aceste workflow-uri, spune-mi si te ajut!
+
+================================================================================
+                         Creat de Claude Code
+                            Decembrie 2024
+================================================================================

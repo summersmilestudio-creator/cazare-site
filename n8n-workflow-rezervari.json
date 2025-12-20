@@ -1,0 +1,213 @@
+{
+  "name": "Workflow Rezervari Cazare",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "rezervare-noua",
+        "responseMode": "onReceived",
+        "responseData": "allEntries",
+        "options": {}
+      },
+      "id": "webhook-rezervare",
+      "name": "Webhook Rezervare",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "webhookId": "rezervare-webhook"
+    },
+    {
+      "parameters": {
+        "fromEmail": "rezervari@cazarepremium.ro",
+        "toEmail": "summer.smile.studio@gmail.com",
+        "subject": "=Nova Rezervare: {{ $json.nume }} - {{ $json.locatie }}",
+        "emailType": "html",
+        "html": "=<h2>Rezervare Noua!</h2>\n<table style=\"border-collapse: collapse; width: 100%;\">\n<tr><td style=\"padding: 10px; border: 1px solid #ddd;\"><strong>Nume:</strong></td><td style=\"padding: 10px; border: 1px solid #ddd;\">{{ $json.nume }}</td></tr>\n<tr><td style=\"padding: 10px; border: 1px solid #ddd;\"><strong>Email:</strong></td><td style=\"padding: 10px; border: 1px solid #ddd;\">{{ $json.email }}</td></tr>\n<tr><td style=\"padding: 10px; border: 1px solid #ddd;\"><strong>Telefon:</strong></td><td style=\"padding: 10px; border: 1px solid #ddd;\">{{ $json.telefon }}</td></tr>\n<tr><td style=\"padding: 10px; border: 1px solid #ddd;\"><strong>Locatie:</strong></td><td style=\"padding: 10px; border: 1px solid #ddd;\">{{ $json.locatie }}</td></tr>\n<tr><td style=\"padding: 10px; border: 1px solid #ddd;\"><strong>Check-in:</strong></td><td style=\"padding: 10px; border: 1px solid #ddd;\">{{ $json.checkin }}</td></tr>\n<tr><td style=\"padding: 10px; border: 1px solid #ddd;\"><strong>Check-out:</strong></td><td style=\"padding: 10px; border: 1px solid #ddd;\">{{ $json.checkout }}</td></tr>\n<tr><td style=\"padding: 10px; border: 1px solid #ddd;\"><strong>Persoane:</strong></td><td style=\"padding: 10px; border: 1px solid #ddd;\">{{ $json.persoane }}</td></tr>\n<tr><td style=\"padding: 10px; border: 1px solid #ddd;\"><strong>Mesaj:</strong></td><td style=\"padding: 10px; border: 1px solid #ddd;\">{{ $json.mesaj }}</td></tr>\n</table>\n<p style=\"margin-top: 20px; color: #666;\">Primit la: {{ $now.format('dd.MM.yyyy HH:mm') }}</p>",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Email Notificare",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [500, 200],
+      "credentials": {
+        "smtp": {
+          "id": "smtp-credentials",
+          "name": "SMTP Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Data Primire": "={{ $now.format('dd.MM.yyyy HH:mm') }}",
+            "Nume": "={{ $json.nume }}",
+            "Email": "={{ $json.email }}",
+            "Telefon": "={{ $json.telefon }}",
+            "Locatie": "={{ $json.locatie }}",
+            "Check-in": "={{ $json.checkin }}",
+            "Check-out": "={{ $json.checkout }}",
+            "Persoane": "={{ $json.persoane }}",
+            "Mesaj": "={{ $json.mesaj }}",
+            "Status": "Noua"
+          }
+        },
+        "options": {}
+      },
+      "id": "google-sheets",
+      "name": "Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [500, 300],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "google-sheets-credentials",
+          "name": "Google Sheets"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "calendar": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "title": "=Rezervare: {{ $json.nume }} - {{ $json.locatie }}",
+        "start": "={{ $json.checkin }}",
+        "end": "={{ $json.checkout }}",
+        "additionalFields": {
+          "description": "=Oaspete: {{ $json.nume }}\nEmail: {{ $json.email }}\nTelefon: {{ $json.telefon }}\nPersoane: {{ $json.persoane }}\n\nMesaj: {{ $json.mesaj }}",
+          "location": "={{ $json.locatie }}"
+        }
+      },
+      "id": "google-calendar",
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.2,
+      "position": [500, 400],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "google-calendar-credentials",
+          "name": "Google Calendar"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "rezervari@cazarepremium.ro",
+        "toEmail": "={{ $json.email }}",
+        "subject": "Confirmare Rezervare - Cazare Premium",
+        "emailType": "html",
+        "html": "=<div style=\"font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;\">\n<div style=\"background: linear-gradient(135deg, #DAA520, #FFD700); padding: 20px; text-align: center;\">\n<h1 style=\"color: white; margin: 0;\">Cazare Premium</h1>\n</div>\n<div style=\"padding: 30px; background: #f8f9fa;\">\n<h2 style=\"color: #2c3e50;\">Buna ziua, {{ $json.nume }}!</h2>\n<p>Va multumim pentru rezervare! Am primit cererea dumneavoastra si va vom contacta in cel mai scurt timp pentru confirmare.</p>\n<div style=\"background: white; padding: 20px; border-radius: 10px; margin: 20px 0;\">\n<h3 style=\"color: #DAA520; margin-top: 0;\">Detalii Rezervare:</h3>\n<p><strong>Locatie:</strong> {{ $json.locatie }}</p>\n<p><strong>Check-in:</strong> {{ $json.checkin }}</p>\n<p><strong>Check-out:</strong> {{ $json.checkout }}</p>\n<p><strong>Numar persoane:</strong> {{ $json.persoane }}</p>\n</div>\n<p>Pentru intrebari, ne puteti contacta la:</p>\n<p>Email: summer.smile.studio@gmail.com<br>Telefon: +40 XXX XXX XXX</p>\n</div>\n<div style=\"background: #2c3e50; color: white; padding: 15px; text-align: center;\">\n<p style=\"margin: 0;\">&copy; 2025 Cazare Premium - Oradea & Mamaia Nord</p>\n</div>\n</div>",
+        "options": {}
+      },
+      "id": "send-confirmation",
+      "name": "Email Confirmare Client",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [750, 300],
+      "credentials": {
+        "smtp": {
+          "id": "smtp-credentials",
+          "name": "SMTP Gmail"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "condition-check",
+              "leftValue": "={{ $json.nume }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "isNotEmpty"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "validare-date",
+      "name": "Validare Date",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [400, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Rezervare": {
+      "main": [
+        [
+          {
+            "node": "Validare Date",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validare Date": {
+      "main": [
+        [
+          {
+            "node": "Email Notificare",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Calendar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Email Confirmare Client",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "pinData": {}
+}

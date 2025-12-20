@@ -381,8 +381,47 @@ async function saveBookingToServer(bookingData) {
     }
 }
 
+// Funcție pentru trimiterea rezervării la n8n
+async function sendToN8N(bookingData) {
+    // URL-ul webhook-ului n8n (schimbă cu URL-ul tău când e în producție)
+    const N8N_WEBHOOK_URL = 'http://localhost:5678/webhook/rezervare-noua';
+
+    try {
+        const response = await fetch(N8N_WEBHOOK_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nume: bookingData.nume,
+                email: bookingData.email,
+                telefon: bookingData.telefon,
+                locatie: bookingData.cazare,
+                checkin: bookingData.checkin,
+                checkout: bookingData.checkout,
+                persoane: bookingData.persoane,
+                total: bookingData.total,
+                mesaj: bookingData.observatii || '',
+                timestamp: new Date().toISOString()
+            })
+        });
+
+        if (response.ok) {
+            console.log('✅ Rezervare trimisă la n8n cu succes!');
+            return { success: true };
+        } else {
+            console.error('❌ Eroare n8n:', response.status);
+            return { success: false, error: response.status };
+        }
+    } catch (error) {
+        console.error('❌ Eroare la trimiterea către n8n:', error);
+        // Nu blocăm fluxul dacă n8n nu e disponibil
+        return { success: false, error: error.message };
+    }
+}
+
 // Gestionare trimitere formular
-document.getElementById('formRezervare').addEventListener('submit', function(e) {
+document.getElementById('formRezervare').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     // Obține datele din formular
@@ -411,6 +450,9 @@ document.getElementById('formRezervare').addEventListener('submit', function(e) 
         alert('Data de check-out trebuie să fie după data de check-in!');
         return;
     }
+
+    // Trimite la n8n pentru automatizări (email, calendar, etc.)
+    await sendToN8N(formData);
 
     // Salvează datele rezervării în sessionStorage pentru pagina de plată
     sessionStorage.setItem('bookingData', JSON.stringify(formData));
