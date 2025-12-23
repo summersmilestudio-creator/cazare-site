@@ -88,19 +88,15 @@
 
     <div class="split-container">
         <div class="listings-panel">
-            <div class="panel-header"><h2>Proprietati <span class="results-count" id="resultsCount">(3)</span></h2></div>
+            <div class="panel-header"><h2>Proprietati <span class="results-count" id="resultsCount">(0)</span></h2></div>
             <div class="list-cards" id="propertyList">
-                <div class="list-card" data-marker="1" data-price="350" data-guests="4" data-type="apartament" data-amenities="wifi,parcare,ac" data-location="mamaia" data-name="test 1">
-                    <div class="list-card-image"><img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400" alt="Test 1"><button class="favorite-btn" onclick="toggleFavorite(this);event.stopPropagation();">&#9825;</button><span class="list-card-badge">Superhost</span></div>
-                    <div class="list-card-content"><div class="list-card-top"><span class="list-card-type">Apartament</span><div class="list-card-rating"><span class="star">&#9733;</span><span class="score">4.95</span><span class="count">(42)</span></div></div><h3 class="list-card-title">Test 1 - Apartament Mamaia</h3><p class="list-card-location">&#128205; Mamaia Nord</p><div class="list-card-specs"><span>2 dormitoare</span><span>1 baie</span><span>4 oaspeti</span></div><div class="list-card-amenities"><span class="amenity-tag">WiFi</span><span class="amenity-tag">Parcare</span><span class="amenity-tag">AC</span></div><div class="list-card-footer"><div class="list-card-price"><span class="amount">350 RON</span><span class="period">/noapte</span></div><button class="list-card-cta">Rezerva</button></div></div>
-                </div>
-                <div class="list-card" data-marker="2" data-price="850" data-guests="8" data-type="vila" data-amenities="wifi,parcare,piscina" data-location="oradea" data-name="test 2">
-                    <div class="list-card-image"><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400" alt="Test 2"><button class="favorite-btn" onclick="toggleFavorite(this);event.stopPropagation();">&#9825;</button></div>
-                    <div class="list-card-content"><div class="list-card-top"><span class="list-card-type">Vila</span><div class="list-card-rating"><span class="star">&#9733;</span><span class="score">4.88</span><span class="count">(67)</span></div></div><h3 class="list-card-title">Test 2 - Vila Oradea</h3><p class="list-card-location">&#128205; Oradea</p><div class="list-card-specs"><span>4 dormitoare</span><span>3 bai</span><span>8 oaspeti</span></div><div class="list-card-amenities"><span class="amenity-tag">WiFi</span><span class="amenity-tag">Parcare</span><span class="amenity-tag">Piscina</span></div><div class="list-card-footer"><div class="list-card-price"><span class="amount">850 RON</span><span class="period">/noapte</span></div><button class="list-card-cta">Rezerva</button></div></div>
-                </div>
-                <div class="list-card" data-marker="3" data-price="200" data-guests="2" data-type="studio" data-amenities="wifi,ac" data-location="constanta" data-name="test 3">
-                    <div class="list-card-image"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400" alt="Test 3"><button class="favorite-btn" onclick="toggleFavorite(this);event.stopPropagation();">&#9825;</button><span class="list-card-badge" style="background:#27ae60;color:white;">Nou</span></div>
-                    <div class="list-card-content"><div class="list-card-top"><span class="list-card-type">Studio</span><div class="list-card-rating"><span class="star">&#9733;</span><span class="score">4.72</span><span class="count">(18)</span></div></div><h3 class="list-card-title">Test 3 - Studio Constanta</h3><p class="list-card-location">&#128205; Constanta</p><div class="list-card-specs"><span>Studio</span><span>1 baie</span><span>2 oaspeti</span></div><div class="list-card-amenities"><span class="amenity-tag">WiFi</span><span class="amenity-tag">AC</span></div><div class="list-card-footer"><div class="list-card-price"><span class="amount">200 RON</span><span class="period">/noapte</span></div><button class="list-card-cta">Rezerva</button></div></div>
+                <div style="text-align:center;padding:40px;color:#666;">
+                    <h3>Viziteaza paginile dedicate</h3>
+                    <p style="margin:20px 0;">Proprietatile noastre sunt organizate pe locatii:</p>
+                    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:30px;">
+                        <a href="oradea.html" style="padding:15px 30px;background:linear-gradient(135deg,#DAA520,#FFD700);color:#1a2334;text-decoration:none;border-radius:25px;font-weight:600;">Oradea</a>
+                        <a href="mamaia.html" style="padding:15px 30px;background:linear-gradient(135deg,#667eea,#764ba2);color:white;text-decoration:none;border-radius:25px;font-weight:600;">Mamaia Nord</a>
+                    </div>
                 </div>
             </div>
             <div class="no-results" id="noResults"><h3>Nicio proprietate</h3><button class="clear-filters-btn" onclick="clearAllFilters()">Sterge filtre</button></div>
@@ -110,7 +106,7 @@
 
     <script src="translations.js"></script>
     <script>
-        const properties = [{id:1,name:'Test 1',price:350,lat:44.236,lng:28.632},{id:2,name:'Test 2',price:850,lat:47.046,lng:21.918},{id:3,name:'Test 3',price:200,lat:44.176,lng:28.652}];
+        const properties = [];
         let map,markers=[],infoWindow,guestCount=0;
         function initMap(){map=new google.maps.Map(document.getElementById('map'),{zoom:6,center:{lat:45.5,lng:25}});infoWindow=new google.maps.InfoWindow();properties.forEach(p=>addMarker(p));if(markers.length){const b=new google.maps.LatLngBounds();markers.forEach(m=>b.extend(m.marker.getPosition()));map.fitBounds(b);}}
         function addMarker(p){const m=new google.maps.Marker({position:{lat:p.lat,lng:p.lng},map:map,title:p.name,label:{text:p.price+' RON',color:'#1a2334',fontWeight:'bold'}});m.addListener('click',()=>{highlightCard(p.id);infoWindow.setContent('<b>'+p.name+'</b><br>'+p.price+' RON');infoWindow.open(map,m);});markers.push({marker:m,property:p});}
