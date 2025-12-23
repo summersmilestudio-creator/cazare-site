@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartamente - Filtre Avansate | SiteCazare</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ===== ADVANCED FILTERS LAYOUT ===== */
+
+        /* Hero Search Section */
+        .search-hero {
+            background: linear-gradient(135deg, rgba(26, 35, 52, 0.92), rgba(44, 62, 80, 0.88)),
+                        url('images/1.jpg') center/cover fixed;
+            padding: 100px 20px 50px;
+            text-align: center;
+        }
+
+        .search-hero h1 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .search-hero h1 span {
+            background: linear-gradient(135deg, #FFD700, #DAA520);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .search-hero p {
+            color: rgba(255,255,255,0.8);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        /* Advanced Search Box */
+        .search-box {
+            background: white;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 16px;
+            padding: 25px 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .search-row {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .search-field {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .search-field label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #666;
+            margin-bottom: 6px;
+        }
+
+        .search-field input,
+        .search-field select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .search-field input:focus,
+        .search-field select:focus {
+            outline: none;
+            border-color: #DAA520;
+        }
+
+        .search-btn {
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            color: #1a2334;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-end;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+
+        /* Main Content Area */
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: flex;
+            gap: 30px;
+        }
+
+        /* Sidebar Filters */
+        .filters-sidebar {
+            width: 280px;
+            flex-shrink: 0;
+        }
+
+        .filter-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .filter-section h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1a2334;
+            margin: 0 0 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .filter-section h3 .toggle-icon {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #888;
+        }
+
+        /* Price Range Slider */
+        .price-range {
+            margin-bottom: 15px;
+        }
+
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .price-input {
+            flex: 1;
+            position: relative;
+        }
+
+        .price-input input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .price-input span {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .range-slider {
+            width: 100%;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .range-slider .track {
+            position: absolute;
+            height: 100%;
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            border-radius: 3px;
+            left: 10%;
+            right: 30%;
+        }
+
+        /* Checkbox Filters */
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .filter-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #DAA520;
+            cursor: pointer;
+        }
+
+        .filter-option label {
+            font-size: 0.9rem;
+            color: #444;
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .filter-option .count {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Rating Filter */
+        .rating-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .rating-btn {
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            background: white;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .rating-btn:hover {
+            border-color: #DAA520;
+        }
+
+        .rating-btn.active {
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            border-color: #DAA520;
+            color: #1a2334;
+            font-weight: 600;
+        }
+
+        /* Clear Filters */
+        .clear-filters {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .clear-filters:hover {
+            background: #e8e8e8;
+            color: #1a2334;
+        }
+
+        /* Listings Area */
+        .listings-area {
+            flex: 1;
+        }
+
+        /* Listings Header */
+        .listings-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .results-count {
+            font-size: 1.1rem;
+            color: #1a2334;
+        }
+
+        .results-count strong {
+            font-weight: 700;
+        }
+
+        .toolbar-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .sort-select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            background: white;
+        }
+
+        .view-buttons {
+            display: flex;
+            gap: 5px;
+            background: #f0f0f0;
+            padding: 4px;
+            border-radius: 8px;
+        }
+
+        .view-btn {
+            padding: 8px 14px;
+            border: none;
+            background: transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .view-btn.active {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Grid View */
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        /* Card Styles */
+        .property-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+        .card-image {
+            position: relative;
+            aspect-ratio: 16/11;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .property-card:hover .card-image img {
+            transform: scale(1.08);
+        }
+
+        .favorite-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.2s ease;
+        }
+
+        .favorite-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .favorite-btn.active {
+            color: #e74c3c;
+        }
+
+        .card-badges {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-superhost {
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            color: #1a2334;
+        }
+
+        .badge-discount {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .badge-new {
+            background: #27ae60;
+            color: white;
+        }
+
+        .card-content {
+            padding: 16px;
+        }
+
+        .card-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .card-rating .star {
+            color: #FFB400;
+        }
+
+        .card-rating .score {
+            font-weight: 600;
+        }
+
+        .card-rating .count {
+            color: #888;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a2334;
+            margin: 0 0 4px;
+        }
+
+        .card-location {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .card-specs {
+            display: flex;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .card-amenities {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .amenity-chip {
+            background: #f5f5f5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: #555;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid #eee;
+        }
+
+        .price-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-old {
+            font-size: 0.8rem;
+            color: #888;
+            text-decoration: line-through;
+        }
+
+        .price-current {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1a2334;
+        }
+
+        .price-period {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .book-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #1a2334, #2c3e50);
+            color: #FFD700;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(26, 35, 52, 0.3);
+        }
+
+        /* List View */
+        .property-grid.list-view {
+            grid-template-columns: 1fr;
+        }
+
+        .property-grid.list-view .property-card {
+            display: flex;
+        }
+
+        .property-grid.list-view .card-image {
+            width: 300px;
+            min-width: 300px;
+            aspect-ratio: auto;
+            height: 100%;
+        }
+
+        .property-grid.list-view .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-grid.list-view .card-footer {
+            margin-top: auto;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 40px;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-btn:hover {
+            border-color: #DAA520;
+        }
+
+        .page-btn.active {
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            border-color: #DAA520;
+            font-weight: 600;
+        }
+
+        .page-btn.nav {
+            width: auto;
+            padding: 0 15px;
+        }
+
+        /* Mobile Filters Toggle */
+        .mobile-filters-btn {
+            display: none;
+            padding: 12px 24px;
+            background: #1a2334;
+            color: #FFD700;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .filters-sidebar {
+                display: none;
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: white;
+                z-index: 1000;
+                overflow-y: auto;
+                padding: 20px;
+            }
+
+            .filters-sidebar.active {
+                display: block;
+            }
+
+            .mobile-filters-btn {
+                display: block;
+            }
+
+            .property-grid.list-view .property-card {
+                flex-direction: column;
+            }
+
+            .property-grid.list-view .card-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .search-row {
+                flex-direction: column;
+            }
+
+            .search-field {
+                min-width: 100%;
+            }
+
+            .search-btn {
+                width: 100%;
+            }
+
+            .listings-toolbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Close Button for Mobile Filters */
+        .close-filters {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .filters-sidebar.active + .close-filters,
+        .filters-sidebar.active ~ .close-filters {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>SiteCazare</h1>
+            </div>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" data-translate="nav_home">Acasa</a></li>
+                <li><a href="oradea.html" data-translate="nav_oradea">Oradea</a></li>
+                <li><a href="mamaia.html" data-translate="nav_mamaia">Mamaia Nord</a></li>
+                <li><a href="listings-filters.html" class="active">Cauta</a></li>
+                <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+            </ul>
+
+            <!-- Language Selector Dropdown -->
+            <div class="language-dropdown">
+                <button class="lang-dropdown-btn" id="langDropdownBtn">
+                    <span class="flag-icon flag-ro" id="currentFlag"></span>
+                    <span class="lang-code" id="currentLangCode">RO</span>
+                    <span class="dropdown-arrow">&#9660;</span>
+                </button>
+                <div class="lang-dropdown-menu" id="langDropdownMenu">
+                    <button class="lang-option active" data-lang="ro">
+                        <span class="flag-icon flag-ro"></span>
+                        <span class="lang-name">Romana</span>
+                        <span class="lang-code-small">RO</span>
+                        <span class="lang-check">&#10003;</span>
+                    </button>
+                    <button class="lang-option" data-lang="en">
+                        <span class="flag-icon flag-en"></span>
+                        <span class="lang-name">English</span>
+                        <span class="lang-code-small">EN</span>
+                        <span class="lang-check">&#10003;</span>
+                    </button>
+                    <button class="lang-option" data-lang="hu">
+                        <span class="flag-icon flag-hu"></span>
+                        <span class="lang-name">Magyar</span>
+                        <span class="lang-code-small">HU</span>
+                        <span class="lang-check">&#10003;</span>
+                    </button>
+                    <button class="lang-option" data-lang="de">
+                        <span class="flag-icon flag-de"></span>
+                        <span class="lang-name">Deutsch</span>
+                        <span class="lang-code-small">DE</span>
+                        <span class="lang-check">&#10003;</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Search Hero -->
+    <section class="search-hero">
+        <h1>Gaseste <span>cazarea perfecta</span></h1>
+        <p>Peste 500 de proprietati verificate te asteapta</p>
+
+        <div class="search-box">
+            <div class="search-row">
+                <div class="search-field">
+                    <label>Destinatie</label>
+                    <input type="text" placeholder="Unde vrei sa mergi?">
+                </div>
+                <div class="search-field">
+                    <label>Check-in</label>
+                    <input type="date">
+                </div>
+                <div class="search-field">
+                    <label>Check-out</label>
+                    <input type="date">
+                </div>
+                <div class="search-field">
+                    <label>Oaspeti</label>
+                    <select>
+                        <option>1 Oaspete</option>
+                        <option selected>2 Oaspeti</option>
+                        <option>3 Oaspeti</option>
+                        <option>4 Oaspeti</option>
+                        <option>5+ Oaspeti</option>
+                    </select>
+                </div>
+                <button class="search-btn">&#128269; Cauta</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar" id="filtersSidebar">
+            <!-- Price Range -->
+            <div class="filter-section">
+                <h3>
+                    Interval Pret
+                    <span class="toggle-icon">&#9660;</span>
+                </h3>
+                <div class="price-range">
+                    <div class="price-inputs">
+                        <div class="price-input">
+                            <span>RON</span>
+                            <input type="number" value="100" min="0">
+                        </div>
+                        <div class="price-input">
+                            <span>RON</span>
+                            <input type="number" value="1500" min="0">
+                        </div>
+                    </div>
+                    <div class="range-slider">
+                        <div class="track"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Type -->
+            <div class="filter-section">
+                <h3>Tip Proprietate</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" checked>
+                        <span>Apartament intreg</span>
+                        <span class="count">(127)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Camera privata</span>
+                        <span class="count">(45)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Vila / Casa</span>
+                        <span class="count">(32)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Studio</span>
+                        <span class="count">(28)</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Penthouse</span>
+                        <span class="count">(12)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Bedrooms -->
+            <div class="filter-section">
+                <h3>Dormitoare</h3>
+                <div class="rating-options">
+                    <button class="rating-btn">Orice</button>
+                    <button class="rating-btn active">1+</button>
+                    <button class="rating-btn">2+</button>
+                    <button class="rating-btn">3+</button>
+                    <button class="rating-btn">4+</button>
+                </div>
+            </div>
+
+            <!-- Rating -->
+            <div class="filter-section">
+                <h3>Rating Minim</h3>
+                <div class="rating-options">
+                    <button class="rating-btn">Orice</button>
+                    <button class="rating-btn">&#9733; 4+</button>
+                    <button class="rating-btn active">&#9733; 4.5+</button>
+                    <button class="rating-btn">&#9733; 4.8+</button>
+                </div>
+            </div>
+
+            <!-- Amenities -->
+            <div class="filter-section">
+                <h3>Facilitati</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" checked>
+                        <span>WiFi gratuit</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" checked>
+                        <span>Parcare</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Aer conditionat</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Piscina</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Pet Friendly</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Bucatarie completa</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Masina de spalat</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Balcon / Terasa</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Booking Options -->
+            <div class="filter-section">
+                <h3>Optiuni Rezervare</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Rezervare instantanee</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Anulare gratuita</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Superhost</span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="clear-filters" onclick="clearAllFilters()">
+                &#10006; Sterge toate filtrele
+            </button>
+        </aside>
+
+        <!-- Close Filters Button (Mobile) -->
+        <button class="close-filters" onclick="toggleFilters()">&#10005;</button>
+
+        <!-- Listings Area -->
+        <main class="listings-area">
+            <!-- Toolbar -->
+            <div class="listings-toolbar">
+                <div class="results-count">
+                    <strong>127</strong> proprietati gasite
+                </div>
+                <div class="toolbar-actions">
+                    <select class="sort-select">
+                        <option>Recomandate</option>
+                        <option>Pret: mic - mare</option>
+                        <option>Pret: mare - mic</option>
+                        <option>Rating</option>
+                        <option>Cele mai noi</option>
+                    </select>
+                    <div class="view-buttons">
+                        <button class="view-btn active" onclick="setView('grid')" title="Grid">&#9638;</button>
+                        <button class="view-btn" onclick="setView('list')" title="List">&#9776;</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Grid -->
+            <div class="property-grid" id="propertyGrid">
+
+                <!-- Card 1 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500" alt="Apartament Modern" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+                        <div class="card-badges">
+                            <span class="badge badge-superhost">Superhost</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="score">4.96</span>
+                            <span class="count">(128 recenzii)</span>
+                        </div>
+                        <h3 class="card-title">Apartament Modern cu Vedere la Mare</h3>
+                        <p class="card-location">&#128205; Mamaia Nord, Constanta</p>
+                        <div class="card-specs">
+                            <span>2 dormitoare</span>
+                            <span>1 baie</span>
+                            <span>4 oaspeti</span>
+                        </div>
+                        <div class="card-amenities">
+                            <span class="amenity-chip">WiFi</span>
+                            <span class="amenity-chip">Parcare</span>
+                            <span class="amenity-chip">AC</span>
+                            <span class="amenity-chip">+5</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-info">
+                                <span class="price-current">450 RON <span class="price-period">/ noapte</span></span>
+                            </div>
+                            <button class="book-btn">Rezerva</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 - With Discount -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500" alt="Vila de Lux" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+                        <div class="card-badges">
+                            <span class="badge badge-discount">-15%</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="score">4.89</span>
+                            <span class="count">(94 recenzii)</span>
+                        </div>
+                        <h3 class="card-title">Vila de Lux cu Piscina Privata</h3>
+                        <p class="card-location">&#128205; Oradea, Bihor</p>
+                        <div class="card-specs">
+                            <span>4 dormitoare</span>
+                            <span>3 bai</span>
+                            <span>8 oaspeti</span>
+                        </div>
+                        <div class="card-amenities">
+                            <span class="amenity-chip">Piscina</span>
+                            <span class="amenity-chip">Gradina</span>
+                            <span class="amenity-chip">Gratar</span>
+                            <span class="amenity-chip">+6</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-info">
+                                <span class="price-old">1.400 RON</span>
+                                <span class="price-current">1.190 RON <span class="price-period">/ noapte</span></span>
+                            </div>
+                            <button class="book-btn">Rezerva</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 - New -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500" alt="Studio Cozy" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+                        <div class="card-badges">
+                            <span class="badge badge-new">Nou</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="score">4.75</span>
+                            <span class="count">(23 recenzii)</span>
+                        </div>
+                        <h3 class="card-title">Studio Cozy in Centru</h3>
+                        <p class="card-location">&#128205; Centru, Oradea</p>
+                        <div class="card-specs">
+                            <span>Studio</span>
+                            <span>1 baie</span>
+                            <span>2 oaspeti</span>
+                        </div>
+                        <div class="card-amenities">
+                            <span class="amenity-chip">WiFi</span>
+                            <span class="amenity-chip">AC</span>
+                            <span class="amenity-chip">Bucatarie</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-info">
+                                <span class="price-current">220 RON <span class="price-period">/ noapte</span></span>
+                            </div>
+                            <button class="book-btn">Rezerva</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500" alt="Casa Traditionala" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+                        <div class="card-badges">
+                            <span class="badge badge-superhost">Superhost</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="score">4.98</span>
+                            <span class="count">(215 recenzii)</span>
+                        </div>
+                        <h3 class="card-title">Casa Traditionala cu Gradina</h3>
+                        <p class="card-location">&#128205; Felix, Bihor</p>
+                        <div class="card-specs">
+                            <span>3 dormitoare</span>
+                            <span>2 bai</span>
+                            <span>6 oaspeti</span>
+                        </div>
+                        <div class="card-amenities">
+                            <span class="amenity-chip">Gradina</span>
+                            <span class="amenity-chip">Gratar</span>
+                            <span class="amenity-chip">Pet OK</span>
+                            <span class="amenity-chip">+4</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-info">
+                                <span class="price-current">580 RON <span class="price-period">/ noapte</span></span>
+                            </div>
+                            <button class="book-btn">Rezerva</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500" alt="Penthouse" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="score">4.82</span>
+                            <span class="count">(67 recenzii)</span>
+                        </div>
+                        <h3 class="card-title">Penthouse cu Terasa Panoramica</h3>
+                        <p class="card-location">&#128205; Navodari, Constanta</p>
+                        <div class="card-specs">
+                            <span>3 dormitoare</span>
+                            <span>2 bai</span>
+                            <span>6 oaspeti</span>
+                        </div>
+                        <div class="card-amenities">
+                            <span class="amenity-chip">Terasa</span>
+                            <span class="amenity-chip">Vedere</span>
+                            <span class="amenity-chip">AC</span>
+                            <span class="amenity-chip">+3</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-info">
+                                <span class="price-current">750 RON <span class="price-period">/ noapte</span></span>
+                            </div>
+                            <button class="book-btn">Rezerva</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="property-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=500" alt="Apartament Familie" loading="lazy">
+                        <button class="favorite-btn" onclick="toggleFavorite(this)">&#9825;</button>
+                        <div class="card-badges">
+                            <span class="badge badge-discount">-10%</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-rating">
+                            <span class="star">&#9733;</span>
+                            <span class="score">4.91</span>
+                            <span class="count">(156 recenzii)</span>
+                        </div>
+                        <h3 class="card-title">Apartament Familial Spatios</h3>
+                        <p class="card-location">&#128205; Mamaia Nord, Constanta</p>
+                        <div class="card-specs">
+                            <span>3 dormitoare</span>
+                            <span>2 bai</span>
+                            <span>7 oaspeti</span>
+                        </div>
+                        <div class="card-amenities">
+                            <span class="amenity-chip">Familie</span>
+                            <span class="amenity-chip">WiFi</span>
+                            <span class="amenity-chip">Parcare</span>
+                            <span class="amenity-chip">+5</span>
+                        </div>
+                        <div class="card-footer">
+                            <div class="price-info">
+                                <span class="price-old">580 RON</span>
+                                <span class="price-current">520 RON <span class="price-period">/ noapte</span></span>
+                            </div>
+                            <button class="book-btn">Rezerva</button>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn nav">&#10094; Inapoi</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <button class="page-btn">5</button>
+                <button class="page-btn">...</button>
+                <button class="page-btn">12</button>
+                <button class="page-btn nav">Inainte &#10095;</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Filters Button -->
+    <button class="mobile-filters-btn" onclick="toggleFilters()">
+        &#9881; Filtre
+    </button>
+
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, #1a2334, #2c3e50); color: white; padding: 40px 20px; margin-top: 60px;">
+        <div style="max-width: 1400px; margin: 0 auto; text-align: center;">
+            <h2 style="color: #FFD700; margin-bottom: 20px;">SiteCazare</h2>
+            <p style="opacity: 0.8; margin-bottom: 20px;">Cele mai bune apartamente pentru vacanta ta</p>
+            <p style="opacity: 0.6; font-size: 0.9rem;">&copy; 2024 SiteCazare. Toate drepturile rezervate.</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script>
+        // Toggle view mode
+        function setView(mode) {
+            const grid = document.getElementById('propertyGrid');
+            const btns = document.querySelectorAll('.view-btn');
+
+            btns.forEach(btn => btn.classList.remove('active'));
+
+            if (mode === 'list') {
+                grid.classList.add('list-view');
+                btns[1].classList.add('active');
+            } else {
+                grid.classList.remove('list-view');
+                btns[0].classList.add('active');
+            }
+        }
+
+        // Toggle mobile filters
+        function toggleFilters() {
+            document.getElementById('filtersSidebar').classList.toggle('active');
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            document.querySelectorAll('.filter-option input').forEach(cb => cb.checked = false);
+            document.querySelectorAll('.rating-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.rating-btn:first-child').forEach(btn => btn.classList.add('active'));
+        }
+
+        // Favorite toggle
+        function toggleFavorite(btn) {
+            btn.classList.toggle('active');
+            btn.innerHTML = btn.classList.contains('active') ? '&#9829;' : '&#9825;';
+        }
+
+        // Rating buttons
+        document.querySelectorAll('.rating-options').forEach(container => {
+            container.querySelectorAll('.rating-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    container.querySelectorAll('.rating-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // Pagination
+        document.querySelectorAll('.page-btn:not(.nav)').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.page-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Hamburger menu
+        document.getElementById('hamburger')?.addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

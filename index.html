@@ -513,17 +513,39 @@
                 <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
             </ul>
 
-            <!-- Language Selector -->
-            <div class="language-selector">
-                <button class="lang-btn active" data-lang="ro" title="Română">
-                    <div class="flag-ro"></div>
+            <!-- Language Selector Dropdown -->
+            <div class="language-dropdown">
+                <button class="lang-dropdown-btn" id="langDropdownBtn">
+                    <span class="flag-icon flag-ro" id="currentFlag"></span>
+                    <span class="lang-code" id="currentLangCode">RO</span>
+                    <span class="dropdown-arrow">▼</span>
                 </button>
-                <button class="lang-btn" data-lang="en" title="English">
-                    <div class="flag-en"></div>
-                </button>
-                <button class="lang-btn" data-lang="hu" title="Magyar">
-                    <div class="flag-hu"></div>
-                </button>
+                <div class="lang-dropdown-menu" id="langDropdownMenu">
+                    <button class="lang-option active" data-lang="ro">
+                        <span class="flag-icon flag-ro"></span>
+                        <span class="lang-name">Română</span>
+                        <span class="lang-code-small">RO</span>
+                        <span class="lang-check">✓</span>
+                    </button>
+                    <button class="lang-option" data-lang="en">
+                        <span class="flag-icon flag-en"></span>
+                        <span class="lang-name">English</span>
+                        <span class="lang-code-small">EN</span>
+                        <span class="lang-check">✓</span>
+                    </button>
+                    <button class="lang-option" data-lang="hu">
+                        <span class="flag-icon flag-hu"></span>
+                        <span class="lang-name">Magyar</span>
+                        <span class="lang-code-small">HU</span>
+                        <span class="lang-check">✓</span>
+                    </button>
+                    <button class="lang-option" data-lang="de">
+                        <span class="flag-icon flag-de"></span>
+                        <span class="lang-name">Deutsch</span>
+                        <span class="lang-code-small">DE</span>
+                        <span class="lang-check">✓</span>
+                    </button>
+                </div>
             </div>
         </nav>
     </header>

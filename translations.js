@@ -812,8 +812,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentLang = getCurrentLang();
     applyTranslations(currentLang);
     updateLanguageSelector(currentLang);
+    initLanguageDropdown(currentLang);
 
-    // Adauga event listeners pentru butoanele de limba
+    // Adauga event listeners pentru butoanele de limba (backward compatibility)
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const lang = this.getAttribute('data-lang');
@@ -821,3 +822,89 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// ========== LANGUAGE DROPDOWN FUNCTIONALITY ==========
+function initLanguageDropdown(currentLang) {
+    const dropdownBtn = document.getElementById('langDropdownBtn');
+    const dropdownMenu = document.getElementById('langDropdownMenu');
+    const dropdown = document.querySelector('.language-dropdown');
+
+    if (!dropdownBtn || !dropdownMenu) return;
+
+    // Update display based on current language
+    updateDropdownDisplay(currentLang);
+
+    // Toggle dropdown on button click
+    dropdownBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+    });
+
+    // Handle language option clicks
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+
+            // Update active state
+            document.querySelectorAll('.lang-option').forEach(opt => {
+                opt.classList.remove('active');
+            });
+            this.classList.add('active');
+
+            // Update dropdown display
+            updateDropdownDisplay(lang);
+
+            // Close dropdown
+            dropdown.classList.remove('open');
+
+            // Apply language change
+            setLang(lang);
+        });
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+        }
+    });
+
+    // Close dropdown on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            dropdown.classList.remove('open');
+        }
+    });
+}
+
+function updateDropdownDisplay(lang) {
+    const currentFlag = document.getElementById('currentFlag');
+    const currentLangCode = document.getElementById('currentLangCode');
+
+    if (!currentFlag || !currentLangCode) return;
+
+    // Map language codes to display
+    const langMap = {
+        'ro': { code: 'RO', flagClass: 'flag-ro' },
+        'en': { code: 'EN', flagClass: 'flag-en' },
+        'hu': { code: 'HU', flagClass: 'flag-hu' },
+        'de': { code: 'DE', flagClass: 'flag-de' }
+    };
+
+    const langInfo = langMap[lang] || langMap['ro'];
+
+    // Update flag
+    currentFlag.className = 'flag-icon ' + langInfo.flagClass;
+
+    // Update code
+    currentLangCode.textContent = langInfo.code;
+
+    // Update active option in dropdown
+    document.querySelectorAll('.lang-option').forEach(option => {
+        if (option.getAttribute('data-lang') === lang) {
+            option.classList.add('active');
+        } else {
+            option.classList.remove('active');
+        }
+    });
+}

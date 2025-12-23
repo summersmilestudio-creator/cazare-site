@@ -1062,6 +1062,197 @@ footer p {
 /* ============================================
    LANGUAGE SELECTOR - Steaguri in coltul dreapta
    ============================================ */
+/* ========== LANGUAGE DROPDOWN - Exemplul 3 cu steaguri ========== */
+.language-dropdown {
+    position: relative;
+    margin-left: 20px;
+}
+
+.lang-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(218, 165, 32, 0.3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.lang-dropdown-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(218, 165, 32, 0.6);
+}
+
+.lang-dropdown-btn .flag-icon {
+    width: 24px;
+    height: 16px;
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+
+.lang-dropdown-btn .lang-code {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.lang-dropdown-btn .dropdown-arrow {
+    font-size: 10px;
+    transition: transform 0.3s ease;
+    opacity: 0.7;
+}
+
+.language-dropdown.open .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    min-width: 180px;
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1001;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.language-dropdown.open .lang-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Language Options */
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+}
+
+.lang-option:hover {
+    background: rgba(39, 174, 96, 0.1);
+}
+
+.lang-option.active {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    color: #fff;
+}
+
+.lang-option .flag-icon {
+    width: 28px;
+    height: 18px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.lang-option .lang-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.lang-option.active .lang-name {
+    color: #fff;
+}
+
+.lang-option .lang-code-small {
+    font-size: 11px;
+    color: #999;
+    font-weight: 400;
+}
+
+.lang-option.active .lang-code-small {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.lang-option .lang-check {
+    font-size: 14px;
+    opacity: 0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.lang-option.active .lang-check {
+    opacity: 1;
+}
+
+/* Flag Icons - folosim cele existente */
+.flag-icon {
+    display: inline-block;
+    background-size: cover;
+}
+
+.flag-icon.flag-ro {
+    background: linear-gradient(to right,
+        #002B7F 0%, #002B7F 33.33%,
+        #FCD116 33.33%, #FCD116 66.66%,
+        #CE1126 66.66%, #CE1126 100%);
+}
+
+.flag-icon.flag-en {
+    background: linear-gradient(to bottom,
+        #B22234 0%, #B22234 7.7%,
+        #fff 7.7%, #fff 15.4%,
+        #B22234 15.4%, #B22234 23.1%,
+        #fff 23.1%, #fff 30.8%,
+        #B22234 30.8%, #B22234 38.5%,
+        #fff 38.5%, #fff 46.2%,
+        #B22234 46.2%, #B22234 53.9%,
+        #fff 53.9%, #fff 61.6%,
+        #B22234 61.6%, #B22234 69.3%,
+        #fff 69.3%, #fff 77%,
+        #B22234 77%, #B22234 84.7%,
+        #fff 84.7%, #fff 92.4%,
+        #B22234 92.4%, #B22234 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.flag-icon.flag-en::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    height: 55%;
+    background: #3C3B6E;
+}
+
+.flag-icon.flag-hu {
+    background: linear-gradient(to bottom,
+        #C8102E 0%, #C8102E 33.33%,
+        white 33.33%, white 66.66%,
+        #008751 66.66%, #008751 100%);
+}
+
+.flag-icon.flag-de {
+    background: linear-gradient(to bottom,
+        #000 0%, #000 33.33%,
+        #DD0000 33.33%, #DD0000 66.66%,
+        #FFCC00 66.66%, #FFCC00 100%);
+}
+
+/* OLD language-selector - keep for backward compatibility */
 .language-selector {
     display: flex;
     align-items: center;
@@ -1158,8 +1349,48 @@ footer p {
         #008751 66.66%, #008751 100%);
 }
 
-/* Responsive pentru language selector */
+/* Responsive pentru language dropdown */
 @media (max-width: 768px) {
+    .language-dropdown {
+        position: absolute;
+        top: 12px;
+        right: 60px;
+        margin-left: 0;
+    }
+
+    .lang-dropdown-btn {
+        padding: 6px 10px;
+        gap: 6px;
+    }
+
+    .lang-dropdown-btn .flag-icon {
+        width: 20px;
+        height: 14px;
+    }
+
+    .lang-dropdown-btn .lang-code {
+        font-size: 12px;
+    }
+
+    .lang-dropdown-menu {
+        min-width: 160px;
+        right: 0;
+    }
+
+    .lang-option {
+        padding: 8px 12px;
+    }
+
+    .lang-option .flag-icon {
+        width: 24px;
+        height: 16px;
+    }
+
+    .lang-option .lang-name {
+        font-size: 13px;
+    }
+
+    /* OLD selector */
     .language-selector {
         position: absolute;
         top: 15px;
@@ -1175,6 +1406,30 @@ footer p {
 }
 
 @media (max-width: 480px) {
+    .language-dropdown {
+        right: 55px;
+        top: 10px;
+    }
+
+    .lang-dropdown-btn {
+        padding: 5px 8px;
+        gap: 4px;
+    }
+
+    .lang-dropdown-btn .flag-icon {
+        width: 18px;
+        height: 12px;
+    }
+
+    .lang-dropdown-btn .lang-code {
+        font-size: 11px;
+    }
+
+    .lang-dropdown-btn .dropdown-arrow {
+        font-size: 8px;
+    }
+
+    /* OLD selector */
     .language-selector {
         right: 55px;
         top: 12px;
