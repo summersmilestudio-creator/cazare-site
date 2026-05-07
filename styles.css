@@ -6,10 +6,15 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
+}
+
+h1, h2, h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
 }
 
 .container {
@@ -22,8 +27,8 @@ body {
 header {
     background: linear-gradient(135deg, rgba(26, 35, 52, 0.95) 0%, rgba(44, 62, 80, 0.95) 100%);
     backdrop-filter: blur(10px);
-    color: #F5F5F5;
-    padding: 1.2rem 0;
+    color: #F0EDE6;
+    padding: 0.6rem 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -49,23 +54,26 @@ nav {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.2rem;
+    margin-left: auto;
+    margin-right: 0.5rem;
 }
 
 .nav-links a {
     color: #E8E8E8;
     text-decoration: none;
-    font-weight: 400;
-    font-size: 0.95rem;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.8px;
     transition: all 0.3s ease;
     position: relative;
+    text-transform: capitalize;
 }
 
 .nav-links a::after {
@@ -243,7 +251,7 @@ nav {
     transform: translate(-50%, -50%);
     z-index: 4;
     text-align: center;
-    color: white;
+    color: #F0EDE6;
     width: 90%;
     max-width: 800px;
 }
@@ -264,7 +272,7 @@ nav {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    color: #F0EDE6;
     padding: 120px 20px;
     text-align: center;
 }
@@ -301,7 +309,7 @@ nav {
 
 /* Secțiuni Generale */
 section {
-    padding: 60px 20px;
+    padding: 100px 20px;
 }
 
 section h2 {
@@ -427,7 +435,7 @@ section h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #F0EDE6;
     font-size: 1.2rem;
     font-weight: 600;
 }
@@ -742,7 +750,7 @@ section h2 {
 /* Footer */
 footer {
     background: #2d3748;
-    color: white;
+    color: #F0EDE6;
     text-align: center;
     padding: 2.5rem 0;
 }
@@ -766,6 +774,9 @@ footer p {
 
 /* Responsive */
 @media (max-width: 768px) {
+    header {
+        padding: 0.8rem 0 !important;
+    }
     nav {
         padding: 0 15px;
         flex-wrap: nowrap;
@@ -781,8 +792,8 @@ footer p {
     }
 
     .logo img {
-        height: 60px !important;
-        width: 120px !important;
+        height: 45px !important;
+        width: auto !important;
     }
 
     /* Show hamburger on mobile */
@@ -806,7 +817,7 @@ footer p {
         padding: 2rem 0;
         transition: right 0.3s ease;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-        z-index: 999;
+        z-index: 9999;
     }
 
     .nav-links.active {
@@ -879,8 +890,8 @@ footer p {
     }
 
     .logo img {
-        height: 50px !important;
-        width: 100px !important;
+        height: 45px !important;
+        width: auto !important;
     }
 
     .nav-links {
@@ -907,7 +918,7 @@ footer p {
     }
 
     section {
-        padding: 40px 15px;
+        padding: 80px 15px;
     }
 
     .thumbnail-gallery {
@@ -917,7 +928,7 @@ footer p {
 
 /* Secțiunea Servicii */
 .servicii {
-    padding: 80px 0;
+    padding: 120px 0;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
@@ -959,7 +970,7 @@ footer p {
 
 .serviciu-card.featured-service {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    color: #F0EDE6;
     transform: scale(1.05);
 }
 
@@ -967,7 +978,7 @@ footer p {
 .serviciu-card.featured-service .serviciu-descriere,
 .serviciu-card.featured-service .serviciu-lista li,
 .serviciu-card.featured-service .serviciu-pret {
-    color: white;
+    color: #F0EDE6;
 }
 
 .serviciu-icon {
@@ -1050,6 +1061,9 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 0.8rem 0 !important;
+    }
     .servicii-grid {
         grid-template-columns: 1fr;
     }
@@ -1065,7 +1079,7 @@ footer p {
 /* ========== LANGUAGE DROPDOWN - Exemplul 3 cu steaguri ========== */
 .language-dropdown {
     position: relative;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .lang-dropdown-btn {
@@ -1257,7 +1271,7 @@ footer p {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 .lang-btn {
@@ -1349,8 +1363,111 @@ footer p {
         #008751 66.66%, #008751 100%);
 }
 
+/* ========================================
+   BOTTOM NAVIGATION BAR - BASE STYLES
+   ======================================== */
+.bottom-nav {
+    display: none;
+}
+
+@media (max-width: 992px) {
+    .bottom-nav {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        background: #000000 !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        border-top: 2px solid #DAA520 !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        padding: 7px 4px !important;
+        padding-bottom: calc(7px + env(safe-area-inset-bottom, 0px)) !important;
+        z-index: 999999 !important;
+        box-shadow: none !important;
+    }
+
+    .bottom-nav-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none !important;
+        color: #ffffff !important;
+        font-size: 0.5rem !important;
+        padding: 6px 8px !important;
+        min-width: 41px !important;
+        transition: all 0.3s ease !important;
+        border-radius: 10px !important;
+        background: transparent !important;
+        border: none !important;
+        cursor: pointer !important;
+    }
+
+    .bottom-nav-item svg {
+        width: 17px !important;
+        height: 17px !important;
+        margin-bottom: 3px !important;
+        opacity: 1 !important;
+        stroke-width: 2 !important;
+    }
+
+    .bottom-nav-item span {
+        font-weight: 500 !important;
+        letter-spacing: 0.2px !important;
+    }
+
+    .bottom-nav-item:hover,
+    .bottom-nav-item.active {
+        color: #FFD700 !important;
+        background: rgba(218, 165, 32, 0.15) !important;
+    }
+
+    .bottom-nav-item:hover svg,
+    .bottom-nav-item.active svg {
+        opacity: 1 !important;
+    }
+
+    /* Buton REZERVA - gold premium */
+    .bottom-nav-item.nav-book {
+        background: linear-gradient(135deg, #DAA520, #FFD700) !important;
+        color: #0a0e14 !important;
+        font-weight: 700 !important;
+        border-radius: 25px !important;
+        padding: 9px 14px !important;
+        margin-top: -14px !important;
+        box-shadow: 0 4px 20px rgba(218, 165, 32, 0.5) !important;
+        border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .bottom-nav-item.nav-book:hover {
+        transform: scale(1.05) !important;
+        box-shadow: 0 6px 25px rgba(218, 165, 32, 0.6) !important;
+    }
+
+    .bottom-nav-item.nav-book svg,
+    .bottom-nav-item.nav-book span {
+        color: #0a0e14 !important;
+        opacity: 1 !important;
+    }
+
+    /* Space for bottom nav */
+    body {
+        padding-bottom: 60px !important;
+    }
+
+    footer {
+        margin-bottom: 60px !important;
+    }
+}
+
 /* Responsive pentru language dropdown */
 @media (max-width: 768px) {
+    header {
+        padding: 0.8rem 0 !important;
+    }
     .language-dropdown {
         position: absolute;
         top: 12px;
