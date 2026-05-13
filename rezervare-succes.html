@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervare Confirmată! | Summer Smile</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .success-card {
+            background: white;
+            border-radius: 25px;
+            padding: 50px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .success-icon svg {
+            width: 50px;
+            height: 50px;
+            fill: white;
+        }
+
+        h1 {
+            color: #1a2334;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .info-box h3 {
+            color: #1a2334;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .info-row span:first-child {
+            color: #666;
+        }
+
+        .info-row span:last-child {
+            font-weight: 600;
+            color: #1a2334;
+        }
+
+        .next-steps {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .next-steps h3 {
+            color: #1a2334;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #1a2334;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .contact-info {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-card">
+        <div class="success-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+
+        <h1>Rezervare Confirmată!</h1>
+        <p class="subtitle">
+            Mulțumim pentru rezervare! Avansul a fost procesat cu succes.<br>
+            Veți primi confirmarea pe email în câteva minute.
+        </p>
+
+        <div class="info-box">
+            <h3>Proprietate</h3>
+            <div class="info-row">
+                <span>Cazare</span>
+                <span>Studio New York</span>
+            </div>
+            <div class="info-row">
+                <span>Locație</span>
+                <span>Oradea, România</span>
+            </div>
+        </div>
+
+        <div class="next-steps">
+            <h3>Pașii următori:</h3>
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <span class="step-text">Veți primi un email de confirmare cu detaliile rezervării</span>
+            </div>
+            <div class="step-item">
+                <span class="step-number">2</span>
+                <span class="step-text">Vă vom contacta pentru a confirma ora de check-in și detaliile de acces</span>
+            </div>
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <span class="step-text">Restul sumei se achită la check-in (cash sau card)</span>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="https://wa.me/40746954812?text=Buna!%20Tocmai%20am%20facut%20o%20rezervare%20pentru%20Studio%20New%20York.%20Doresc%20sa%20confirm%20detaliile." class="btn btn-primary">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                Contactează-ne
+            </a>
+            <a href="index.html" class="btn btn-secondary">
+                Înapoi acasă
+            </a>
+        </div>
+
+        <div class="contact-info">
+            Întrebări? Sună-ne la <a href="tel:+40746954812">0746 954 812</a>
+        </div>
+    </div>
+<script src="cookie-consent.js"></script>
+<script src="anpc-inject.js"></script>
+<script src="multi-currency.js"></script>
+
+<!-- Meta Pixel — Summer Smile + Purchase event -->
+<script>window.SS_FB_CONFIG = { pixelId: '2240541116756836' };</script>
+<script src="fb-pixel-loader.js?v=1"></script>
+
+<!-- Google Ads + GA4 — Summer Smile -->
+<script>window.SS_GADS_CONFIG = { conversionId: 'AW-XXXXXXXXXX', ga4Id: 'G-XXXXXXXXXX', conversionLabel: '2240541116756836XX' };</script>
+<script src="google-ads-loader.js?v=1"></script>
+<script>
+(function () {
+    // Trage Purchase din URL params (suma + currency + booking_id setate de webhook Stripe)
+    var params = new URLSearchParams(location.search);
+    var value = parseFloat(params.get('value') || params.get('amount') || '0');
+    var currency = (params.get('currency') || 'RON').toUpperCase();
+    var bookingId = params.get('booking_id') || params.get('bid') || ('bk_' + Date.now());
+    var property = params.get('property') || 'mamaia-nord';
+
+    var fbDone = false, gadsDone = false;
+    function fireFB() {
+        if (fbDone) return;
+        if (!window.SS || !window.SS.fbTrack) return setTimeout(fireFB, 200);
+        // event_id pentru deduplicare cu CAPI server-side
+        SS.fbTrack('Purchase', {
+            value: value || 1000,
+            currency: currency,
+            content_type: 'product',
+            content_category: 'cazare',
+            content_name: property,
+            content_ids: [property],
+            num_items: 1
+        }, { eventID: bookingId });
+        fbDone = true;
+    }
+    function fireGAds() {
+        if (gadsDone) return;
+        if (!window.SS || !window.SS.gadsConversion) return setTimeout(fireGAds, 200);
+        // transaction_id = bookingId, dedup cu Enhanced Conv server-side
+        SS.gadsConversion(value || 1000, bookingId, {}, { property: property });
+        gadsDone = true;
+    }
+    fireFB();
+    fireGAds();
+})();
+</script>
+</body>
+</html>

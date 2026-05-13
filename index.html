@@ -2,268 +2,240 @@
 <html lang="ro">
 <head>
     <meta charset="UTF-8">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4SKS215EQ7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4SKS215EQ7');
+      gtag('config', 'AW-18058457802');
+    </script>
+
+    <!-- Meta Pixel — Summer Smile -->
+    <script>window.SS_FB_CONFIG = { pixelId: '2240541116756836' };</script>
+    <script src="fb-pixel-loader.js?v=1" async></script>
+
+    <!-- Google Ads + GA4 — Summer Smile -->
+    <script>window.SS_GADS_CONFIG = { conversionId: 'AW-XXXXXXXXXX', ga4Id: 'G-XXXXXXXXXX', conversionLabel: '2240541116756836XX' };</script>
+    <script src="google-ads-loader.js?v=1" async></script>
+
+    <!-- Schema.org Structured Data for Google -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Summer Smile",
+        "alternateName": "Summer Smile Cazare",
+        "url": "https://summer-smile.ro",
+        "logo": "https://summer-smile.ro/android-chrome-512x512.png",
+        "description": "Cazare premium in Oradea si Mamaia Nord. Apartamente si garsoniere pentru vacante de neuitat.",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+40746954812",
+            "contactType": "customer service",
+            "email": "contact@summer-smile.ro",
+            "availableLanguage": ["Romanian", "English", "Hungarian", "German"]
+        },
+        "sameAs": [
+            "https://www.facebook.com/studiosummersmile",
+            "https://www.instagram.com/cazare_mamaianord/",
+            "https://www.tiktok.com/@cazareoradea"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Oradea",
+            "addressCountry": "RO"
+        }
+    }
+    </script>
+
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#FFD700">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cazare Oradea & Mamaia Nord - Rezervă Acum</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Cazare premium in Oradea si Mamaia Nord. Garsoniere si apartamente de lux cu WiFi, AC, parcare gratuita. Rezervare online cu confirmare instant. De la 140 RON/noapte.">
+    <meta name="keywords" content="cazare Oradea, cazare Mamaia Nord, apartamente vacanta, garsoniere Oradea, cazare mare, Summer Smile, rezervari online, cazare premium Romania">
+    <meta name="author" content="Summer Smile">
+    <meta property="og:title" content="Summer Smile - Cazare Premium Oradea & Mamaia Nord">
+    <meta property="og:description" content="Rezerva cazare de lux in Oradea si Mamaia Nord. Apartamente si garsoniere cu toate dotarile. Confirmare instant.">
+    <meta property="og:image" content="https://summer-smile.ro/android-chrome-512x512.png">
+    <meta property="og:url" content="https://summer-smile.ro">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://summer-smile.ro/">
+    <title>Cazare Oradea & Mamaia Nord - Rezerva acum | Summer Smile</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="premium.css">
+    <link rel="stylesheet" href="mobile-fix.css?v=3">
+    <link rel="stylesheet" href="mobile-premium.css?v=3">
+    <link rel="stylesheet" href="promo-paste.css?v=1">
+
+
     <style>
-        /* VARIANTA 5 - ASYMMETRIC LAYOUT 60/40 */
-        .asymmetric-banner {
+        /* ========================================
+           HERO PREMIUM - SUMMER SMILE
+           Design Premium €5000 Quality
+           ======================================== */
+
+        .hero-premium {
             position: relative;
-            height: 650px;
+            height: 100vh;
+            min-height: 700px;
+            max-height: 1000px;
+            overflow: hidden;
             display: flex;
-            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+            background: #0a0e14;
         }
 
-        .asymmetric-side {
-            position: relative;
-            height: 100%;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-
-        .side-large {
-            width: 62%;
-            background: linear-gradient(135deg, rgba(26, 35, 52, 0.7), rgba(44, 62, 80, 0.6)),
-                        url('images/2.1.jpg') center/cover;
-            overflow: visible;
-        }
-
-        .side-small {
-            width: 46%;
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.6), rgba(26, 35, 52, 0.7)),
-                        url('images/1.jpg') center/cover;
-            margin-left: -8%;
-            overflow: visible;
-        }
-
-        /* Hover effect - expand on hover */
-        .asymmetric-side:hover {
-            width: 65%;
-        }
-
-        .asymmetric-side:hover + .asymmetric-side {
-            width: 43%;
-            margin-left: -8%;
-        }
-
-        /* Zig-zag divider - hidden, effect created by clip-path */
-        .asymmetric-divider {
-            display: none;
-        }
-
-        /* Content overlay for each side */
-        .side-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            width: 80%;
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
-
-        .asymmetric-side:hover .side-content {
-            opacity: 1;
-        }
-
-        .side-content h2 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #FFD700;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .side-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .side-content .btn-side {
-            display: inline-block;
-            background: linear-gradient(135deg, #DAA520, #FFD700, #DAA520);
-            background-size: 200% 100%;
-            color: white;
-            padding: 1.3rem 4rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            transition: all 0.5s ease;
-            box-shadow: 0 15px 40px rgba(218, 165, 32, 0.4);
-            letter-spacing: 2px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .side-content .btn-side::before {
-            content: '';
+        /* Dual Image Background with Split Effect */
+        .hero-bg-container {
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .side-content .btn-side:hover::before {
-            left: 100%;
-        }
-
-        .side-content .btn-side:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 60px rgba(218, 165, 32, 0.6);
-            background-position: 100% 0;
-        }
-
-        /* Central content - always visible */
-        .central-content {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            z-index: 10;
-            width: 90%;
-            max-width: 700px;
-            animation: fadeInDown 1s ease;
-        }
-
-        .central-content h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 20px rgba(255, 215, 0, 0.3);
-            letter-spacing: 3px;
-        }
-
-        .central-content .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            opacity: 0.95;
-        }
-
-        .central-content .tagline {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            font-style: italic;
-        }
-
-        /* Location cards from Varianta 4 - Parallax */
-        .parallax-locations {
-            position: absolute;
-            bottom: 0;
             left: 0;
             width: 100%;
             height: 100%;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 0;
-            z-index: 15;
+        }
+
+        .hero-bg-left,
+        .hero-bg-right {
+            position: relative;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-bg-left::before,
+        .hero-bg-right::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 120%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 8s ease;
+        }
+
+        .hero-bg-left::before {
+            background-image: url('images/2.1.jpg');
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+
+        .hero-bg-right::before {
+            background-image: url('images/1.jpg');
+            animation: slowZoom 20s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Premium Gradient Overlay */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(135deg,
+                    rgba(26, 35, 52, 0.92) 0%,
+                    rgba(22, 33, 62, 0.85) 25%,
+                    rgba(26, 26, 46, 0.75) 50%,
+                    rgba(22, 33, 62, 0.85) 75%,
+                    rgba(26, 35, 52, 0.92) 100%
+                );
+            z-index: 1;
+        }
+
+        /* Center Highlight */
+        .hero-center-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(218, 165, 32, 0.08) 0%, transparent 70%);
+            z-index: 2;
             pointer-events: none;
         }
 
-        .parallax-locations > * {
-            pointer-events: auto;
-        }
-
-        .location-card-parallax {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            padding: 2rem 3rem;
-            border-radius: 20px;
-            border: 2px solid rgba(218, 165, 32, 0.4);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            min-width: 250px;
-            margin: 40px;
-            animation: floatIn 1.5s ease 0.6s backwards;
-        }
-
-        .location-card-parallax:first-child {
-            margin-left: 8%;
-        }
-
-        .location-card-parallax:last-child {
-            margin-right: 5%;
-        }
-
-        .location-card-parallax:hover {
-            background: rgba(218, 165, 32, 0.25);
-            border-color: #FFD700;
-            transform: translateY(-10px) scale(1.05);
-            box-shadow: 0 20px 60px rgba(218, 165, 32, 0.4);
-        }
-
-        /* Hover effect classes for images */
-        .side-large.enlarge::before {
-            transform: scale(1.15) !important;
-        }
-
-        .side-small.enlarge::before {
-            transform: scale(1.15) !important;
-        }
-
-        .location-card-parallax h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: #FFD700;
-        }
-
-        .location-card-parallax p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            color: white;
-        }
-
-        /* Hover instruction */
-        .hover-instruction {
+        /* Animated Gold Particles */
+        .hero-particles {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            padding: 0.8rem 2rem;
-            border-radius: 25px;
-            color: white;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            z-index: 15;
-            animation: pulse 2s ease infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+            overflow: hidden;
         }
 
-        @keyframes fadeInDown {
-            from {
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatParticle 12s infinite ease-in-out;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 1.5s; }
+        .particle:nth-child(3) { left: 35%; animation-delay: 3s; }
+        .particle:nth-child(4) { left: 50%; animation-delay: 0.8s; }
+        .particle:nth-child(5) { left: 65%; animation-delay: 2.2s; }
+        .particle:nth-child(6) { left: 80%; animation-delay: 4s; }
+        .particle:nth-child(7) { left: 90%; animation-delay: 1s; }
+        .particle:nth-child(8) { left: 25%; animation-delay: 2.8s; }
+        .particle:nth-child(9) { left: 75%; animation-delay: 3.5s; }
+        .particle:nth-child(10) { left: 45%; animation-delay: 1.8s; }
+        .particle:nth-child(11) { left: 55%; animation-delay: 4.2s; }
+        .particle:nth-child(12) { left: 15%; animation-delay: 2.5s; }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) scale(0);
                 opacity: 0;
-                transform: translate(-50%, -60%);
             }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 0.5;
+            5% {
+                opacity: 0.8;
             }
             50% {
-                opacity: 0.9;
+                opacity: 1;
+            }
+            95% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1);
+                opacity: 0;
             }
         }
 
-        @keyframes floatIn {
+        /* Main Content Container */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 30px;
+            animation: heroFadeIn 1.5s ease-out;
+        }
+
+        @keyframes heroFadeIn {
             from {
                 opacity: 0;
                 transform: translateY(40px);
@@ -274,230 +246,656 @@
             }
         }
 
-        /* Image zoom on hover */
-        .asymmetric-side::before {
+        /* Premium Badge */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.15), rgba(255, 215, 0, 0.08));
+            border: 1px solid rgba(218, 165, 32, 0.4);
+            padding: 12px 28px;
+            border-radius: 50px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 0 20px rgba(218, 165, 32, 0.2);
+        }
+
+        .hero-badge-icon {
+            width: 22px;
+            height: 22px;
+            fill: #FFD700;
+        }
+
+        .hero-badge-text {
+            color: #FFD700;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        /* Main Title */
+        .hero-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+            font-weight: 300;
+            color: #F0EDE6;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        .hero-title-gold {
+            display: block;
+            background: linear-gradient(135deg, #B8860B 0%, #DAA520 30%, #FFD700 50%, #FFA500 70%, #DAA520 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        /* Subtitle */
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            color: rgba(240, 237, 230, 0.85);
+            margin-bottom: 50px;
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Location Cards */
+        .hero-locations {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-location-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 28px 40px;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            min-width: 260px;
+            text-decoration: none;
+        }
+
+        .hero-location-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.7s ease;
-            z-index: 0;
+            background: linear-gradient(135deg, rgba(218, 165, 32, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
 
-        .side-large::before {
-            background-image: url('images/2.1.jpg');
-            /* Margine dreapta zigzag - iesire */
-            clip-path: polygon(
-                0 0,
-                95% 0,
-                98% 5%,
-                95% 10%,
-                98% 15%,
-                95% 20%,
-                98% 25%,
-                95% 30%,
-                98% 35%,
-                95% 40%,
-                98% 45%,
-                95% 50%,
-                98% 55%,
-                95% 60%,
-                98% 65%,
-                95% 70%,
-                98% 75%,
-                95% 80%,
-                98% 85%,
-                95% 90%,
-                98% 95%,
-                95% 100%,
-                0 100%
-            );
+        .hero-location-card:hover::before {
+            opacity: 1;
         }
 
-        .side-small::before {
-            background-image: url('images/1.jpg');
-            /* Margine stanga zigzag - intrare */
-            clip-path: polygon(
-                5% 0,
-                100% 0,
-                100% 100%,
-                5% 100%,
-                2% 95%,
-                5% 90%,
-                2% 85%,
-                5% 80%,
-                2% 75%,
-                5% 70%,
-                2% 65%,
-                5% 60%,
-                2% 55%,
-                5% 50%,
-                2% 45%,
-                5% 40%,
-                2% 35%,
-                5% 30%,
-                2% 25%,
-                5% 20%,
-                2% 15%,
-                5% 10%,
-                2% 5%
-            );
+        .hero-location-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(218, 165, 32, 0.5);
+            box-shadow: 0 25px 60px rgba(218, 165, 32, 0.25);
         }
 
-        .asymmetric-side:hover::before {
-            transform: scale(1.1);
+        .hero-location-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
         }
 
-        /* RESPONSIVE - TABLET & MOBILE */
-        @media (max-width: 768px) {
-            .asymmetric-banner {
-                flex-direction: column;
-                height: 100vh;
+        .hero-location-name {
+            color: #FFD700;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-location-desc {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-location-arrow {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%) translateX(-10px);
+            opacity: 0;
+            transition: all 0.4s ease;
+            color: #FFD700;
+        }
+
+        .hero-location-card:hover .hero-location-arrow {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* Premium Stats - Flat Clean Design */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 20px 30px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(190,169,142,0.2);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-3px);
+            border-color: rgba(190,169,142,0.4);
+        }
+
+        .hero-stat-number {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #F0EDE6;
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .hero-stat-sep {
+            width: 30px;
+            height: 1px;
+            background: rgba(190,169,142,0.4);
+            margin: 0 auto 8px;
+        }
+
+        .hero-stat-label {
+            color: rgba(190,169,142,0.8);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+
+        /* Decorative Corner Elements */
+        .hero-corner {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .hero-corner-tl {
+            top: 30px;
+            left: 30px;
+            border-left: 2px solid rgba(218, 165, 32, 0.3);
+            border-top: 2px solid rgba(218, 165, 32, 0.3);
+        }
+
+        .hero-corner-tr {
+            top: 30px;
+            right: 30px;
+            border-right: 2px solid rgba(218, 165, 32, 0.3);
+            border-top: 2px solid rgba(218, 165, 32, 0.3);
+        }
+
+        .hero-corner-bl {
+            bottom: 30px;
+            left: 30px;
+            border-left: 2px solid rgba(218, 165, 32, 0.3);
+            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+        }
+
+        .hero-corner-br {
+            bottom: 30px;
+            right: 30px;
+            border-right: 2px solid rgba(218, 165, 32, 0.3);
+            border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-premium {
                 min-height: 600px;
             }
 
-            .asymmetric-side {
-                width: 100% !important;
-                height: 50%;
-                margin-left: 0 !important;
+            .hero-locations {
+                gap: 20px;
             }
 
-            .side-small {
-                margin-left: 0 !important;
+            .hero-location-card {
+                min-width: 220px;
+                padding: 22px 30px;
             }
 
-            .asymmetric-side:hover {
-                height: 55%;
-                width: 100% !important;
+            .hero-stats {
+                gap: 14px;
             }
 
-            .asymmetric-side:hover + .asymmetric-side {
-                height: 45%;
-                width: 100% !important;
-                margin-left: 0 !important;
-            }
-
-            .asymmetric-divider {
-                left: 0;
-                top: 50%;
-                width: 100%;
-                height: 4px;
-                transform: skewY(-2deg);
-            }
-
-            .central-content {
-                top: 20%;
-                width: 95%;
-            }
-
-            .central-content h1 {
-                font-size: 2.2rem;
-                letter-spacing: 1px;
-            }
-
-            .central-content .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .central-content .tagline {
-                font-size: 0.95rem;
-            }
-
-            .parallax-locations {
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 1rem;
-                bottom: 20px;
-                padding: 0 1rem;
-            }
-
-            .location-card-parallax {
-                min-width: 280px;
-                max-width: 90%;
-                width: 100%;
-                margin: 0 !important;
-                padding: 1.5rem 2rem;
-            }
-
-            .location-card-parallax h3 {
-                font-size: 1.5rem;
-            }
-
-            .location-card-parallax p {
-                font-size: 0.9rem;
-            }
-
-            .hover-instruction {
-                display: none;
-            }
-
-            .side-content h2 {
-                font-size: 2rem;
-            }
-
-            .side-content p {
-                font-size: 1rem;
-            }
-
-            .side-content .btn-side {
-                padding: 1rem 2.5rem;
-                font-size: 1rem;
+            .hero-corner {
+                width: 60px;
+                height: 60px;
             }
         }
 
-        /* RESPONSIVE - SMALL MOBILE */
-        @media (max-width: 480px) {
-            .asymmetric-banner {
-                min-height: 550px;
+        @media (max-width: 768px) {
+            .logo img {
+                height: 55px !important; min-width: auto !important;
+                margin-left: 0 !important;
+            }
+            .hero-premium {
+                min-height: 100vh;
+                max-height: none;
             }
 
-            .central-content {
-                top: 15%;
+            .hero-bg-left,
+            .hero-bg-right {
+                width: 100%;
+                position: absolute;
             }
 
-            .central-content h1 {
+            .hero-bg-left {
+                opacity: 0.7;
+            }
+
+            .hero-bg-right {
+                opacity: 0;
+            }
+
+            .hero-content {
+                padding: 0 15px;
+            }
+
+            .hero-badge {
+                padding: 10px 20px;
+            }
+
+            .hero-badge-text {
+                font-size: 0.65rem;
+            }
+
+            .hero-locations {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .hero-location-card {
+                width: 100%;
+                max-width: 320px;
+                padding: 20px 25px;
+            }
+
+            .hero-stats {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-stat {
+                min-width: calc(50% - 10px);
+                max-width: calc(50% - 10px);
+            }
+
+            .hero-stat-number {
                 font-size: 1.8rem;
             }
 
-            .central-content .subtitle {
+            .hero-corner {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+
+            .hero-subtitle {
                 font-size: 1rem;
+                margin-bottom: 35px;
             }
 
-            .central-content .tagline {
-                font-size: 0.85rem;
-            }
-
-            .location-card-parallax {
-                min-width: 240px;
-                padding: 1.2rem 1.5rem;
-            }
-
-            .location-card-parallax h3 {
+            .hero-location-name {
                 font-size: 1.3rem;
             }
 
-            .location-card-parallax p {
-                font-size: 0.85rem;
+            .hero-stat {
+                min-width: calc(50% - 8px);
+            }
+
+            .hero-stat-number {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Valentine promo styles managed by promo-valentine.css */
+
+        /* ========================================
+           TOP CONTACT BAR STYLES
+           ======================================== */
+        .top-contact-bar { /* INGUSTATA 15% */
+            background: linear-gradient(135deg, #0a0e14, #1a1a2e);
+            padding: 4px 0;
+            font-size: 0.81rem;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.1);
+        }
+        .top-contact-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 20px;
+        }
+        .top-contact-bar .social-links {
+            margin-right: 0;
+            order: 1;
+        }
+        .top-contact-bar .contact-links {
+            order: 2;
+        }
+        .top-contact-bar a {
+            color: #FFD700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        .top-contact-bar a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .contact-links { display: flex; gap: 20px; }
+        .contact-links .whatsapp-link svg { vertical-align: middle; margin-right: 4px; }
+        .social-links { display: flex; gap: 12px; }
+        .social-links a {
+            width: 32px;
+            height: 32px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .social-links a svg { fill: currentColor; }
+        .social-links a.facebook { color: #1877F2; }
+        .social-links a.instagram { color: #E4405F; }
+        .social-links a.tiktok { color: #fff; }
+        .social-links a.facebook:hover { background: #1877F2; color: #fff; border-color: #1877F2; }
+        .social-links a.instagram:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff; border-color: transparent; }
+        .social-links a.tiktok:hover { background: #000; color: #00f2ea; border-color: #00f2ea; }
+
+        @media (max-width: 768px) {
+            .logo img {
+                height: 55px !important; min-width: auto !important;
+                margin-left: 0 !important;
+            }
+            .top-contact-bar .container { flex-direction: column; gap: 10px; }
+            .contact-links { flex-direction: column; gap: 6px; align-items: center; }
+        }
+
+        /* ========================================
+           HEADER ENHANCEMENT
+           ======================================== */
+        header {
+            background: linear-gradient(135deg, rgba(10, 14, 20, 0.98) 0%, rgba(26, 26, 46, 0.98) 100%);
+            backdrop-filter: blur(20px);
+        }
+
+        /* User Menu */
+        .user-menu-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 15px;
+        }
+        .user-menu-header .btn-login {
+            padding: 8px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            color: #FFD700;
+            border: 1px solid rgba(218, 165, 32, 0.5);
+            background: transparent;
+        }
+        .user-menu-header .btn-login:hover {
+            background: #FFD700;
+            color: #1a2334;
+            box-shadow: 0 5px 20px rgba(218, 165, 32, 0.3);
+        }
+        .user-menu-header .btn-register {
+            padding: 8px 18px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            background: linear-gradient(135deg, #DAA520, #FFD700);
+            color: #1a2334;
+            border: none;
+        }
+        .user-menu-header .btn-register:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(218, 165, 32, 0.4);
+        }
+        @media (max-width: 992px) {
+            .user-menu-header {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #1a2334 0%, #0f1419 100%);
+                padding: 12px 20px;
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                z-index: 9999;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+                border-top: 2px solid #DAA520;
+            }
+            .user-menu-header .btn-login,
+            .user-menu-header .btn-register {
+                flex: 1;
+                max-width: 150px;
+                text-align: center;
+                padding: 12px 20px;
+            }
+        }
+    
+        @media (max-width: 992px) {
+            body {
+                padding-bottom: 120px;
+            }
+            footer {
+                margin-bottom: 100px;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* FORCE BOTTOM NAV PREMIUM */
+@media (max-width: 992px) {
+    .bottom-nav {
+        background: rgba(10, 14, 20, 0.98) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-top: 1px solid rgba(218, 165, 32, 0.2) !important;
+        box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.4) !important;
+        padding: 12px 5px !important;
+    }
+    .bottom-nav-item {
+        color: rgba(255, 255, 255, 0.5) !important;
+        text-decoration: none !important;
+        font-size: 0.65rem !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 8px 10px !important;
+        border-radius: 10px !important;
+        transition: all 0.3s ease !important;
+    }
+    .bottom-nav-item:hover, .bottom-nav-item.active {
+        color: #FFD700 !important;
+        background: rgba(218, 165, 32, 0.15) !important;
+    }
+    .bottom-nav-item svg {
+        width: 22px !important;
+        height: 22px !important;
+        opacity: 0.7 !important;
+        stroke-width: 1.8 !important;
+    }
+    .bottom-nav-item:hover svg, .bottom-nav-item.active svg {
+        opacity: 1 !important;
+    }
+    .bottom-nav-item span {
+        font-weight: 500 !important;
+        margin-top: 3px !important;
+    }
+    .bottom-nav-item.nav-book {
+        background: linear-gradient(135deg, #DAA520, #FFD700) !important;
+        color: #0a0e14 !important;
+        font-weight: 700 !important;
+        border-radius: 25px !important;
+        padding: 12px 20px !important;
+        margin-top: -18px !important;
+        box-shadow: 0 4px 20px rgba(218, 165, 32, 0.5) !important;
+    }
+    .bottom-nav-item.nav-book span, .bottom-nav-item.nav-book svg {
+        color: #0a0e14 !important;
+        opacity: 1 !important;
+    }
+}
+/* FORCE TOP BAR - TOATE ELEMENTELE IN DREAPTA */
+.top-contact-bar .container {
+    justify-content: flex-end !important;
+    gap: 20px !important;
+}
+.top-contact-bar .social-links {
+    margin-right: 0 !important;
+    order: 1 !important;
+}
+.top-contact-bar .contact-links {
+    order: 2 !important;
+}
+/* ASCUNDE BARA DE CONTACT SI WHATSAPP FLOAT PE MOBIL */
+@media (max-width: 992px) {
+    .top-contact-bar { display: none !important; }
+    .whatsapp-float, .float-whatsapp, #whatsapp-float, .whatsapp-button, .fixed-whatsapp { display: none !important; }
+}
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/CLARITY_ID";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script");
+    </script>
+    <!-- Plausible Analytics -->
+    <script defer data-domain="summer-smile.ro" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
+    <!-- Cross-Promo: Marea in Ceara -->
+    <style>
+    .promo-bar{max-width:100%;margin:0;overflow:hidden;display:flex;align-items:stretch;text-decoration:none;color:#fff;transition:all .4s;min-height:56px}
+    .promo-bar:hover{opacity:.94}
+    .promo-bar .bar-img{width:120px;flex-shrink:0;position:relative;overflow:hidden}
+    .promo-bar .bar-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 4s ease}
+    .promo-bar:hover .bar-img img{transform:scale(1.06)}
+    .promo-bar .bar-img::after{content:'';position:absolute;top:0;right:0;bottom:0;width:40px;background:linear-gradient(to right,transparent,#2A2118)}
+    .promo-bar .bar-panel{flex:1;display:flex;align-items:center;gap:16px;padding:12px 28px 12px 16px;background:#2A2118}
+    .promo-bar .bar-sep{width:1px;height:28px;flex-shrink:0;background:rgba(255,255,255,0.1)}
+    .promo-bar .bar-info{flex:1}
+    .promo-bar .bar-brand{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;letter-spacing:.5px;display:block;margin-bottom:1px;color:#F8F4EE}
+    .promo-bar .bar-desc{font-size:.73rem;line-height:1.4;color:#a89c8e}
+    .promo-bar .bar-cta{font-size:.63rem;letter-spacing:2px;text-transform:uppercase;font-weight:500;flex-shrink:0;white-space:nowrap;display:flex;align-items:center;gap:10px;color:#C49A3C;transition:gap .3s}
+    .promo-bar:hover .bar-cta{gap:16px}
+    .bar-cta-line{width:28px;height:1px;background:#C49A3C;position:relative;transition:width .3s}
+    .promo-bar:hover .bar-cta-line{width:42px}
+    .bar-cta-line::after{content:'';position:absolute;right:0;top:-2.5px;border-width:0 1px 1px 0;border-style:solid;border-color:#C49A3C;padding:2.5px;transform:rotate(-45deg)}
+    .mic-logo-mini{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#c9742e,#e8c36a);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .mic-logo-mini span{font-family:'Playfair Display',serif;font-size:.4rem;font-weight:700;color:#fff;text-align:center;line-height:1;letter-spacing:.5px}
+    @media(max-width:768px){.promo-bar .bar-img{width:80px}.promo-bar .bar-panel{padding:10px 14px 10px 10px;gap:10px}.promo-bar .bar-desc{display:none}.promo-bar .bar-brand{font-size:.85rem}}
+    </style>
+    <a href="https://mareainceara.ro" class="promo-bar" target="_blank">
+        <div class="bar-img">
+            <img src="../mareainceara.ro/lumanari decorative (statuiete)/lumanare scoica fata LS-02.png" alt="Lumanare decorativa">
+        </div>
+        <div class="bar-panel">
+            <div class="bar-info">
+                <span class="bar-brand">Marea in Ceara</span>
+                <span class="bar-desc">Lumanari decorative handmade din ceara de soia. Cadoul perfect.</span>
+            </div>
+            <span class="bar-cta">Descopera <span class="bar-cta-line"></span></span>
+        </div>
+    </a>
+
+    <!-- Top Contact Bar -->
+    <div class="top-contact-bar">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.facebook.com/studiosummersmile" title="Facebook" target="_blank" class="facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <a href="https://www.instagram.com/cazare_mamaianord/" title="Instagram" target="_blank" class="instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="https://www.tiktok.com/@cazareoradea" title="TikTok" class="tiktok" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                </a>
+            </div>
+            <div class="contact-links">
+                <a href="tel:+40746954812">&#128222; +40 746 954 812</a>
+                <a href="mailto:contact@summer-smile.ro">&#128231; contact@summer-smile.ro</a>
+                <a href="https://wa.me/40746954812" class="whatsapp-link" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" width="16" height="16"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header / Navigare -->
     <header>
         <nav>
             <div class="logo">
-                <a href="#acasa" style="display: flex; align-items: center; overflow: hidden; border-radius: 10px;">
-                    <img src="IMAGINI/3.jpeg" alt="Cazare Premium - Summer Smile" style="height: 90px; width: 180px; object-fit: cover; object-position: center; box-shadow: 0 4px 12px rgba(218, 165, 32, 0.4); transition: transform 0.3s ease; margin-right: 20px; border: none; display: block; transform: scale(1.15);">
+                <a href="index.html" style="display: flex; align-items: center;">
+                    <img src="android-chrome-192x192.png" alt="Summer Smile" style="height: 45px; width: 45px; margin-right: 10px; border-radius: 8px; box-shadow: 0 2px 8px rgba(191,149,63,0.3);"><span style="font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 50%, #B38728 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Summer Smile</span>
                 </a>
             </div>
 
-            <!-- Hamburger Menu (Mobile Only) -->
+            <!-- Hamburger Menu -->
             <div class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -505,474 +903,373 @@
             </div>
 
             <ul class="nav-links" id="navLinks">
-                <li><a href="index.html" data-translate="nav_home">Acasă</a></li>
+                <li><a href="index.html" data-translate="nav_home">Acasa</a></li>
+                <li><a href="mamaia-nord.html" data-translate="nav_mamaia" style="white-space: nowrap;">Mamaia Nord</a></li>
                 <li><a href="oradea.html" data-translate="nav_oradea">Oradea</a></li>
-                <li><a href="mamaia.html" data-translate="nav_mamaia">Mamaia Nord</a></li>
-                <li><a href="curateanie.html" data-translate="nav_cleaning">Curățenie</a></li>
-                <li><a href="property-manager.html" data-translate="nav_property">Property Manager</a></li>
-                <li><a href="listings-map.html" data-translate="nav_listings">🗺️ Hartă</a></li>
-                <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+                <li><a href="curateanie.html" data-translate="nav_cleaning">Curatenie</a></li>
+                <li><a href="property-manager.html" data-translate="nav_property" style="white-space: nowrap;">Property Manager</a></li>
+                <li><a href="blog.html" data-translate="nav_blog">Blog</a></li>
+                <li><a href="contact.html" data-translate="nav_contact">Contact</a></li>
             </ul>
 
-            <!-- Language Selector Dropdown -->
+            <!-- Language Selector -->
             <div class="language-dropdown">
                 <button class="lang-dropdown-btn" id="langDropdownBtn">
                     <span class="flag-icon flag-ro" id="currentFlag"></span>
                     <span class="lang-code" id="currentLangCode">RO</span>
-                    <span class="dropdown-arrow">▼</span>
+                    <span class="dropdown-arrow">&#9660;</span>
                 </button>
                 <div class="lang-dropdown-menu" id="langDropdownMenu">
                     <button class="lang-option active" data-lang="ro">
                         <span class="flag-icon flag-ro"></span>
-                        <span class="lang-name">Română</span>
+                        <span class="lang-name">Romana</span>
                         <span class="lang-code-small">RO</span>
-                        <span class="lang-check">✓</span>
+                        <span class="lang-check">&#10003;</span>
                     </button>
                     <button class="lang-option" data-lang="en">
                         <span class="flag-icon flag-en"></span>
                         <span class="lang-name">English</span>
                         <span class="lang-code-small">EN</span>
-                        <span class="lang-check">✓</span>
+                        <span class="lang-check">&#10003;</span>
                     </button>
                     <button class="lang-option" data-lang="hu">
                         <span class="flag-icon flag-hu"></span>
                         <span class="lang-name">Magyar</span>
                         <span class="lang-code-small">HU</span>
-                        <span class="lang-check">✓</span>
+                        <span class="lang-check">&#10003;</span>
                     </button>
                     <button class="lang-option" data-lang="de">
                         <span class="flag-icon flag-de"></span>
                         <span class="lang-name">Deutsch</span>
                         <span class="lang-code-small">DE</span>
-                        <span class="lang-check">✓</span>
+                        <span class="lang-check">&#10003;</span>
                     </button>
                 </div>
+            </div>
+
+            <!-- User Menu -->
+            <div class="user-menu-header">
+                <a href="cont/login.php" class="btn-login" data-translate="btn_login">Conectare</a>
+                <a href="cont/register.php" class="btn-register" data-translate="btn_register">Cont Nou</a>
             </div>
         </nav>
     </header>
 
-    <!-- VARIANTA 5 - ASYMMETRIC BANNER -->
-    <section id="acasa" class="asymmetric-banner">
-        <!-- Left Side - Imagine Mamaia (60%) -->
-        <div class="asymmetric-side side-large"></div>
+    <!-- ============================================
+         HERO PREMIUM SECTION
+         ============================================ -->
+    <section id="acasa" class="hero-premium">
+        <!-- Dual Background Images -->
+        <div class="hero-bg-container">
+            <div class="hero-bg-left"></div>
+            <div class="hero-bg-right"></div>
+        </div>
 
-        <!-- Right Side - Imagine Oradea (40%) -->
-        <div class="asymmetric-side side-small"></div>
+        <!-- Premium Overlay -->
+        <div class="hero-overlay"></div>
 
-        <!-- Diagonal divider -->
-        <div class="asymmetric-divider"></div>
+        <!-- Center Glow Effect -->
+        <div class="hero-center-glow"></div>
 
-        <!-- Location cards from Varianta 4 -->
-        <div class="parallax-locations">
-            <div class="location-card-parallax" onclick="window.location.href='oradea.html'">
-                <h3>🏛️ <span data-translate="banner_oradea">Oradea</span></h3>
-                <p data-translate="banner_oradea_desc">Arhitectură & Cultură</p>
+        <!-- Animated Gold Particles -->
+        <div class="hero-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- Corner Decorations -->
+        <div class="hero-corner hero-corner-tl"></div>
+        <div class="hero-corner hero-corner-tr"></div>
+        <div class="hero-corner hero-corner-bl"></div>
+        <div class="hero-corner hero-corner-br"></div>
+
+        <!-- Main Content -->
+        <div class="hero-content">
+
+            <!-- 8 MARTIE PROMO REMOVED 2026-03-21 -->
+            <!-- PROMOTIE PASTE - Card in Hero -->
+            <div class="pp-hero-card" id="promoPaste">
+                <canvas id="ppParticles"></canvas>
+                <div class="pp-egg-float" style="top:10%;left:4%"><svg width="28" height="34" viewBox="0 0 28 34"><defs><linearGradient id="eg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#EF5350"/><stop offset="50%" stop-color="#EC407A"/><stop offset="100%" stop-color="#AB47BC"/></linearGradient></defs><ellipse cx="14" cy="18" rx="11" ry="15" fill="url(#eg1)" opacity="0.7"/><path d="M5 14 Q14 10 23 14" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none"/><path d="M5 22 Q14 18 23 22" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg></div>
+                <div class="pp-egg-float" style="top:62%;left:6%"><svg width="24" height="30" viewBox="0 0 28 34"><defs><linearGradient id="eg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFC107"/><stop offset="100%" stop-color="#FF9800"/></linearGradient></defs><ellipse cx="14" cy="18" rx="11" ry="15" fill="url(#eg2)" opacity="0.6"/><path d="M3 16 Q14 20 25 16" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" fill="none"/></svg></div>
+                <div class="pp-egg-float" style="top:18%;right:4%"><svg width="26" height="32" viewBox="0 0 28 34"><defs><linearGradient id="eg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#66BB6A"/><stop offset="100%" stop-color="#26A69A"/></linearGradient></defs><ellipse cx="14" cy="18" rx="11" ry="15" fill="url(#eg3)" opacity="0.6"/><path d="M7 12 Q14 16 21 12" stroke="rgba(255,255,255,0.35)" stroke-width="1.2" fill="none"/><path d="M7 24 Q14 20 21 24" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none"/></svg></div>
+                <div class="pp-egg-float" style="bottom:18%;right:10%"><svg width="22" height="28" viewBox="0 0 28 34"><defs><linearGradient id="eg4" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#42A5F5"/><stop offset="100%" stop-color="#7E57C2"/></linearGradient></defs><ellipse cx="14" cy="18" rx="11" ry="15" fill="url(#eg4)" opacity="0.55"/><path d="M4 18 H24" stroke="rgba(255,255,255,0.3)" stroke-width="1.2" fill="none" stroke-dasharray="3 3"/></svg></div>
+                <div class="pp-egg-float" style="top:3%;left:42%"><svg width="20" height="26" viewBox="0 0 28 34"><defs><linearGradient id="eg5" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#FF7043"/><stop offset="100%" stop-color="#FFCA28"/></linearGradient></defs><ellipse cx="14" cy="18" rx="11" ry="15" fill="url(#eg5)" opacity="0.5"/></svg></div>
+                <span class="pp-sparkle"></span><span class="pp-sparkle"></span><span class="pp-sparkle"></span><span class="pp-sparkle"></span><span class="pp-sparkle"></span><span class="pp-sparkle"></span><span class="pp-sparkle"></span><span class="pp-sparkle"></span>
+                <span class="pp-bunny">&#128048;</span>
+                <div class="pp-grass" id="ppGrass"></div>
+                <div class="pp-h-left">
+                    <div class="pp-h-badge"><span>&#129370;</span><span data-translate="pp_badge">Ofert&#259; Pa&#537;te &#8226; 03–13 Aprilie</span></div>
+                    <div class="pp-h-title"><span class="pp-icon-bunny">&#128048;</span> <span data-translate="pp_title">Iepura&#537;ul vine cu mai mult<br>dec&#226;t <strong>ou&#259; ro&#537;ii!</strong></span></div>
+                    <div class="pp-h-subtitle" data-translate="pp_subtitle">&#206;ntre 03 – 13 aprilie, Summer Smile ofer&#259; bonusuri speciale<br>de Pa&#537;te pentru familii cu copii.</div>
+                    <div class="pp-h-location"><svg viewBox="0 0 24 24" width="14" height="14" fill="#66BB6A" stroke="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg><span data-translate="pp_location">Caz&#259;ri disponibile &#238;n <strong>Oradea &#537;i Mamaia Nord</strong></span></div>
+                    <div class="pp-bonus-wrap">
+                        <div class="pp-h-bonus-header"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#FFC107" stroke-width="2"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg><span data-translate="pp_bonus_header">Bonusuri exclusive pe site:</span></div>
+                        <ul class="pp-h-bonus-list">
+                            <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#66BB6A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-translate="pp_bonus1"><b>+50%</b> puncte de fidelitate</span></li>
+                            <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#66BB6A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-translate="pp_bonus2"><b>-10%</b> reducere la urm&#259;toarea rezervare</span></li>
+                            <li><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#66BB6A" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-translate="pp_bonus3"><b>+35%</b> puncte EXTRA dac&#259; &#238;&#539;i creezi cont pe site</span></li>
+                        </ul>
+                    </div>
+                    <div class="pp-h-details" data-translate="pp_details">Ofert&#259; valabil&#259; doar &#238;ntre <strong>03 – 13 aprilie</strong><br>Rezerv&#259;ri directe: <strong>www.summer-smile.ro</strong><br>Bonusurile sunt disponibile doar pentru familiile cu copii care &#238;&#537;i creeaz&#259; cont pe site &#537;i fac rezerv&#259;rile directe.</div>
+                </div>
+                <div class="pp-h-right">
+                    <div class="pp-basket">&#127873;<span class="pp-basket-sparkle">&#10024;</span><span class="pp-basket-sparkle">&#10024;</span><span class="pp-basket-sparkle">&#10024;</span></div>
+                    <a href="oradea.html" class="pp-h-cta" data-translate="pp_cta">Rezerv&#259; Acum</a>
+                    <div class="pp-h-cd">
+                        <div><span id="ppDays">00</span><small data-translate="pp_days">Zile</small></div>
+                        <div><span id="ppHours">00</span><small data-translate="pp_hours">Ore</small></div>
+                        <div><span id="ppMins">00</span><small data-translate="pp_mins">Min</small></div>
+                        <div><span id="ppSecs">00</span><small data-translate="pp_secs">Sec</small></div>
+                    </div>
+                </div>
+                <div class="pp-badge-corner" data-translate="pp_badge_corner">Familii cu Copii</div>
             </div>
-            <div class="location-card-parallax" onclick="window.location.href='mamaia.html'">
-                <h3>🏖️ <span data-translate="banner_mamaia">Mamaia Nord</span></h3>
-                <p data-translate="banner_mamaia_desc">Lux & Relaxare</p>
+            <script>!function(){var s=new Date('2026-04-03T00:01:00').getTime(),e=new Date('2026-04-13T23:59:00').getTime(),n=Date.now(),c=document.getElementById('promoPaste');if(c&&(n<s||n>e)){c.style.display='none';return;}var hero=document.querySelector('.hero-premium');if(hero){hero.style.paddingTop='545px';hero.style.maxHeight='none';hero.style.overflowY='visible';hero.style.overflowX='hidden';}var end=e;function u(){var d=end-Date.now();if(d<=0){c.style.display='none';return;}var D=Math.floor(d/864e5),H=Math.floor(d%864e5/36e5),M=Math.floor(d%36e5/6e4),S=Math.floor(d%6e4/1e3),el;el=document.getElementById('ppDays');if(el)el.textContent=('0'+D).slice(-2);el=document.getElementById('ppHours');if(el)el.textContent=('0'+H).slice(-2);el=document.getElementById('ppMins');if(el)el.textContent=('0'+M).slice(-2);el=document.getElementById('ppSecs');if(el)el.textContent=('0'+S).slice(-2);}u();setInterval(u,1000);var g=document.getElementById('ppGrass');if(g){for(var i=0;i<60;i++){var b=document.createElement('div');b.className='pp-grass-blade';b.style.left=(i*1.7+Math.random()*0.8)+'%';b.style.height=(12+Math.random()*20)+'px';b.style.animationDelay=(Math.random()*3)+'s';b.style.animationDuration=(2.5+Math.random()*2)+'s';b.style.opacity=(0.15+Math.random()*0.2);g.appendChild(b);}}var cv=document.getElementById('ppParticles');if(cv){var ctx=cv.getContext('2d'),cd=cv.parentElement,pts=[],cols=['#66BB6A','#FFC107','#FF9800','#EC407A','#AB47BC','#42A5F5','#EF5350'];function rs(){cv.width=cd.offsetWidth;cv.height=cd.offsetHeight;}rs();window.addEventListener('resize',rs);for(var j=0;j<25;j++)pts.push({x:Math.random()*cv.width,y:Math.random()*cv.height,r:Math.random()*1.5+0.5,dx:(Math.random()-0.5)*0.3,dy:(Math.random()-0.5)*0.3-0.15,color:cols[Math.floor(Math.random()*cols.length)],alpha:Math.random()*0.15+0.03,pulse:Math.random()*Math.PI*2});(function dr(){ctx.clearRect(0,0,cv.width,cv.height);for(var k=0;k<pts.length;k++){var p=pts[k];p.x+=p.dx;p.y+=p.dy;p.pulse+=0.02;var a=p.alpha+Math.sin(p.pulse)*0.04;if(p.x<0)p.x=cv.width;if(p.x>cv.width)p.x=0;if(p.y<0)p.y=cv.height;if(p.y>cv.height)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.color;ctx.globalAlpha=Math.max(0,a);ctx.fill();}ctx.globalAlpha=1;requestAnimationFrame(dr);})();}}();</script>
+
+            <!-- Title -->
+            <h1 class="hero-title">
+                <span data-translate="hero_title">Vacanta Ta de Vis</span>
+                <span class="hero-title-gold" data-translate="hero_title_gold">Incepe Aici</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="hero-subtitle" data-translate="hero_subtitle">
+                Apartamente de lux in Oradea si Mamaia Nord.
+                Experienta premium, comfort desavarsit si amintiri de neuitat.
+            </p>
+
+            <!-- Location Cards -->
+            <div class="hero-locations">
+                <a href="oradea.html" class="hero-location-card">
+                    <div class="hero-location-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="url(#goldGrad1)" stroke-width="1.2"><defs><linearGradient id="goldGrad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#DAA520"/><stop offset="100%" style="stop-color:#FFD700"/></linearGradient></defs><path d="M6 22V10M18 22V10M4 22h16M2 10h20M12 2l10 8H2l10-8z"/><path d="M9 22v-5a3 3 0 0 1 6 0v5"/><circle cx="12" cy="14" r="1"/></svg></div>
+                    <h3 class="hero-location-name">Oradea</h3>
+                    <p class="hero-location-desc" data-translate="hero_location_oradea_desc">Arhitectura & Cultura</p>
+                    <span class="hero-location-arrow">&#8594;</span>
+                </a>
+                <a href="mamaia-nord.html" class="hero-location-card">
+                    <div class="hero-location-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke-width="1.2"><defs><linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FFD700"/><stop offset="100%" style="stop-color:#FF8C00"/></linearGradient><linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#DAA520"/><stop offset="100%" style="stop-color:#FFD700"/></linearGradient></defs><circle cx="12" cy="8" r="4" stroke="url(#sunGrad)" fill="none"/><path d="M12 2v2M18.36 5.64l-1.41 1.41M20 12h-2M5.64 5.64l1.41 1.41M4 12h2" stroke="url(#sunGrad)"/><path d="M2 18c2-2 4-3 6-3s4 1 6 3c2-2 4-3 6-3" stroke="url(#waveGrad)"/><path d="M2 22c2-2 4-3 6-3s4 1 6 3c2-2 4-3 6-3" stroke="url(#waveGrad)"/></svg></div>
+                    <h3 class="hero-location-name">Mamaia Nord</h3>
+                    <p class="hero-location-desc" data-translate="hero_location_mamaia_desc">Relaxare la Mare</p>
+                    <span class="hero-location-arrow">&#8594;</span>
+                </a>
+            </div>
+
+            <!-- Premium Stats - Eurosport 3D -->
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number">500+</span>
+                    <div class="hero-stat-sep"></div>
+                    <span class="hero-stat-label" data-translate="hero_stat_clients">Clien&#539;i Ferici&#539;i</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">7</span>
+                    <div class="hero-stat-sep"></div>
+                    <span class="hero-stat-label" data-translate="hero_stat_properties">Propriet&#259;&#539;i</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">9.3</span>
+                    <div class="hero-stat-sep"></div>
+                    <span class="hero-stat-label" data-translate="hero_stat_rating">Rating Booking</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number">4+</span>
+                    <div class="hero-stat-sep"></div>
+                    <span class="hero-stat-label" data-translate="hero_stat_experience">Ani Experien&#539;&#259;</span>
+                </div>
             </div>
         </div>
 
-        <!-- Hover instruction -->
-        <div class="hover-instruction" data-translate="banner_explore">
-            ← Explorează fiecare destinație pentru detalii exclusive →
-        </div>
     </section>
 
     <!-- Despre -->
     <section id="despre" class="despre">
         <div class="container">
-            <h2 data-translate="about_title">Despre Noi</h2>
-            <p data-translate="about_text">Vă oferim cazare de cea mai înaltă calitate atât în Oradea cât și în Mamaia Nord.
-            Cu apartamente moderne, dotări complete și locații excelente, vă garantăm o experiență de neuitat.</p>
+            <h2>Despre Noi</h2>
+            <p>Va oferim cazare de cea mai inalta calitate atat in Oradea cat si in Mamaia Nord.
+            Cu apartamente moderne, dotari complete si locatii excelente, va garantam o experienta de neuitat.</p>
         </div>
     </section>
 
-    <!-- SECȚIUNEA ORADEA -->
-    <section id="oradea" class="cazare location-oradea">
+    <!-- TRUST BADGES -->
+    <section class="trust-badges">
         <div class="container">
-            <div class="location-header">
-                <h2>🏛️ <span data-translate="oradea_title">Cazare în Oradea</span></h2>
-                <p class="location-subtitle" data-translate="oradea_subtitle">Confort urban în inima Oradei</p>
-            </div>
-
-            <div class="cazare-grid">
-                <!-- Studio New York -->
-                <div class="cazare-card featured">
-                    <div class="image-gallery">
-                        <div class="main-image">
-                            <img src="images/studio-new-york/image-1.jpg" alt="Studio New York - Vedere principală" id="mainImg1">
-                        </div>
-                        <div class="thumbnail-gallery">
-                            <img src="images/studio-new-york/image-1.jpg" alt="Imagine 1" onclick="changeImage('mainImg1', 'images/studio-new-york/image-1.jpg')">
-                            <img src="images/studio-new-york/image-2.jpg" alt="Imagine 2" onclick="changeImage('mainImg1', 'images/studio-new-york/image-2.jpg')">
-                            <img src="images/studio-new-york/image-3.jpg" alt="Imagine 3" onclick="changeImage('mainImg1', 'images/studio-new-york/image-3.jpg')">
-                            <img src="images/studio-new-york/image-4.jpg" alt="Imagine 4" onclick="changeImage('mainImg1', 'images/studio-new-york/image-4.jpg')">
-                            <img src="images/studio-new-york/image-5.jpg" alt="Imagine 5" onclick="changeImage('mainImg1', 'images/studio-new-york/image-5.jpg')">
-                            <img src="images/studio-new-york/image-6.jpg" alt="Imagine 6" onclick="changeImage('mainImg1', 'images/studio-new-york/image-6.jpg')">
-                        </div>
+            <div class="badges-grid">
+                <div class="badge-item">
+                    <div class="badge-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
                     </div>
-                    <div class="cazare-info">
-                        <h3 data-translate="studio_ny_name">Studio New York</h3>
-                        <p class="locatie">📍 <span data-translate="studio_ny_location">Oradea, România</span></p>
-                        <div class="availability-badge">
-                            <span class="status-dot available"></span>
-                            <span data-translate="check_availability">Verifică disponibilitatea</span>
-                        </div>
-                        <p class="descriere" data-translate="studio_ny_desc">Studio modern și elegant în Oradea, perfect pentru sejururi de afaceri sau turistice. Complet echipat cu toate facilitățile necesare pentru un sejur confortabil.</p>
-                        <ul class="facilitati-cazare">
-                            <li>✓ <span data-translate="facility_studio">Studio complet echipat</span></li>
-                            <li>✓ <span data-translate="facility_kitchen">Bucătărie modernă</span></li>
-                            <li>✓ <span data-translate="facility_bathroom">Baie privată</span></li>
-                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
-                            <li>✓ <span data-translate="facility_wifi">WiFi ultra-rapid</span></li>
-                            <li>✓ 🅿️ <span data-translate="facility_parking">Parcare GRATUITĂ</span></li>
-                            <li>✓ <span data-translate="facility_tv">Smart TV</span></li>
-                            <li>✓ <span data-translate="facility_linen">Lenjerie premium</span></li>
-                        </ul>
-                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio New York - Oradea', 700)" data-translate="book_now">Rezervă Acum</button>
+                    <div class="badge-text">
+                        <strong>Plata Securizata</strong>
+                        <span>Powered by Stripe</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECȚIUNEA MAMAIA NORD -->
-    <section id="mamaia" class="cazare location-mamaia">
-        <div class="container">
-            <div class="location-header">
-                <h2>🏖️ <span data-translate="mamaia_title">Cazare în Mamaia Nord</span></h2>
-                <p class="location-subtitle" data-translate="mamaia_subtitle">Relaxare la malul mării</p>
-            </div>
-
-            <div class="cazare-grid">
-                <!-- Apartament 2 camere - La Mare -->
-                <div class="cazare-card">
-                    <div class="cazare-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                        <span class="img-placeholder">🏖️ <span data-translate="apt_sea_placeholder">Prima Linie La Mare</span></span>
+                <div class="badge-item">
+                    <div class="badge-icon" style="background:linear-gradient(135deg,#FFD700,#FFA500)">
+                        <svg viewBox="0 0 24 24" fill="#fff">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
                     </div>
-                    <div class="cazare-info">
-                        <h3 data-translate="apt_sea_name">Apartament 2 Camere - La Mare</h3>
-                        <p class="locatie">📍 <span data-translate="apt_sea_location">Mamaia Nord - Prima Linie la Mare</span></p>
-                        <div class="availability-badge">
-                            <span class="status-dot available"></span>
-                            <span data-translate="check_availability">Verifică disponibilitatea</span>
-                        </div>
-                        <p class="descriere" data-translate="apt_sea_desc">Apartament modern cu 2 camere, vedere spectaculoasă la mare, în prima linie. Perfect pentru familii sau grupuri mici.</p>
-                        <ul class="facilitati-cazare">
-                            <li>✓ <span data-translate="facility_2rooms">2 camere spațioase</span></li>
-                            <li>✓ <span data-translate="facility_sea_view">Vedere panoramică la mare</span></li>
-                            <li>✓ <span data-translate="facility_full_kitchen">Bucătărie completă</span></li>
-                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
-                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
-                            <li>✓ <span data-translate="facility_balcony">Balcon mare</span></li>
-                            <li>✓ <span data-translate="facility_beach_access">Acces direct la plajă</span></li>
-                        </ul>
-                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - La Mare', 700)" data-translate="book_now">Rezervă Acum</button>
+                    <div class="badge-text">
+                        <strong>Recenzii 5 Stele</strong>
+                        <span>100+ oaspeti multumiti</span>
                     </div>
                 </div>
-
-                <!-- Studio - Lângă Lidl -->
-                <div class="cazare-card">
-                    <div class="cazare-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                        <span class="img-placeholder">🏠 <span data-translate="apt_lidl_studio_placeholder">Studio Modern</span></span>
+                <div class="badge-item">
+                    <div class="badge-icon support">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                        </svg>
                     </div>
-                    <div class="cazare-info">
-                        <h3 data-translate="apt_lidl_studio_name">Studio - Lângă Lidl</h3>
-                        <p class="locatie">📍 <span data-translate="apt_lidl_studio_location">Mamaia Nord - Lângă Lidl</span></p>
-                        <div class="availability-badge">
-                            <span class="status-dot available"></span>
-                            <span data-translate="check_availability">Verifică disponibilitatea</span>
-                        </div>
-                        <p class="descriere" data-translate="apt_lidl_studio_desc">Studio modern și compact, ideal pentru cupluri. Locație excelentă lângă Lidl, cu acces facil la toate facilitățile.</p>
-                        <ul class="facilitati-cazare">
-                            <li>✓ <span data-translate="facility_studio">Studio complet echipat</span></li>
-                            <li>✓ <span data-translate="facility_kitchenette">Kitchenette funcțională</span></li>
-                            <li>✓ <span data-translate="facility_modern_bath">Baie modernă</span></li>
-                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
-                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
-                            <li>✓ <span data-translate="facility_free_parking">Parcare gratuită</span></li>
-                            <li>✓ <span data-translate="facility_near_shops">Aproape de magazine</span></li>
-                        </ul>
-                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Studio - Lângă Lidl', 700)" data-translate="book_now">Rezervă Acum</button>
+                    <div class="badge-text">
+                        <strong>Suport 24/7</strong>
+                        <span>WhatsApp & Telefon</span>
                     </div>
                 </div>
-
-                <!-- Apartament 2 Camere - Lângă Lidl -->
-                <div class="cazare-card">
-                    <div class="cazare-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                        <span class="img-placeholder">🏡 <span data-translate="apt_lidl_2room_placeholder">Apartament Spațios</span></span>
+                <div class="badge-item">
+                    <div class="badge-icon cancel">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/>
+                        </svg>
                     </div>
-                    <div class="cazare-info">
-                        <h3 data-translate="apt_lidl_2room_name">Apartament 2 Camere - Lângă Lidl</h3>
-                        <p class="locatie">📍 <span data-translate="apt_lidl_2room_location">Mamaia Nord - Lângă Lidl</span></p>
-                        <div class="availability-badge">
-                            <span class="status-dot available"></span>
-                            <span data-translate="check_availability">Verifică disponibilitatea</span>
-                        </div>
-                        <p class="descriere" data-translate="apt_lidl_2room_desc">Apartament spațios cu 2 camere, în apropierea Lidl. Excelent pentru familii, cu toate facilitățile necesare.</p>
-                        <ul class="facilitati-cazare">
-                            <li>✓ <span data-translate="facility_2big_rooms">2 camere mari</span></li>
-                            <li>✓ <span data-translate="facility_full_kitchen">Bucătărie completă</span></li>
-                            <li>✓ <span data-translate="facility_large_living">Living generos</span></li>
-                            <li>✓ <span data-translate="facility_ac">Aer condiționat</span></li>
-                            <li>✓ <span data-translate="facility_wifi_free">WiFi gratuit</span></li>
-                            <li>✓ <span data-translate="facility_free_parking">Parcare gratuită</span></li>
-                            <li>✓ <span data-translate="facility_quiet_area">Zonă liniștită</span></li>
-                        </ul>
-                        <p class="pret">700 <span data-translate="price_night">Lei / noapte</span></p>
-                        <button class="btn-rezerva" onclick="selecteazaCazare('Apartament 2 Camere - Lângă Lidl', 700)" data-translate="book_now">Rezervă Acum</button>
+                    <div class="badge-text">
+                        <strong>Anulare Gratuita</strong>
+                        <span>Pana la 5 zile inainte</span>
+                    </div>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon fast">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="badge-text">
+                        <strong>Raspuns Rapid</strong>
+                        <span>In maxim 30 minute</span>
+                    </div>
+                </div>
+                <div class="badge-item">
+                    <div class="badge-icon experience">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                        </svg>
+                    </div>
+                    <div class="badge-text">
+                        <strong>4+ Ani Experienta</strong>
+                        <span>Gazde de incredere</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <style>
+    .trust-badges{background:linear-gradient(135deg,#f8f9ff 0%,#fff 100%);padding:50px 20px;border-top:1px solid rgba(102,126,234,0.1);border-bottom:1px solid rgba(102,126,234,0.1)}
+    .trust-badges .container{max-width:1400px;margin:0 auto}
+    .badges-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
+    .badge-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:25px 15px;background:#fff;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.06);transition:all 0.4s ease;border:2px solid transparent}
+    .badge-item:hover{transform:translateY(-8px);border-color:#FFD700;box-shadow:0 15px 40px rgba(218,165,32,0.15)}
+    .badge-icon{width:55px;height:55px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+    .badge-icon svg{width:28px;height:28px;color:#fff}
+    .badge-icon.stars{background:linear-gradient(135deg,#FFD700,#FFA500)}
+    .badge-icon.support{background:linear-gradient(135deg,#25D366,#128C7E)}
+    .badge-icon.cancel{background:linear-gradient(135deg,#00C851,#007E33)}
+    .badge-icon.fast{background:linear-gradient(135deg,#33b5e5,#0099CC)}
+    .badge-icon.experience{background:linear-gradient(135deg,#ff6b6b,#ee5a5a)}
+    .badge-text strong{display:block;font-size:0.95rem;color:#1a1a2e;margin-bottom:4px}
+    .badge-text span{font-size:0.8rem;color:#666}
+    @media(max-width:1024px){.badges-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:600px){.badges-grid{grid-template-columns:repeat(2,1fr);gap:12px}.badge-item{padding:18px 10px}.badge-icon{width:45px;height:45px}.badge-icon svg{width:22px;height:22px}.badge-text strong{font-size:0.85rem}.badge-text span{font-size:0.7rem}}
+    </style>
 
-    <!-- Servicii de Curățenie & Property Manager -->
-    <section id="servicii" class="servicii">
+    
+    <!-- VOUCHER CADOU Section -->
+    <section class="voucher-section">
         <div class="container">
-            <div class="section-header">
-                <h2>🧹 <span data-translate="services_title">Servicii de Curățenie & Property Manager</span></h2>
-                <p class="section-subtitle" data-translate="services_subtitle">Gestionăm proprietatea ta cu profesionalism</p>
-            </div>
-
-            <div class="servicii-grid">
-                <!-- Servicii de Curățenie -->
-                <div class="serviciu-card">
-                    <div class="serviciu-icon">🧼</div>
-                    <h3 data-translate="cleaning_title">Servicii de Curățenie Profesionale</h3>
-                    <p class="serviciu-descriere" data-translate="cleaning_desc">Oferim servicii complete de curățenie pentru proprietățile tale, asigurând standarde înalte de igienă și confort pentru oaspeți.</p>
-                    <ul class="serviciu-lista">
-                        <li>✓ <span data-translate="cleaning_checkout">Curățenie după fiecare check-out</span></li>
-                        <li>✓ <span data-translate="cleaning_deep">Curățenie deep cleaning periodic</span></li>
-                        <li>✓ <span data-translate="cleaning_linen">Schimbare lenjerie și prosoape</span></li>
-                        <li>✓ <span data-translate="cleaning_supplies">Verificare și completare consumabile</span></li>
-                        <li>✓ <span data-translate="cleaning_sanitize">Igienizare și dezinfectare</span></li>
-                        <li>✓ <span data-translate="cleaning_windows">Curățare ferestre și terase</span></li>
-                    </ul>
-                    <p class="serviciu-pret" data-translate="cleaning_price">De la 150 Lei / curățenie</p>
+            <div class="voucher-card">
+                <div class="voucher-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="1" y="5" width="22" height="14" rx="2"/>
+                        <path d="M12 5v14"/>
+                        <circle cx="8" cy="12" r="2"/>
+                        <path d="M16 10l-2 2 2 2"/>
+                    </svg>
                 </div>
-
-                <!-- Property Manager -->
-                <div class="serviciu-card featured-service">
-                    <div class="serviciu-icon">🏢</div>
-                    <h3 data-translate="pm_title">Property Management Complet</h3>
-                    <p class="serviciu-descriere" data-translate="pm_desc">Gestionăm proprietatea ta de la A la Z, astfel încât tu să te bucuri doar de venituri fără griji.</p>
-                    <ul class="serviciu-lista">
-                        <li>✓ <span data-translate="pm_reservations">Gestionare rezervări pe multiple platforme</span></li>
-                        <li>✓ <span data-translate="pm_checkin">Check-in / Check-out oaspeți</span></li>
-                        <li>✓ <span data-translate="pm_communication">Comunicare cu oaspeții 24/7</span></li>
-                        <li>✓ <span data-translate="pm_cleaning">Curățenie și mentenanță regulată</span></li>
-                        <li>✓ <span data-translate="pm_financial">Gestionare financiară și raportare</span></li>
-                        <li>✓ <span data-translate="pm_pricing">Optimizare prețuri și ocupare</span></li>
-                        <li>✓ <span data-translate="pm_marketing">Marketing și promovare proprietate</span></li>
-                        <li>✓ <span data-translate="pm_maintenance">Întreținere și reparații minore</span></li>
-                    </ul>
-                    <p class="serviciu-pret" data-translate="pm_price">15-20% din încasări / lună</p>
-                    <button class="btn-serviciu" onclick="window.location.href='#contact'" data-translate="pm_request">Solicită Ofertă</button>
+                <div class="voucher-content">
+                    <h3 data-translate="voucher_title">Cadoul Perfect pentru Cei Dragi</h3>
+                    <p data-translate="voucher_desc">Ofera o experienta de neuitat! Voucherele noastre cadou pot fi folosite pentru orice cazare de pe site - alegerea perfecta pentru zile de nastere, aniversari sau orice ocazie speciala.</p>
+                    <div class="voucher-features">
+                        <span><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> <span data-translate="voucher_validity">Valabil 12 luni &amp; disponibilitate</span></span>
+                        <span><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> <span data-translate="voucher_any">Orice proprietate</span></span>
+                        <span><svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> <span data-translate="voucher_custom">Personalizabil</span></span>
+                    </div>
                 </div>
-
-                <!-- Pachet Extra -->
-                <div class="serviciu-card">
-                    <div class="serviciu-icon">⭐</div>
-                    <h3 data-translate="extra_title">Servicii Suplimentare</h3>
-                    <p class="serviciu-descriere" data-translate="extra_desc">Servicii opționale pentru a îmbunătăți experiența oaspeților și a maximiza veniturile tale.</p>
-                    <ul class="serviciu-lista">
-                        <li>✓ <span data-translate="extra_transfer">Transfer aeroport / gară</span></li>
-                        <li>✓ <span data-translate="extra_fridge">Aprovizionare frigider la cerere</span></li>
-                        <li>✓ <span data-translate="extra_concierge">Concierge services</span></li>
-                        <li>✓ <span data-translate="extra_reservations">Rezervări restaurante / activități</span></li>
-                        <li>✓ <span data-translate="extra_photo">Fotografie profesională proprietate</span></li>
-                        <li>✓ <span data-translate="extra_tech">Asistență tehnică și IT</span></li>
-                    </ul>
-                    <p class="serviciu-pret" data-translate="extra_price">Prețuri variabile</p>
-                </div>
-            </div>
-
-            <div class="servicii-cta">
-                <h3 data-translate="services_cta_title">Interested în serviciile noastre?</h3>
-                <p data-translate="services_cta_text">Contactează-ne pentru o ofertă personalizată și să discutăm despre nevoile tale specifice.</p>
-                <a href="#contact" class="btn-primary" data-translate="services_cta_btn">Contactează-ne Acum</a>
+                <a href="/cumpara-voucher.php" class="voucher-btn" data-translate="voucher_btn">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    Cumpara Voucher Cadou
+                </a>
             </div>
         </div>
     </section>
+    <style>
+    .voucher-section{background:linear-gradient(135deg,#1a1a2e 0%,#0a0e14 100%);padding:60px 20px;position:relative;overflow:hidden}
+    .voucher-section::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,215,0,0.03) 0%,transparent 50%);animation:rotate 30s linear infinite}
+    @keyframes rotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .voucher-card{max-width:1000px;margin:0 auto;background:linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));backdrop-filter:blur(10px);border-radius:24px;padding:40px;display:flex;align-items:center;gap:30px;border:1px solid rgba(255,215,0,0.2);position:relative;z-index:1}
+    .voucher-icon{width:100px;height:100px;background:linear-gradient(135deg,#FFD700,#FFA500);border-radius:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 10px 40px rgba(255,215,0,0.3)}
+    .voucher-icon svg{width:50px;height:50px;color:#1a1a2e}
+    .voucher-content{flex:1}
+    .voucher-content h3{color:#FFD700;font-size:1.6rem;margin-bottom:10px;font-weight:700}
+    .voucher-content p{color:rgba(255,255,255,0.8);font-size:1rem;line-height:1.6;margin-bottom:15px}
+    .voucher-features{display:flex;gap:20px;flex-wrap:wrap}
+    .voucher-features span{display:flex;align-items:center;gap:6px;color:#FFD700;font-size:0.9rem}
+    .voucher-features svg{color:#4CAF50}
+    .voucher-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#FFD700,#FFA500);color:#1a1a2e;padding:15px 30px;border-radius:50px;font-weight:700;text-decoration:none;transition:all 0.3s;flex-shrink:0;box-shadow:0 5px 20px rgba(255,215,0,0.3)}
+    .voucher-btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,215,0,0.4)}
+    @media(max-width:768px){.voucher-card{flex-direction:column;text-align:center;padding:30px 20px}.voucher-icon{width:80px;height:80px}.voucher-icon svg{width:40px;height:40px}.voucher-content h3{font-size:1.3rem}.voucher-features{justify-content:center}.voucher-btn{width:100%;justify-content:center}}
+    </style>
 
-    <!-- Formular Rezervare -->
-    <section id="rezervare" class="rezervare">
-        <div class="container">
-            <h2 data-translate="form_title">Rezervă Cazarea Ta</h2>
-            <form id="formRezervare" class="form-rezervare">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nume" data-translate="form_name">Nume Complet *</label>
-                        <input type="text" id="nume" name="nume" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" data-translate="form_email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="telefon" data-translate="form_phone">Telefon *</label>
-                        <input type="tel" id="telefon" name="telefon" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="cazare" data-translate="form_accommodation">Alege Cazarea *</label>
-                        <select id="cazare" name="cazare" required>
-                            <option value="" data-translate="form_select">Selectează cazarea</option>
-                            <optgroup label="🏛️ Oradea">
-                                <option value="Studio New York - Oradea" data-pret="700">Studio New York - 700 Lei/noapte</option>
-                            </optgroup>
-                            <optgroup label="🏖️ Mamaia Nord">
-                                <option value="Apartament 2 Camere - La Mare" data-pret="700">Apartament 2 Camere - La Mare - 700 Lei/noapte</option>
-                                <option value="Studio - Lângă Lidl" data-pret="700">Studio - Lângă Lidl - 700 Lei/noapte</option>
-                                <option value="Apartament 2 Camere - Lângă Lidl" data-pret="700">Apartament 2 Camere - Lângă Lidl - 700 Lei/noapte</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="checkin" data-translate="form_checkin">Check-in *</label>
-                        <input type="date" id="checkin" name="checkin" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="checkout" data-translate="form_checkout">Check-out *</label>
-                        <input type="date" id="checkout" name="checkout" required>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="persoane" data-translate="form_guests">Număr Persoane *</label>
-                        <input type="number" id="persoane" name="persoane" min="1" max="8" value="2" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="total" data-translate="form_total">Total Estimat</label>
-                        <input type="text" id="total" name="total" readonly value="0 Lei">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="observatii" data-translate="form_notes">Observații / Cerințe Speciale</label>
-                    <textarea id="observatii" name="observatii" rows="4" placeholder="Menționați orice cerințe speciale..." data-translate-placeholder="form_notes_placeholder"></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit" data-translate="form_submit">Trimite Rezervarea</button>
-            </form>
-
-            <div id="mesajConfirmare" class="mesaj-confirmare" style="display: none;">
-                <h3 data-translate="form_success_title">✓ Rezervare Trimisă cu Succes!</h3>
-                <p data-translate="form_success_text">Vă mulțumim pentru rezervare. Veți fi contactat în curând pentru confirmare.</p>
-                <button onclick="inchideMesaj()" class="btn-inchide" data-translate="form_close">Închide</button>
+    <!-- ANPC -->
+    <div style="background: linear-gradient(135deg, #0a0e14, #1a1a2e); padding: 40px 20px 10px;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">ANPC</p>
+            <div style="width: 40px; height: 3px; background: #3b82f6; border-radius: 2px; margin-bottom: 20px;"></div>
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 12px; background: #fff; color: #1a1a6e; padding: 14px 20px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; flex: 1; min-width: 220px; transition: transform 0.2s;">
+                    <span style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 50px; line-height: 1.1;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1a1a6e" width="28" height="28"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 6h2v2h-2V7zm0 4h2v6h-2v-6z"/></svg><span style="font-size: 0.55rem; color: #1a1a6e; font-weight: 800; margin-top: 2px;">ANPC</span></span>
+                    <span>Solutionarea Alternativa a Litigiilor<br><span style="font-size: 0.7rem; background: #1a1a6e; color: #fff; padding: 2px 10px; border-radius: 10px; display: inline-block; margin-top: 4px;">DETALII</span></span>
+                </a>
+                <a href="https://ec.europa.eu/consumers/odr/main/index.cfm?event=main.home2.show&lng=RO" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 12px; background: #fff; color: #1a1a6e; padding: 14px 20px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; flex: 1; min-width: 220px; text-align: center; justify-content: center; transition: transform 0.2s;">
+                    <span>Solutionarea Online a Litigiilor<br><span style="color: #1a1a6e; font-size: 0.7rem; background: #1a1a6e; color: #fff; padding: 2px 10px; border-radius: 10px; display: inline-block; margin-top: 4px;">DETALII</span></span>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact -->
-    <section id="contact" class="contact">
+    <footer style="background: linear-gradient(135deg, #0a0e14, #1a1a2e); padding: 20px 20px 40px; text-align: center; color: rgba(255,255,255,0.6);">
         <div class="container">
-            <h2 data-translate="contact_title">Contact</h2>
-            <div class="contact-grid">
-                <div class="contact-location">
-                    <h3>📍 <span data-translate="banner_oradea">Oradea</span></h3>
-                    <p><strong>Studio New York</strong></p>
-                    <p>Oradea, România</p>
-                    <p>📞 +40 123 456 789</p>
-                </div>
-                <div class="contact-location">
-                    <h3>🏖️ Mamaia Nord</h3>
-                    <p><strong>Apartamente & Studio</strong></p>
-                    <p>Mamaia Nord, Constanța</p>
-                    <p>📞 +40 123 456 789</p>
-                </div>
-                <div class="contact-location">
-                    <h3>📧 <span data-translate="contact_email_title">Email General</span></h3>
-                    <p>contact@cazarepremium.ro</p>
-                    <p>&nbsp;</p>
-                    <p data-translate="contact_response">Răspundem în 24h</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 <span data-translate="footer_text">Cazare Premium - Oradea & Mamaia Nord. Toate drepturile rezervate.</span></p>
+            <p>&copy; 2026 Summer Smile - Cazare Premium Oradea & Mamaia Nord. Toate drepturile rezervate.</p>
         </div>
     </footer>
 
-    <script src="translations.js"></script>
-    <script src="script.js"></script>
-    <script>
-        // Hover effect pentru butoane care maresc imaginile
-        document.addEventListener('DOMContentLoaded', function() {
-            const oradeaCard = document.querySelector('.location-card-parallax:first-child');
-            const mamaiaCard = document.querySelector('.location-card-parallax:last-child');
-            const oradeaImage = document.querySelector('.side-large');
-            const mamaiaImage = document.querySelector('.side-small');
-
-            // Hover pe butonul Oradea -> mareste imaginea Oradea (stanga)
-            if (oradeaCard && oradeaImage) {
-                oradeaCard.addEventListener('mouseenter', function() {
-                    oradeaImage.classList.add('enlarge');
-                });
-                oradeaCard.addEventListener('mouseleave', function() {
-                    oradeaImage.classList.remove('enlarge');
-                });
-            }
-
-            // Hover pe butonul Mamaia -> mareste imaginea Mamaia (dreapta)
-            if (mamaiaCard && mamaiaImage) {
-                mamaiaCard.addEventListener('mouseenter', function() {
-                    mamaiaImage.classList.add('enlarge');
-                });
-                mamaiaCard.addEventListener('mouseleave', function() {
-                    mamaiaImage.classList.remove('enlarge');
-                });
-            }
-        });
-    </script>
-
-    <!-- Hamburger Menu Script - INLINE VERSION -->
-    <script>
-        // Simple hamburger menu toggle
-        window.addEventListener('load', function() {
-            const hamburger = document.getElementById('hamburger');
-            const navLinks = document.getElementById('navLinks');
-
-            if (hamburger && navLinks) {
-                hamburger.onclick = function() {
-                    this.classList.toggle('active');
-                    navLinks.classList.toggle('active');
-                };
-
-                // Close menu when clicking a link
-                const links = navLinks.querySelectorAll('a');
-                links.forEach(function(link) {
-                    link.onclick = function() {
-                        hamburger.classList.remove('active');
-                        navLinks.classList.remove('active');
-                    };
-                });
-            }
-        });
-    </script>
-
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/40746954812?text=Bună!%20Doresc%20informații%20despre%20cazare."
+    <a href="https://wa.me/40746954812?text=Buna!%20Doresc%20informatii%20despre%20cazare."
        class="whatsapp-float"
        target="_blank"
        rel="noopener noreferrer"
-       title="Contactează-ne pe WhatsApp">
+       title="Contacteaza-ne pe WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white" width="28" height="28">
             <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
         </svg>
@@ -990,32 +1287,181 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             z-index: 9999;
             transition: all 0.3s ease;
             animation: pulse-whatsapp 2s infinite;
         }
-
         .whatsapp-float:hover {
             transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
         }
-
         @keyframes pulse-whatsapp {
-            0% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7); }
-            100% { box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); }
+            0% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.7); }
+            100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
         }
-
         @media (max-width: 768px) {
+            .logo img {
+                height: 55px !important; min-width: auto !important;
+                margin-left: 0 !important;
+            }
+        }
+        /* ASCUNDE WHATSAPP FLOAT PE MOBIL - avem in bottom-nav */
+        @media (max-width: 992px) {
             .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-                width: 55px;
-                height: 55px;
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
             }
         }
     </style>
+
+    <script src="translations.js?v=23"></script>
+    <script src="script.js?v=2"></script>
+    <script>
+        // Hamburger Menu
+        window.addEventListener('load', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            if (hamburger && navLinks) {
+                hamburger.onclick = function() {
+                    this.classList.toggle('active');
+                    navLinks.classList.toggle('active'); document.body.classList.toggle('menu-open');
+                };
+                const links = navLinks.querySelectorAll('a');
+                links.forEach(function(link) {
+                    link.onclick = function() {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active'); document.body.classList.remove('menu-open');
+                    };
+                });
+            }
+        });
+    </script>
+
+    
+    <!-- Hero translation fix -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            var lang = localStorage.getItem('selectedLang') || 'ro';
+            var heroTitle = document.querySelector('[data-translate="hero_title"]');
+            var heroGold = document.querySelector('[data-translate="hero_title_gold"]');
+            var heroSub = document.querySelector('[data-translate="hero_subtitle"]');
+            if (heroTitle && typeof translations !== 'undefined' && translations[lang] && translations[lang].hero_title) {
+                heroTitle.textContent = translations[lang].hero_title;
+            }
+            if (heroGold && typeof translations !== 'undefined' && translations[lang] && translations[lang].hero_title_gold) {
+                heroGold.textContent = translations[lang].hero_title_gold;
+            }
+            if (heroSub && typeof translations !== 'undefined' && translations[lang] && translations[lang].hero_subtitle) {
+                heroSub.textContent = translations[lang].hero_subtitle;
+            }
+        }, 500);
+    });
+    </script>
+
+    <!-- MOBILE FIX INLINE -->
+    <style>
+    @media (max-width: 992px) {
+        .hamburger { display: flex !important; visibility: visible !important; opacity: 1 !important; flex-direction: column !important; }
+        .hamburger span { display: block !important; width: 25px !important; height: 3px !important; background: #FFD700 !important; margin: 3px 0 !important; }
+        .language-dropdown { display: flex !important; visibility: visible !important; opacity: 1 !important; }
+    }
+    </style>
+    <script src="/js/tracker.js" defer></script>
+<script src="js/search.js?v=2"></script>
+<script src="cookie-consent.js"></script>
+
+<!-- Valentine Promo managed by promo-valentine.js -->
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" id="scrollToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+<style>
+.scroll-to-top{position:fixed;bottom:100px;right:20px;width:50px;height:50px;background:linear-gradient(135deg,#DAA520,#FFD700);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(218,165,32,0.4);z-index:99998;opacity:0;visibility:hidden;transition:all 0.3s ease;transform:translateY(20px)}
+.scroll-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.scroll-to-top:hover{transform:translateY(-3px);box-shadow:0 6px 25px rgba(218,165,32,0.6)}
+.scroll-to-top svg{width:24px;height:24px;color:#1a1a2e}
+@media(max-width:992px){.scroll-to-top{bottom:110px;right:15px;width:45px;height:45px}.scroll-to-top svg{width:20px;height:20px}}
+</style>
+<script>
+window.addEventListener('scroll',function(){var b=document.getElementById('scrollToTop');if(window.scrollY>300){b.classList.add('visible')}else{b.classList.remove('visible')}});
+</script>
+<!-- Bottom Navigation Mobile Premium - CU STILURI INLINE -->
+<nav class="bottom-nav" id="bottomNav" style="position:fixed;bottom:0;left:0;right:0;background:rgba(10,14,20,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(218,165,32,0.2);display:flex;justify-content:space-around;align-items:center;padding:10px 5px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:999999;box-shadow:0 -5px 30px rgba(0,0,0,0.4);">
+    <a href="index.html" class="bottom-nav-item" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,0.6);font-size:0.65rem;padding:8px 10px;min-width:55px;border-radius:10px;background:transparent;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.7;margin-bottom:4px;">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span style="font-weight:500;" data-translate="bottom_nav_home">Acasa</span>
+    </a>
+    <a href="#locations" class="bottom-nav-item" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,0.6);font-size:0.65rem;padding:8px 10px;min-width:55px;border-radius:10px;background:transparent;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.7;margin-bottom:4px;">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span style="font-weight:500;" data-translate="bottom_nav_locations">Locatii</span>
+    </a>
+    <button type="button" class="bottom-nav-item nav-book" id="rezervaBtn" onclick="toggleLocationMenu()" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;background:linear-gradient(135deg,#DAA520,#FFD700);color:#0a0e14;font-size:0.7rem;font-weight:700;padding:12px 18px;min-width:70px;border-radius:25px;border:2px solid rgba(255,255,255,0.2);margin-top:-18px;box-shadow:0 4px 20px rgba(218,165,32,0.5);cursor:pointer;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a0e14" stroke-width="2" style="margin-bottom:4px;">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <span data-translate="bottom_nav_book">Rezerva</span>
+    </button>
+
+    <!-- Location Selection Popup -->
+    <div class="location-popup" id="locationPopup" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);z-index:999999;width:calc(100% - 32px);max-width:320px;">
+        <div class="location-popup-content" style="background:linear-gradient(180deg,#12161c 0%,#0a0e14 100%);border:1px solid rgba(218,165,32,0.3);border-radius:16px;padding:20px;box-shadow:0 -10px 40px rgba(0,0,0,0.5);">
+            <div class="location-popup-header" style="color:#FFD700;font-size:16px;font-weight:600;text-align:center;margin-bottom:16px;" data-translate="bottom_nav_popup_title">Unde vrei sa rezervi?</div>
+            <a href="oradea.html#rezervare" class="location-option" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(218,165,32,0.08);border:1px solid rgba(218,165,32,0.2);border-radius:10px;margin-bottom:10px;text-decoration:none;">
+                <span class="location-icon" style="font-size:24px;">🏙️</span>
+                <span class="location-name" style="color:#fff;font-size:15px;font-weight:600;flex:1;">Oradea</span>
+                <span class="location-desc" style="color:rgba(255,255,255,0.5);font-size:12px;">2 proprietati</span>
+            </a>
+            <a href="mamaia-nord.html#rezervare" class="location-option" style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(218,165,32,0.08);border:1px solid rgba(218,165,32,0.2);border-radius:10px;margin-bottom:10px;text-decoration:none;">
+                <span class="location-icon" style="font-size:24px;">🏖️</span>
+                <span class="location-name" style="color:#fff;font-size:15px;font-weight:600;flex:1;">Mamaia Nord</span>
+                <span class="location-desc" style="color:rgba(255,255,255,0.5);font-size:12px;">6 proprietati</span>
+            </a>
+            <button class="location-close" onclick="toggleLocationMenu()" style="display:block;width:100%;padding:12px;margin-top:6px;background:transparent;border:1px solid rgba(255,255,255,0.2);border-radius:8px;color:rgba(255,255,255,0.6);font-size:14px;cursor:pointer;" data-translate="bottom_nav_close">Inchide</button>
+        </div>
+    </div>
+    <a href="https://wa.me/40746954812" class="bottom-nav-item" target="_blank" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,0.6);font-size:0.65rem;padding:8px 10px;min-width:55px;border-radius:10px;background:transparent;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.7;margin-bottom:4px;">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg>
+        <span style="font-weight:500;">WhatsApp</span>
+    </a>
+    <a href="cont/login.php" class="bottom-nav-item" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;color:rgba(255,255,255,0.6);font-size:0.65rem;padding:8px 10px;min-width:55px;border-radius:10px;background:transparent;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.7;margin-bottom:4px;">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        <span style="font-weight:500;" data-translate="bottom_nav_account">Cont</span>
+    </a>
+</nav>
+
+<script>
+function toggleLocationMenu() {
+    var popup = document.getElementById('locationPopup');
+    if (popup.style.display === 'none' || popup.style.display === '') {
+        popup.style.display = 'block';
+    } else {
+        popup.style.display = 'none';
+    }
+}
+</script>
+<!-- Push Notifications -->
+<script src="push-notifications.js"></script>
+<script src="promo-paste.js?v=1"></script>
+<script src="anpc-inject.js"></script>
+<script src="multi-currency.js"></script>
 </body>
-</html>
-<!-- Trigger deploy -->
+
